@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<T3locallang>
+	<meta type="array">
+		<type>database</type>
+		<description>Language labels for database tables/fields belonging to extension 'icticontent'</description>
+	</meta>
+	<data type="array">
+		<languageKey index="default" type="array">
+			<label index="tx_icticontent_domain_model_content">Content</label>
+			<label index="tx_icticontent_domain_model_content.content_type">Content Type</label>
+			<label index="tx_icticontent_domain_model_content.name">Name</label>
+			<label index="tx_icticontent_domain_model_content.short">Short</label>
+			<label index="tx_icticontent_domain_model_content.description">Description</label>
+			<label index="tx_icticontent_domain_model_content.front_image">Front Image</label>
+			<label index="tx_icticontent_domain_model_content.images">Images</label>
+			<label index="tx_icticontent_domain_model_content.start_date">Start Date</label>
+			<label index="tx_icticontent_domain_model_content.end_date">End Date</label>
+			<label index="tx_icticontent_domain_model_content.city">City</label>
+			<label index="tx_icticontent_domain_model_content.videos">Videos</label>
+			<label index="tx_icticontent_domain_model_content.geo_locations">Geo Locations</label>
+			<label index="tx_icticontent_domain_model_content.keywords">Keywords</label>
+			<label index="tx_icticontent_domain_model_content.related_page">Related Page</label>
+			<label index="tx_icticontent_domain_model_content.categories">Categories</label>
+			<label index="tx_icticontent_domain_model_content.related_contents">Related Contents</label>
+			<label index="tx_icticontent_domain_model_content.geo_areas">Geo Areas</label>
+			<label index="tx_icticontent_domain_model_content.countries">Countries</label>
+			<label index="tx_icticontent_domain_model_content.provinces">Provinces</label>
+			<label index="tx_icticontent_domain_model_media">Media</label>
+			<label index="tx_icticontent_domain_model_media.media_type">Media Type</label>
+			<label index="tx_icticontent_domain_model_media.name">Name</label>
+			<label index="tx_icticontent_domain_model_media.description">Description</label>
+			<label index="tx_icticontent_domain_model_media.files">Files</label>
+			<label index="tx_icticontent_domain_model_media.url">Url</label>
+			<label index="tx_icticontent_domain_model_typo3page">Typo3 Page</label>
+			<label index="tx_icticontent_domain_model_typo3page.name">Name</label>
+			<label index="tx_icticontent_domain_model_typo3page.description">Description</label>
+			<label index="tx_icticontent_domain_model_typo3page.page">Page</label>
+			<label index="tx_icticontent_domain_model_geolocation">Geo Location</label>
+			<label index="tx_icticontent_domain_model_geolocation.name">Name</label>
+			<label index="tx_icticontent_domain_model_geolocation.description">Description</label>
+			<label index="tx_icticontent_domain_model_geolocation.coord_x">Coord X</label>
+			<label index="tx_icticontent_domain_model_geolocation.coord_y">Coord Y</label>
+			<label index="tx_icticontent_domain_model_keyword">Keyword</label>
+			<label index="tx_icticontent_domain_model_keyword.name">Name</label>
+			<label index="tx_icticontent_domain_model_keyword.description">Description</label>
+			<label index="tx_icticontent_domain_model_category">Category</label>
+			<label index="tx_icticontent_domain_model_geoarea">Geo Area</label>
+			<label index="tx_icticontent_domain_model_geoarea.name">Name</label>
+			<label index="tx_icticontent_domain_model_geoarea.countries">Countries</label>
+			<label index="tx_icticontent_domain_model_country">Country</label>
+			<label index="tx_icticontent_domain_model_country.name">Name</label>
+			<label index="tx_icticontent_domain_model_province">Province</label>
+			<label index="tx_icticontent_domain_model_province.name">Name</label>
+			<label index="tx_icticontent_domain_model_province.country">Country</label>
+		</languageKey>
+	</data>
+</T3locallang>
