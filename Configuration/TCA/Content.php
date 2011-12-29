@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_icticontent_domain_model_content'] = array(
 	'ctrl' => $TCA['tx_icticontent_domain_model_content']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, content_type, name, short, description, front_image, images, start_date, end_date, city, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, content_type, short, description, front_image, images, start_date, end_date, city, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, content_type, name, short, description, front_image, images, start_date, end_date, city, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, content_type, short, description, front_image, images, start_date, end_date, city, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -93,6 +93,15 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 				),
 			),
 		),
+		'name' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.name',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim,required'
+			),
+		),
 		'content_type' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.content_type',
@@ -104,15 +113,6 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 				'size' => 1,
 				'maxitems' => 1,
 				'eval' => 'required'
-			),
-		),
-		'name' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.name',
-			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim,required'
 			),
 		),
 		'short' => array(
@@ -456,4 +456,47 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 		),
 	),
 );
+
+## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+
+Tx_Ictiextbase_Helpers_Tca::setSelectTYPO3Pages('tx_icticontent_domain_model_content', 'related_page');
+Tx_Ictiextbase_Helpers_Tca::setRenderAsGroup('tx_icticontent_domain_model_content', 'related_page');
+Tx_Ictiextbase_Helpers_Tca::setRenderAsGroup('tx_icticontent_domain_model_content', 'related_contents');
+
+Tx_Ictiextbase_Helpers_Tca::setRenderAsCheckboxes('tx_icticontent_domain_model_content', 'keywords');
+
+Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_content', 'keywords');
+Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_content', 'categories');
+Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_content', 'geo_areas');
+Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_content', 'countries');
+Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_content', 'provinces');
+
+
+$TCA['tx_icticontent_domain_model_content']['columns']['start_date']['config']['default'] = 0;
+$TCA['tx_icticontent_domain_model_content']['columns']['end_date']['config']['default'] = 0;
+
+/*
+ *  STI for Content - begin
+ */
+$TCA['tx_icticontent_domain_model_content']['columns']['content_type']['config']['items'] = array(
+	array('LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.content_type.Tx_Icticontent_Domain_Model_Content', 'Tx_Icticontent_Domain_Model_Content'),
+);
+
+$TCA['tx_icticontent_domain_model_content']['types']['Tx_Icticontent_Domain_Model_Content'] = array(
+	'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
+		name, content_type, short, description, front_image, images, start_date, end_date, 
+		city, videos, geo_locations, keywords, related_page, categories, related_contents, 
+		geo_areas, countries, provinces,
+		--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'
+	);
+
+$TCA['tx_icticontent_domain_model_content']['types']['1'] = 
+	$TCA['tx_icticontent_domain_model_content']['types']['Tx_Icticontent_Domain_Model_Content'];
+/*
+ *  STI for Content - end
+ */
+
+Tx_Ictiextbase_Helpers_Tca::setRte('tx_icticontent_domain_model_content', 'short');
+Tx_Ictiextbase_Helpers_Tca::setRte('tx_icticontent_domain_model_content', 'description');
+
 ?>

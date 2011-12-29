@@ -7,8 +7,8 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 			<label index="tx_icticontent_domain_model_content">Content</label>
-			<label index="tx_icticontent_domain_model_content.content_type">contentType</label>
 			<label index="tx_icticontent_domain_model_content.name">name</label>
+			<label index="tx_icticontent_domain_model_content.content_type">contentType</label>
 			<label index="tx_icticontent_domain_model_content.short">short</label>
 			<label index="tx_icticontent_domain_model_content.description">description</label>
 			<label index="tx_icticontent_domain_model_content.front_image">frontImage</label>
@@ -26,8 +26,8 @@
 			<label index="tx_icticontent_domain_model_content.countries">countries</label>
 			<label index="tx_icticontent_domain_model_content.provinces">provinces</label>
 			<label index="tx_icticontent_domain_model_media">Media</label>
-			<label index="tx_icticontent_domain_model_media.media_type">mediaType</label>
 			<label index="tx_icticontent_domain_model_media.name">name</label>
+			<label index="tx_icticontent_domain_model_media.media_type">mediaType</label>
 			<label index="tx_icticontent_domain_model_media.description">description</label>
 			<label index="tx_icticontent_domain_model_media.files">files</label>
 			<label index="tx_icticontent_domain_model_media.url">url</label>
@@ -44,6 +44,8 @@
 			<label index="tx_icticontent_domain_model_keyword.name">name</label>
 			<label index="tx_icticontent_domain_model_keyword.description">description</label>
 			<label index="tx_icticontent_domain_model_category">Category</label>
+			<label index="tx_icticontent_domain_model_category.name">name</label>
+			<label index="tx_icticontent_domain_model_category.description">description</label>
 			<label index="tx_icticontent_domain_model_geoarea">GeoArea</label>
 			<label index="tx_icticontent_domain_model_geoarea.name">name</label>
 			<label index="tx_icticontent_domain_model_geoarea.countries">countries</label>

@@ -50,11 +50,39 @@ class Tx_Icticontent_Domain_Model_CategoryTest extends Tx_Extbase_Tests_Unit_Bas
 		unset($this->fixture);
 	}
 	
+	
 	/**
 	 * @test
 	 */
-	public function dummyTestToNotLeaveThisFileEmpty() {
-		$this->markTestIncomplete();
+	public function getNameReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setNameForStringSetsName() { 
+		$this->fixture->setName('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getName()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getDescriptionReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setDescriptionForStringSetsDescription() { 
+		$this->fixture->setDescription('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getDescription()
+		);
 	}
 	
 }

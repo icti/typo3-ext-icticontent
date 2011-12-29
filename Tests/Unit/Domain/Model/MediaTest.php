@@ -54,6 +54,23 @@ class Tx_Icticontent_Domain_Model_MediaTest extends Tx_Extbase_Tests_Unit_BaseTe
 	/**
 	 * @test
 	 */
+	public function getNameReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setNameForStringSetsName() { 
+		$this->fixture->setName('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getName()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
 	public function getMediaTypeReturnsInitialValueForInteger() { 
 		$this->assertSame(
 			0,
@@ -70,23 +87,6 @@ class Tx_Icticontent_Domain_Model_MediaTest extends Tx_Extbase_Tests_Unit_BaseTe
 		$this->assertSame(
 			12,
 			$this->fixture->getMediaType()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getNameReturnsInitialValueForString() { }
-
-	/**
-	 * @test
-	 */
-	public function setNameForStringSetsName() { 
-		$this->fixture->setName('Conceived at T3CON10');
-
-		$this->assertSame(
-			'Conceived at T3CON10',
-			$this->fixture->getName()
 		);
 	}
 	

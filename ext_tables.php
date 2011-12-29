@@ -14,7 +14,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_icticontent_domain_model_content');
 $TCA['tx_icticontent_domain_model_content'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content',
-		'label' => 'content_type',
+		'label' => 'name',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -41,7 +41,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_icticontent_domain_model_media');
 $TCA['tx_icticontent_domain_model_media'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_media',
-		'label' => 'media_type',
+		'label' => 'name',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -149,7 +149,7 @@ t3lib_extMgm::allowTableOnStandardPages('tx_icticontent_domain_model_category');
 $TCA['tx_icticontent_domain_model_category'] = array(
 	'ctrl' => array(
 		'title'	=> 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_category',
-		'label' => 'uid',
+		'label' => 'name',
 		'tstamp' => 'tstamp',
 		'crdate' => 'crdate',
 		'cruser_id' => 'cruser_id',
@@ -251,5 +251,12 @@ $TCA['tx_icticontent_domain_model_province'] = array(
 		'iconfile' => t3lib_extMgm::extRelPath($_EXTKEY) . 'Resources/Public/Icons/tx_icticontent_domain_model_province.gif'
 	),
 );
+
+## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+
+$TCA['tx_icticontent_domain_model_content']['ctrl']['sortby'] = 'sorting';
+$TCA['tx_icticontent_domain_model_content']['ctrl']['type'] = 'content_type';
+
+$TCA['tx_icticontent_domain_model_media']['ctrl']['type'] = 'media_type';
 
 ?>

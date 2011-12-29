@@ -7,8 +7,8 @@
 	<data type="array">
 		<languageKey index="default" type="array">
 			<label index="tx_icticontent_domain_model_content">Content</label>
-			<label index="tx_icticontent_domain_model_content.content_type">Content Type</label>
 			<label index="tx_icticontent_domain_model_content.name">Name</label>
+			<label index="tx_icticontent_domain_model_content.content_type">Content Type</label>
 			<label index="tx_icticontent_domain_model_content.short">Short</label>
 			<label index="tx_icticontent_domain_model_content.description">Description</label>
 			<label index="tx_icticontent_domain_model_content.front_image">Front Image</label>
@@ -26,8 +26,8 @@
 			<label index="tx_icticontent_domain_model_content.countries">Countries</label>
 			<label index="tx_icticontent_domain_model_content.provinces">Provinces</label>
 			<label index="tx_icticontent_domain_model_media">Media</label>
-			<label index="tx_icticontent_domain_model_media.media_type">Media Type</label>
 			<label index="tx_icticontent_domain_model_media.name">Name</label>
+			<label index="tx_icticontent_domain_model_media.media_type">Media Type</label>
 			<label index="tx_icticontent_domain_model_media.description">Description</label>
 			<label index="tx_icticontent_domain_model_media.files">Files</label>
 			<label index="tx_icticontent_domain_model_media.url">Url</label>
@@ -44,6 +44,8 @@
 			<label index="tx_icticontent_domain_model_keyword.name">Name</label>
 			<label index="tx_icticontent_domain_model_keyword.description">Description</label>
 			<label index="tx_icticontent_domain_model_category">Category</label>
+			<label index="tx_icticontent_domain_model_category.name">Name</label>
+			<label index="tx_icticontent_domain_model_category.description">Description</label>
 			<label index="tx_icticontent_domain_model_geoarea">Geo Area</label>
 			<label index="tx_icticontent_domain_model_geoarea.name">Name</label>
 			<label index="tx_icticontent_domain_model_geoarea.countries">Countries</label>
@@ -52,6 +54,12 @@
 			<label index="tx_icticontent_domain_model_province">Province</label>
 			<label index="tx_icticontent_domain_model_province.name">Name</label>
 			<label index="tx_icticontent_domain_model_province.country">Country</label>
+			
+			<label index="tx_icticontent_domain_model_content.content_type.Tx_Icticontent_Domain_Model_Content">Content</label>
+			<label index="tx_icticontent_domain_model_media.media_type.Tx_Icticontent_Domain_Model_MediaFile">File</label>
+			<label index="tx_icticontent_domain_model_media.media_type.Tx_Icticontent_Domain_Model_MediaExternal">External media</label>
+			
+			
 		</languageKey>
 	</data>
 </T3locallang>

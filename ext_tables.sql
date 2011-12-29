@@ -6,8 +6,8 @@ CREATE TABLE tx_icticontent_domain_model_content (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 
-	content_type int(11) DEFAULT '0' NOT NULL,
 	name varchar(255) DEFAULT '' NOT NULL,
+	content_type int(11) DEFAULT '0' NOT NULL,
 	short text NOT NULL,
 	description text NOT NULL,
 	front_image text NOT NULL,
@@ -63,11 +63,11 @@ CREATE TABLE tx_icticontent_domain_model_media (
 
 	content int(11) unsigned DEFAULT '0' NOT NULL,
 
-	media_type int(11) DEFAULT '0' NOT NULL,
 	name varchar(255) DEFAULT '' NOT NULL,
+	media_type int(11) DEFAULT '0' NOT NULL,
 	description text NOT NULL,
 	files text NOT NULL,
-	url text NOT NULL,
+	url varchar(255) DEFAULT '' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -149,7 +149,7 @@ CREATE TABLE tx_icticontent_domain_model_geolocation (
 	content int(11) unsigned DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
-	description varchar(255) DEFAULT '' NOT NULL,
+	description text NOT NULL,
 	coord_x varchar(255) DEFAULT '' NOT NULL,
 	coord_y varchar(255) DEFAULT '' NOT NULL,
 
@@ -230,6 +230,8 @@ CREATE TABLE tx_icticontent_domain_model_category (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 
+	name varchar(255) DEFAULT '' NOT NULL,
+	description text NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -500,4 +502,17 @@ CREATE TABLE tx_icticontent_geoarea_country_mm (
 
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
+);
+
+
+## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+
+CREATE TABLE tx_icticontent_domain_model_content (
+	content_type varchar(255) DEFAULT 'Tx_Icticontent_Domain_Model_Content' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL
+);
+
+
+CREATE TABLE tx_icticontent_domain_model_media (
+	media_type varchar(255) DEFAULT 'Tx_Icticontent_Domain_Model_MediaFile' NOT NULL
 );

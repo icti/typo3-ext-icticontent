@@ -34,5 +34,58 @@
  */
 class Tx_Icticontent_Domain_Model_Category extends Tx_Extbase_DomainObject_AbstractEntity {
 
+	/**
+	 * name
+	 *
+	 * @var string
+	 * @validate NotEmpty
+	 */
+	protected $name;
+
+	/**
+	 * description
+	 *
+	 * @var string
+	 */
+	protected $description;
+
+	/**
+	 * Returns the name
+	 *
+	 * @return string $name
+	 */
+	public function getName() {
+		return $this->name;
+	}
+
+	/**
+	 * Sets the name
+	 *
+	 * @param string $name
+	 * @return void
+	 */
+	public function setName($name) {
+		$this->name = $name;
+	}
+
+	/**
+	 * Returns the description
+	 *
+	 * @return string $description
+	 */
+	public function getDescription() {
+		return $this->description;
+	}
+
+	/**
+	 * Sets the description
+	 *
+	 * @param string $description
+	 * @return void
+	 */
+	public function setDescription($description) {
+		$this->description = $description;
+	}
+
 }
 ?>

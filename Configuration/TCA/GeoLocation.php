@@ -106,8 +106,9 @@ $TCA['tx_icticontent_domain_model_geolocation'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_geolocation.description',
 			'config' => array(
-				'type' => 'input',
-				'size' => 30,
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
 				'eval' => 'trim'
 			),
 		),

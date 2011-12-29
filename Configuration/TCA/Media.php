@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_icticontent_domain_model_media'] = array(
 	'ctrl' => $TCA['tx_icticontent_domain_model_media']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, media_type, name, description, files, url',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, media_type, description, files, url',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, media_type, name, description, files, url,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, media_type, description, files, url,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -93,6 +93,15 @@ $TCA['tx_icticontent_domain_model_media'] = array(
 				),
 			),
 		),
+		'name' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_media.name',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim,required'
+			),
+		),
 		'media_type' => array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_media.media_type',
@@ -104,15 +113,6 @@ $TCA['tx_icticontent_domain_model_media'] = array(
 				'size' => 1,
 				'maxitems' => 1,
 				'eval' => 'required'
-			),
-		),
-		'name' => array(
-			'exclude' => 0,
-			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_media.name',
-			'config' => array(
-				'type' => 'input',
-				'size' => 30,
-				'eval' => 'trim,required'
 			),
 		),
 		'description' => array(
@@ -141,9 +141,8 @@ $TCA['tx_icticontent_domain_model_media'] = array(
 			'exclude' => 0,
 			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_media.url',
 			'config' => array(
-				'type' => 'text',
-				'cols' => 40,
-				'rows' => 15,
+				'type' => 'input',
+				'size' => 30,
 				'eval' => 'trim,required'
 			),
 		),
@@ -154,4 +153,35 @@ $TCA['tx_icticontent_domain_model_media'] = array(
 		),
 	),
 );
+
+
+## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+
+/*
+ *  STI for Media - begin
+ */
+$TCA['tx_icticontent_domain_model_media']['columns']['media_type']['config']['items'] = array(
+	array('LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_media.media_type.Tx_Icticontent_Domain_Model_MediaFile', 'Tx_Icticontent_Domain_Model_MediaFile'),
+	array('LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_media.media_type.Tx_Icticontent_Domain_Model_MediaExternal', 'Tx_Icticontent_Domain_Model_MediaExternal'),
+);
+
+$TCA['tx_icticontent_domain_model_media']['types']['Tx_Icticontent_Domain_Model_MediaFile'] = array(
+	'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
+		name, media_type, description, files,
+		--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'
+	);
+
+
+$TCA['tx_icticontent_domain_model_media']['types']['1'] = 
+	$TCA['tx_icticontent_domain_model_media']['types']['Tx_Icticontent_Domain_Model_MediaFile'];
+
+$TCA['tx_icticontent_domain_model_media']['types']['Tx_Icticontent_Domain_Model_MediaExternal'] = array(
+	'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
+		name, media_type, description, url,
+		--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'
+	);
+
+/*
+ *  STI for Media - end
+ */
 ?>

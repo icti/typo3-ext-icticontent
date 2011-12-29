@@ -7,8 +7,8 @@
 	</meta>
 	<data type="array">
 	<languageKey index="default" type="array">
-			<label index="media_type.description">mediaType</label>
 			<label index="name.description">name</label>
+			<label index="media_type.description">mediaType</label>
 			<label index="description.description">description</label>
 			<label index="files.description">files</label>
 			<label index="url.description">url</label>
