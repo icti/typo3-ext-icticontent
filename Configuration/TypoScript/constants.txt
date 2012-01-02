@@ -1,0 +1,16 @@
+plugin.tx_icticontent {
+	view {
+		# cat=plugin.tx_icticontent/file; type=string; label=Path to template root (FE)
+		templateRootPath = EXT:icticontent/Resources/Private/Templates/
+		# cat=plugin.tx_icticontent/file; type=string; label=Path to template partials (FE)
+		partialRootPath = EXT:icticontent/Resources/Private/Partials/
+		# cat=plugin.tx_icticontent/file; type=string; label=Path to template layouts (FE)
+		layoutRootPath = EXT:icticontent/Resources/Private/Layouts/
+
+		pluginNamespace = tx_icticontent
+	}
+	persistence {
+		# cat=plugin.tx_icticontent//a; type=int+; label=Default storage PID
+		storagePid = 
+	}
+}

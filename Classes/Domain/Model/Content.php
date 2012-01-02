@@ -35,20 +35,20 @@
 class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
-	 * contentType
-	 *
-	 * @var integer
-	 * @validate NotEmpty
-	 */
-	protected $contentType;
-
-	/**
 	 * name
 	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
 	protected $name;
+
+	/**
+	 * contentType
+	 *
+	 * @var integer
+	 * @validate NotEmpty
+	 */
+	protected $contentType;
 
 	/**
 	 * short

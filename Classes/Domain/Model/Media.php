@@ -35,20 +35,20 @@
 class Tx_Icticontent_Domain_Model_Media extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
-	 * mediaType
-	 *
-	 * @var integer
-	 * @validate NotEmpty
-	 */
-	protected $mediaType;
-
-	/**
 	 * name
 	 *
 	 * @var string
 	 * @validate NotEmpty
 	 */
 	protected $name;
+
+	/**
+	 * mediaType
+	 *
+	 * @var integer
+	 * @validate NotEmpty
+	 */
+	protected $mediaType;
 
 	/**
 	 * description

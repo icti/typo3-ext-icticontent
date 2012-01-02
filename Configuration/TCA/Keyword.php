@@ -114,4 +114,5 @@ $TCA['tx_icticontent_domain_model_keyword'] = array(
 		),
 	),
 );
+## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 ?>

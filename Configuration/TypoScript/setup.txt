@@ -1,0 +1,77 @@
+plugin.tx_icticontent {
+	view {
+		templateRootPath = {$plugin.tx_icticontent.view.templateRootPath}
+		partialRootPath = {$plugin.tx_icticontent.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_icticontent.view.layoutRootPath}
+		pluginNamespace = {$plugin.tx_icticontent.view.pluginNamespace}
+	}
+	persistence {
+		storagePid = {$plugin.tx_icticontent.persistence.storagePid}
+	}
+}
+
+plugin.tx_icticontent._CSS_DEFAULT_STYLE (
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-icticontent table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-icticontent table th {
+		font-weight:bold;
+	}
+
+	.tx-icticontent table td {
+		vertical-align:top;
+	}
+)
+
+
+config.tx_extbase {
+	persistence{
+		classes {
+			Tx_Icticontent_Domain_Model_Typo3Page {
+				mapping {
+					tableName = pages
+                    columns {
+                        title.mapOnProperty = name
+                    }
+				}
+			}
+
+			#
+			# STI for Content 
+			#
+			Tx_Icticontent_Domain_Model_Content {
+			}
+
+			#
+			# STI for Media 
+			#
+			Tx_Icticontent_Domain_Model_Media {
+				subclasses {
+					Tx_Icticontent_Domain_Model_MediaFile = Tx_Icticontent_Domain_Model_MediaFile
+					Tx_Icticontent_Domain_Model_MediaExternal = Tx_Icticontent_Domain_Model_MediaExternal
+				}
+			}
+
+			Tx_Icticontent_Domain_Model_MediaFile {
+				mapping {
+					recordType = Tx_Icticontent_Domain_Model_MediaFile
+					tableName = tx_icticontent_domain_model_media
+				}
+			}
+
+			Tx_Icticontent_Domain_Model_MediaExternal {
+				mapping {
+					recordType = Tx_Icticontent_Domain_Model_MediaExternal
+					tableName = tx_icticontent_domain_model_media
+				}
+			}
+		}
+	}
+}

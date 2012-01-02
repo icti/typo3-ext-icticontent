@@ -456,7 +456,6 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 		),
 	),
 );
-
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 
 Tx_Ictiextbase_Helpers_Tca::setSelectTYPO3Pages('tx_icticontent_domain_model_content', 'related_page');
@@ -496,7 +495,5 @@ $TCA['tx_icticontent_domain_model_content']['types']['1'] =
  *  STI for Content - end
  */
 
-Tx_Ictiextbase_Helpers_Tca::setRte('tx_icticontent_domain_model_content', 'short');
 Tx_Ictiextbase_Helpers_Tca::setRte('tx_icticontent_domain_model_content', 'description');
-
 ?>
