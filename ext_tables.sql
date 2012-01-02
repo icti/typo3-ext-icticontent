@@ -15,6 +15,7 @@ CREATE TABLE tx_icticontent_domain_model_content (
 	start_date int(11) DEFAULT '0' NOT NULL,
 	end_date int(11) DEFAULT '0' NOT NULL,
 	city varchar(255) DEFAULT '' NOT NULL,
+	highlight tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	videos int(11) unsigned DEFAULT '0' NOT NULL,
 	geo_locations int(11) unsigned DEFAULT '0' NOT NULL,
 	keywords int(11) unsigned DEFAULT '0' NOT NULL,
@@ -24,6 +25,8 @@ CREATE TABLE tx_icticontent_domain_model_content (
 	geo_areas int(11) unsigned DEFAULT '0' NOT NULL,
 	countries int(11) unsigned DEFAULT '0' NOT NULL,
 	provinces int(11) unsigned DEFAULT '0' NOT NULL,
+	downloads int(11) unsigned DEFAULT '0' NOT NULL,
+	links int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -61,7 +64,9 @@ CREATE TABLE tx_icticontent_domain_model_media (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	content int(11) unsigned DEFAULT '0' NOT NULL,
+	content_videos int(11) unsigned DEFAULT '0' NOT NULL,
+	content_downloads int(11) unsigned DEFAULT '0' NOT NULL,
+	content_links int(11) unsigned DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	media_type int(11) DEFAULT '0' NOT NULL,
@@ -473,5 +478,11 @@ CREATE TABLE tx_icticontent_domain_model_content (
 
 
 CREATE TABLE tx_icticontent_domain_model_media (
-	media_type varchar(255) DEFAULT 'Tx_Icticontent_Domain_Model_MediaFile' NOT NULL
+	media_type varchar(255) DEFAULT 'Tx_Icticontent_Domain_Model_MediaFile' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL
+);
+
+
+CREATE TABLE tx_icticontent_domain_model_geolocation (
+	sorting int(11) unsigned DEFAULT '0' NOT NULL
 );

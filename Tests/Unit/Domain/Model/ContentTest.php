@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Jose Antonio Guerra <jaguerra@icti.es>, ICTI Internet Passion S.L.
+ *  (c) 2012 Jose Antonio Guerra <jaguerra@icti.es>, ICTI Internet Passion S.L.
  *  			
  *  All rights reserved
  *
@@ -192,6 +192,28 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 		$this->assertSame(
 			'Conceived at T3CON10',
 			$this->fixture->getCity()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getHighlightReturnsInitialValueForBoolean() { 
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getHighlight()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setHighlightForBooleanSetsHighlight() { 
+		$this->fixture->setHighlight(TRUE);
+
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getHighlight()
 		);
 	}
 	
@@ -679,6 +701,122 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 		$this->assertEquals(
 			$localObjectStorage,
 			$this->fixture->getProvinces()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getDownloadsReturnsInitialValueForObjectStorageContainingTx_Icticontent_Domain_Model_Media() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getDownloads()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setDownloadsForObjectStorageContainingTx_Icticontent_Domain_Model_MediaSetsDownloads() { 
+		$download = new Tx_Icticontent_Domain_Model_Media();
+		$objectStorageHoldingExactlyOneDownloads = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneDownloads->attach($download);
+		$this->fixture->setDownloads($objectStorageHoldingExactlyOneDownloads);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneDownloads,
+			$this->fixture->getDownloads()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addDownloadToObjectStorageHoldingDownloads() {
+		$download = new Tx_Icticontent_Domain_Model_Media();
+		$objectStorageHoldingExactlyOneDownload = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneDownload->attach($download);
+		$this->fixture->addDownload($download);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneDownload,
+			$this->fixture->getDownloads()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeDownloadFromObjectStorageHoldingDownloads() {
+		$download = new Tx_Icticontent_Domain_Model_Media();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($download);
+		$localObjectStorage->detach($download);
+		$this->fixture->addDownload($download);
+		$this->fixture->removeDownload($download);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getDownloads()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getLinksReturnsInitialValueForObjectStorageContainingTx_Icticontent_Domain_Model_Media() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getLinks()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setLinksForObjectStorageContainingTx_Icticontent_Domain_Model_MediaSetsLinks() { 
+		$link = new Tx_Icticontent_Domain_Model_Media();
+		$objectStorageHoldingExactlyOneLinks = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneLinks->attach($link);
+		$this->fixture->setLinks($objectStorageHoldingExactlyOneLinks);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneLinks,
+			$this->fixture->getLinks()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addLinkToObjectStorageHoldingLinks() {
+		$link = new Tx_Icticontent_Domain_Model_Media();
+		$objectStorageHoldingExactlyOneLink = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneLink->attach($link);
+		$this->fixture->addLink($link);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneLink,
+			$this->fixture->getLinks()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeLinkFromObjectStorageHoldingLinks() {
+		$link = new Tx_Icticontent_Domain_Model_Media();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($link);
+		$localObjectStorage->detach($link);
+		$this->fixture->addLink($link);
+		$this->fixture->removeLink($link);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getLinks()
 		);
 	}
 	

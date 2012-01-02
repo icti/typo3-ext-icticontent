@@ -146,7 +146,17 @@ $TCA['tx_icticontent_domain_model_media'] = array(
 				'eval' => 'trim,required'
 			),
 		),
-		'content' => array(
+		'content_videos' => array(
+			'config' => array(
+				'type' => 'passthrough',
+			),
+		),
+		'content_downloads' => array(
+			'config' => array(
+				'type' => 'passthrough',
+			),
+		),
+		'content_links' => array(
 			'config' => array(
 				'type' => 'passthrough',
 			),

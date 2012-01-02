@@ -16,6 +16,7 @@
 			<label index="start_date.description">startDate</label>
 			<label index="end_date.description">endDate</label>
 			<label index="city.description">city</label>
+			<label index="highlight.description">highlight</label>
 			<label index="videos.description">videos</label>
 			<label index="geo_locations.description">geoLocations</label>
 			<label index="keywords.description">keywords</label>
@@ -25,6 +26,8 @@
 			<label index="geo_areas.description">geoAreas</label>
 			<label index="countries.description">countries</label>
 			<label index="provinces.description">provinces</label>
+			<label index="downloads.description">downloads</label>
+			<label index="links.description">links</label>
 		</languageKey>
 	</data>
 </T3locallang>

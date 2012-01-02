@@ -28,6 +28,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 		<th><f:translate key="tx_icticontent_domain_model_content.start_date" /></th>
 		<th><f:translate key="tx_icticontent_domain_model_content.end_date" /></th>
 		<th><f:translate key="tx_icticontent_domain_model_content.city" /></th>
+		<th><f:translate key="tx_icticontent_domain_model_content.highlight" /></th>
 		<th> </th>
 		<th> </th>
 	</tr>
@@ -43,6 +44,7 @@ Otherwise your changes will be overwritten the next time you save the extension 
 			<td><f:link.action action="show" arguments="{content : content}"> {content.startDate -> f:format.date()}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{content : content}"> {content.endDate -> f:format.date()}</f:link.action></td>
 			<td><f:link.action action="show" arguments="{content : content}"> {content.city}</f:link.action></td>
+			<td><f:link.action action="show" arguments="{content : content}"> {content.highlight}</f:link.action></td>
 			<td><f:link.action action="edit" arguments="{content : content}">Edit</f:link.action></td>
 			<td><f:link.action action="delete" arguments="{content : content}">Delete</f:link.action></td>
 		</tr>

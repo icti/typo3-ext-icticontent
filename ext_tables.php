@@ -259,5 +259,9 @@ $TCA['tx_icticontent_domain_model_province'] = array(
 $TCA['tx_icticontent_domain_model_content']['ctrl']['sortby'] = 'sorting';
 $TCA['tx_icticontent_domain_model_content']['ctrl']['type'] = 'content_type';
 
+$TCA['tx_icticontent_domain_model_media']['ctrl']['sortby'] = 'sorting';
 $TCA['tx_icticontent_domain_model_media']['ctrl']['type'] = 'media_type';
+
+$TCA['tx_icticontent_domain_model_geolocation']['ctrl']['sortby'] = 'sorting';
+
 ?>

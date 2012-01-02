@@ -163,6 +163,27 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	protected $provinces;
 
 	/**
+	 * highlight
+	 *
+	 * @var boolean
+	 */
+	protected $highlight;
+
+	/**
+	 * downloads
+	 *
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
+	 */
+	protected $downloads;
+
+	/**
+	 * links
+	 *
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
+	 */
+	protected $links;
+
+	/**
 	 * __construct
 	 *
 	 * @return void
@@ -198,6 +219,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 		$this->countries = new Tx_Extbase_Persistence_ObjectStorage();
 		
 		$this->provinces = new Tx_Extbase_Persistence_ObjectStorage();
+		
+		$this->downloads = new Tx_Extbase_Persistence_ObjectStorage();
+		
+		$this->links = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -700,6 +725,112 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function setProvinces(Tx_Extbase_Persistence_ObjectStorage $provinces) {
 		$this->provinces = $provinces;
+	}
+
+	/**
+	 * Returns the highlight
+	 *
+	 * @return boolean $highlight
+	 */
+	public function getHighlight() {
+		return $this->highlight;
+	}
+
+	/**
+	 * Sets the highlight
+	 *
+	 * @param boolean $highlight
+	 * @return void
+	 */
+	public function setHighlight($highlight) {
+		$this->highlight = $highlight;
+	}
+
+	/**
+	 * Returns the boolean state of highlight
+	 *
+	 * @return boolean
+	 */
+	public function isHighlight() {
+		return $this->getHighlight();
+	}
+
+	/**
+	 * Adds a Media
+	 *
+	 * @param Tx_Icticontent_Domain_Model_Media $download
+	 * @return void
+	 */
+	public function addDownload(Tx_Icticontent_Domain_Model_Media $download) {
+		$this->downloads->attach($download);
+	}
+
+	/**
+	 * Removes a Media
+	 *
+	 * @param Tx_Icticontent_Domain_Model_Media $downloadToRemove The Media to be removed
+	 * @return void
+	 */
+	public function removeDownload(Tx_Icticontent_Domain_Model_Media $downloadToRemove) {
+		$this->downloads->detach($downloadToRemove);
+	}
+
+	/**
+	 * Returns the downloads
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media> $downloads
+	 */
+	public function getDownloads() {
+		return $this->downloads;
+	}
+
+	/**
+	 * Sets the downloads
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media> $downloads
+	 * @return void
+	 */
+	public function setDownloads(Tx_Extbase_Persistence_ObjectStorage $downloads) {
+		$this->downloads = $downloads;
+	}
+
+	/**
+	 * Adds a Media
+	 *
+	 * @param Tx_Icticontent_Domain_Model_Media $link
+	 * @return void
+	 */
+	public function addLink(Tx_Icticontent_Domain_Model_Media $link) {
+		$this->links->attach($link);
+	}
+
+	/**
+	 * Removes a Media
+	 *
+	 * @param Tx_Icticontent_Domain_Model_Media $linkToRemove The Media to be removed
+	 * @return void
+	 */
+	public function removeLink(Tx_Icticontent_Domain_Model_Media $linkToRemove) {
+		$this->links->detach($linkToRemove);
+	}
+
+	/**
+	 * Returns the links
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media> $links
+	 */
+	public function getLinks() {
+		return $this->links;
+	}
+
+	/**
+	 * Sets the links
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media> $links
+	 * @return void
+	 */
+	public function setLinks(Tx_Extbase_Persistence_ObjectStorage $links) {
+		$this->links = $links;
 	}
 
 }

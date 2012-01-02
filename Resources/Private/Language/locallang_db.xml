@@ -16,6 +16,7 @@
 			<label index="tx_icticontent_domain_model_content.start_date">Start Date</label>
 			<label index="tx_icticontent_domain_model_content.end_date">End Date</label>
 			<label index="tx_icticontent_domain_model_content.city">City</label>
+			<label index="tx_icticontent_domain_model_content.highlight">Highlight</label>
 			<label index="tx_icticontent_domain_model_content.videos">Videos</label>
 			<label index="tx_icticontent_domain_model_content.geo_locations">Geo Locations</label>
 			<label index="tx_icticontent_domain_model_content.keywords">Keywords</label>
@@ -25,6 +26,8 @@
 			<label index="tx_icticontent_domain_model_content.geo_areas">Geo Areas</label>
 			<label index="tx_icticontent_domain_model_content.countries">Countries</label>
 			<label index="tx_icticontent_domain_model_content.provinces">Provinces</label>
+			<label index="tx_icticontent_domain_model_content.downloads">Downloads</label>
+			<label index="tx_icticontent_domain_model_content.links">Links</label>
 			<label index="tx_icticontent_domain_model_media">Media</label>
 			<label index="tx_icticontent_domain_model_media.name">Name</label>
 			<label index="tx_icticontent_domain_model_media.media_type">Media Type</label>

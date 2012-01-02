@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Jose Antonio Guerra <jaguerra@icti.es>, ICTI Internet Passion S.L.
+ *  (c) 2012 Jose Antonio Guerra <jaguerra@icti.es>, ICTI Internet Passion S.L.
  *  			
  *  All rights reserved
  *
