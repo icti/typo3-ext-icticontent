@@ -331,8 +331,9 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * @return Tx_Ictiextbase_Domain_Model_CsvMediaIterator $images
 	 */
 	public function getImages() {
-		
-		return new Tx_Ictiextbase_Domain_Model_CsvMediaIterator($this->images, 'uploads/tx_icticontent/');
+		if($this->images){
+			return new Tx_Ictiextbase_Domain_Model_CsvMediaIterator($this->images, 'uploads/tx_icticontent/');
+		}
 	}
 
 	/**
