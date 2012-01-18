@@ -515,6 +515,7 @@ Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_doma
 
 $TCA['tx_icticontent_domain_model_content']['columns']['start_date']['config']['default'] = 0;
 $TCA['tx_icticontent_domain_model_content']['columns']['end_date']['config']['default'] = 0;
+$TCA['tx_icticontent_domain_model_content']['columns']['images']['config']['maxitems'] = 100;
 
 /*
  *  STI for Content - begin
