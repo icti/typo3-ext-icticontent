@@ -32,7 +32,7 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Icticontent_Controller_ContentController extends Tx_Extbase_MVC_Controller_ActionController {
+class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Controller_BaseController {
 
 	/**
 	 * contentRepository
@@ -50,6 +50,23 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Extbase_MVC_Control
 	public function injectContentRepository(Tx_Icticontent_Domain_Repository_ContentRepository $contentRepository) {
 		$this->contentRepository = $contentRepository;
 	}
+	
+	/**
+	 * filtersService
+	 *
+	 * @var Tx_IctiContent_Service_FiltersService
+	 */
+	protected $filtersService; 
+	
+	/**
+	 * injectFiltersService
+	 *
+	 * @param Tx_IctiContent_Service_FiltersService $filtersService
+	 * @return void
+	 */
+	public function injectFiltersService(Tx_Icticontent_Service_FiltersService $filtersService) {
+		$this->filtersService = $filtersService;
+	} 	
 
 	/**
 	 * action filters
@@ -71,11 +88,17 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Extbase_MVC_Control
 
 	/**
 	 * action list
+	 * 
+	 * @param Tx_Icticontent_Domain_Model_Category $filterCategory
+	 * @param Tx_Icticontent_Domain_Model_Keyword $filterKeyword
 	 *
 	 * @return void
 	 */
-	public function listAction() {
-		$contents = $this->contentRepository->findAll();
+	public function listAction(
+			Tx_Icticontent_Domain_Model_Category $filterCategory = null,
+			Tx_Icticontent_Domain_Model_Keyword $filterKeyword = null
+	) {
+		$contents = $this->contentRepository->findByFiltersService($this->filtersService);
 		$this->view->assign('contents', $contents);
 	}
 
@@ -88,6 +111,7 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Extbase_MVC_Control
 	public function showAction(Tx_Icticontent_Domain_Model_Content $content) {
 		$this->view->assign('content', $content);
 	}
+	
 
 }
 ?>

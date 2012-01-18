@@ -1,0 +1,28 @@
+{namespace ficti=Tx_Ictiextbase_ViewHelpers} 
+
+<f:if condition="{files}">
+	<div class="css_filelinks">
+		<f:for each="{files}" as="fichero">
+			<div class="filelink">
+				<div class="icono {fichero.fileType} first odd last"></div>
+				<div class="archivo">
+					<div class="descripcion">
+						<p>
+							{fichero.name}
+						</p>
+					</div>
+					<div class="enlace_descarga">
+						<p>
+							<ficti:link.media media="{fichero}" class="{fichero.fileType} first" target="_blank">
+								Descargar
+							</ficti:link.media>
+							<span class="pesoarchivo">
+								(<ficti:format.bytes labels=" | Kb| Mb| Gb">{fichero.fileSize}</ficti:format.bytes>)
+							</span>
+						</p>
+					</div>
+				</div>
+			</div>
+		</f:for>
+	</div>
+</f:if>  

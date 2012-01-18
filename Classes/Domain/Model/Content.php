@@ -304,10 +304,15 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the frontImage
 	 *
-	 * @return string $frontImage
+	 * @return Tx_Ictiextbase_Domain_Model_CsvMediaItem $frontImage
 	 */
 	public function getFrontImage() {
-		return $this->frontImage;
+		if($this->frontImage){
+			return new Tx_Ictiextbase_Domain_Model_CsvMediaItem($this->frontImage, 'uploads/tx_icticontent/');
+		} else {
+			return false;
+		}
+		
 	}
 
 	/**
@@ -323,10 +328,11 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the images
 	 *
-	 * @return string $images
+	 * @return Tx_Ictiextbase_Domain_Model_CsvMediaIterator $images
 	 */
 	public function getImages() {
-		return $this->images;
+		
+		return new Tx_Ictiextbase_Domain_Model_CsvMediaIterator($this->images, 'uploads/tx_icticontent/');
 	}
 
 	/**

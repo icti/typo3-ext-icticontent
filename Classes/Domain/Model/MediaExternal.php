@@ -34,6 +34,14 @@
  */
 class Tx_Icticontent_Domain_Model_MediaExternal extends Tx_Icticontent_Domain_Model_Media {
 
+	/**
+	 * Returns the url
+	 *
+	 * @return string $url
+	 */
+	public function getMediaUri() {
+		return $this->getUrl();
+	}
 
 }
 ?>

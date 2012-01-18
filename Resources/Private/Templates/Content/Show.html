@@ -1,21 +1,292 @@
 <f:layout name="Default" />
 
-This Template is responsible for displaying a single view for a domain object
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        Show.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Single View for Content</h1>
 
-<f:flashMessages />
-<f:render partial="Content/Properties" arguments="{content:content}" />
-<f:link.action action="list">Back to list</f:link.action><br />
-<f:link.action action="new">New Content</f:link.action>
+	
+   <div class="wrapper_csc">
+		<div class="colwn-set">
+			<div class="col-wide">
+				<div class="wrapper_csc">
+					<div class="wrapper_csc">
+						<div class="wrapper-titularpagina">
+							<div class="titularpagina">
+								<h1>
+									<span>{content.name}</span>
+								</h1>
+							</div>
+						</div>
+					</div>
+					<div class="wrapper_csc">
+						<f:render partial="socialMedia" />
+					</div>
+					<div class="wrapper_csc">
+						<div class="caja_info_detalle">
+							<div class="wrapper_csc">
+								<div class="col2-set">
+									<div class="col-1">
+										<div class="etiquetas">
+											<div class="tag_group">
+												<p class="group_name">
+													Estado:
+												</p>
+												<ul class="tags">
+													<li>
+														<a href=
+														"http://camara.dev01.icti.es/index.php?id=272#">
+														<span>Abierto</span></a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="col-2">
+										<div class="etiquetas">
+											<div class="tag_group">
+												<p class="group_name">
+													Sectores:
+												</p>
+												<ul class="tags">
+													<li>
+														<a href=
+														"http://camara.dev01.icti.es/contenidos-estructurados/gestoria/certificados/#">
+														<span>Alimentaci&Atilde;&sup3;n</span></a>
+													</li>
+													<li>
+														<a href=
+														"http://camara.dev01.icti.es/contenidos-estructurados/gestoria/certificados/#">
+														<span>Comercio</span></a>
+													</li>
+													<li>
+														<a href=
+														"http://camara.dev01.icti.es/contenidos-estructurados/gestoria/certificados/#">
+														<span>Internacionalizaci&Atilde;&sup3;n</span></a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="wrapper_csc">
+								<h3>
+									Titular de bloque sin fondo
+								</h3>
+								<div class="col2-set">
+									<div class="col-1">
+										<div class="etiquetas">
+											<div class="tag_group">
+												<p class="group_name">
+													Estado:
+												</p>
+												<ul class="tags sinfondo">
+													<li>
+														<a href=
+														"http://camara.dev01.icti.es/index.php?id=272#">
+														<span>Abierto</span></a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="col-2">
+										<div class="etiquetas">
+											<div class="tag_group">
+												<p class="group_name">
+													Sectores:
+												</p>
+												<ul class="tags sinfondo">
+													<li>
+														<a href=
+														"http://camara.dev01.icti.es/contenidos-estructurados/gestoria/certificados/#">
+														<span>Alimentaci&Atilde;&sup3;n</span></a>
+													</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="wrapper_csc">
+								<h3>
+									Titular bloque hacia abajo con bot&Atilde;&sup3;n
+								</h3>
+								<div class="col2-set">
+									<div class="col-1">
+										<div class="etiquetas hacia_abajo">
+											<div class="tag_group">
+												<p class="group_name">
+													Fecha de inicio:
+												</p>
+												<p class="valores">
+													27/01/2010
+												</p>
+											</div>
+											<div class="tag_group">
+												<p class="group_name">
+													Fecha de fin:
+												</p>
+												<p class="valores">
+													27/01/2010
+												</p>
+											</div>
+										</div>
+									</div>
+									<div class="col-2">
+										<div class="botoncolorido">
+											<div class="enlace">
+												<a href=
+												"http://camara.dev01.icti.es/index.php?id=272#">
+												Texto bot&Atilde;&sup3;n</a>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<f:if condition="{content.keywords}">
+						<div class="wrapper_csc">
+							<div class="etiquetas">
+								<h3>
+									Keywords
+								</h3>
+								<div class="tag_group">
+									<ul class="tags">
+										<f:for each="{content.keywords}" as="keyword">
+											<li>
+												<f:link.action action="list" arguments="{filterKeyword : keyword}">
+													<span>{keyword.name}</span>
+												</f:link.action>
+											</li>
+										</f:for>
+									</ul> 
+								</div>
+							</div>
+						</div>
+					</f:if>
+					<div class="wrapper_csc">
+						<h3>
+							Descripci&oacute;n
+						</h3>
+						{content.description -> f:format.html()}
+					</div>
+					
+					<f:render partial="videos" arguments="{videos: content.videos}" />
+
+					<f:if condition="{content.downloads">
+						<div class="wrapper_csc">
+							<h3>
+								Archivos
+							</h3>
+							<f:render partial="files" arguments="{files: content.downloads}" />
+						</div>
+					</f:if>
+					
+					<f:if condition="{content.links}">
+						<div class="wrapper_csc">
+							<h4>
+								Enlaces
+							</h4>					
+							<f:render partial="links" arguments="{links:content.links}" />
+						</div>
+					</f:if>		
+					
+					<f:if condition="{content.geoLocations}">
+						<div class="wrapper_csc">
+							<h4>
+								Mapa
+							</h4>					
+							<f:render partial="geoLocations" arguments="{geoLocations: content.geoLocations}" />
+						</div>
+					</f:if>						
+					
+					<div class="wrapper_csc">
+						<h3>
+							Patrocinadores
+						</h3>
+						<div class="wrapper_csc">
+							<div class="lista_logos">
+								<div class="logo">
+									logo
+								</div>
+								<div class="logo">
+									logo
+								</div>
+								<div class="logo">
+									logo
+								</div>
+								<div class="logo">
+									logo
+								</div>
+								<div class="logo">
+									logo
+								</div>
+							</div>
+						</div>
+					</div>
+				</div><!--TYPO3SEARCH_end-->
+			</div>
+			<div class="col-narrow">
+				<!--TYPO3SEARCH_begin-->
+				<div class="wrapper_csc">
+					<div class="botoncolorido">
+						<div class="enlace">
+							<a href=
+							"http://camara.dev01.icti.es/contenidos-estructurados/gestoria/certificados/">
+							&Acirc;&laquo; Volver a la lista</a>
+						</div>
+					</div>
+				</div>
+				<div class="wrapper_csc">
+					<div class="divider">
+						<hr />
+					</div>
+				</div>
+				<f:if condition="{content.images}">
+					<f:for each="{content.images}" as="image">
+						<div class="wrapper_csc">
+							<div class="csc-textpic csc-textpic-left csc-textpic-above">
+								<div class="csc-textpic-imagewrap csc-textpic-single-image">
+									<f:image src="{image.mediaUri}" width="208" alt="{content.name}" />
+								</div>
+							</div>
+							<div class="csc-textpic-clear">
+								<!-- -->
+							</div>
+						</div>						
+					</f:for>
+				</f:if>
+
+				
+				<f:if condition="{content.relatedContents}">
+					<div class="wrapper_csc">
+						<h4>
+							Contenidos relacionados
+						</h4>					
+						<div class="listados latest">
+							<f:for each="{content.relatedContents}" as="relatedContent">
+								<div class="item">
+									<div class="textos">
+										<h4>
+											<f:link.action action="show" arguments="{content : content}">
+												{relatedContent.name}
+											</f:link.action>
+										</h4>
+									</div>
+								</div>								
+							</f:for>
+						</div>
+					</div>					
+				</f:if>
+
+			</div>
+		</div>
+	</div>	
+
 </f:section>
+
+
+
+

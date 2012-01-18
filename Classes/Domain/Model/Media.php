@@ -32,7 +32,8 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Icticontent_Domain_Model_Media extends Tx_Extbase_DomainObject_AbstractEntity {
+abstract class Tx_Icticontent_Domain_Model_Media extends Tx_Extbase_DomainObject_AbstractEntity 
+implements Tx_Ictiextbase_Domain_Model_MediaInterface {
 
 	/**
 	 * name
@@ -167,6 +168,10 @@ class Tx_Icticontent_Domain_Model_Media extends Tx_Extbase_DomainObject_Abstract
 	public function setUrl($url) {
 		$this->url = $url;
 	}
+	
+	
+	
+
 
 }
 ?>

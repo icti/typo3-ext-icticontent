@@ -34,6 +34,38 @@
  */
 class Tx_Icticontent_Domain_Model_MediaFile extends Tx_Icticontent_Domain_Model_Media {
 
+	/**
+	 * Returns the url
+	 *
+	 * @return string $url
+	 */
+	public function getMediaUri() {
+		return 'uploads/tx_icticontent/'.$this->getFiles();
+	}	
+	
+	/**
+	 * @return type 
+	 */
+	public function getFileType(){
+		
+		$matches = array();
+		if(preg_match('/\.([a-zA-Z0-9]+)$/',$this->getFiles(), $matches)){
+			return $matches[1];
+		} 
+	}
+	
+	/**
+	 * @return type 
+	 */
+	public function getFileSize(){
+		
+		$absFileName = t3lib_div::getFileAbsFileName( $this->getMediaUri() );
+		if(file_exists($absFileName)){
+			return filesize($absFileName);
+		} else {
+			return false;
+		}
+	}	
 
 }
 ?>

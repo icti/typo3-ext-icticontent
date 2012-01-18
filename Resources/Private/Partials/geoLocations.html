@@ -1,0 +1,20 @@
+{namespace fed=Tx_Fed_ViewHelpers}
+<f:if condition="{geoLocations}">
+	<fed:jQuery jQueryVersion="1.7.1" jQueryUIVersion="1.8.16" />
+	<div class="wrapper_csc">
+		<fed:map width="100%" height="500px" disableDefaultUi="TRUE" zoomControl="FALSE" streetViewControl="FALSE"
+		  panControl="FALSE" mapTypeControl="FALSE" scaleControl="FALSE"
+		  mapTypeId="google.maps.MapTypeId.ROADMAP"
+		  lat="38.9861" lng="-3.927612" zoom="9"
+		  >
+			<fed:map.layer iconCenterX="5" iconCenterY="7">
+				<f:for each="{geoLocations}" as="geoLocation">
+					<fed:map.marker lat="{geoLocation.coordY}" lng="{geoLocation.coordX}" title="{geoLocation.name}">
+						{geoLocation.name}
+					</fed:map.marker>
+				</f:for>
+				
+			</fed:map.layer>
+		</fed:map>		
+	</div>
+</f:if>  

@@ -256,6 +256,11 @@ $TCA['tx_icticontent_domain_model_province'] = array(
 
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 
+
+$pluginSignature = str_replace('_','',$_EXTKEY) . '_list';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_list' . '.xml');
+
 $TCA['tx_icticontent_domain_model_content']['ctrl']['sortby'] = 'sorting';
 $TCA['tx_icticontent_domain_model_content']['ctrl']['type'] = 'content_type';
 

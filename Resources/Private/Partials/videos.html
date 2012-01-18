@@ -1,0 +1,17 @@
+{namespace ficti=Tx_Ictiextbase_ViewHelpers} 
+<f:if condition="{videos}">
+	<f:for each="{videos}" as="video">
+		
+		<div class="wrapper_csc">
+			<h3>{video.name}</h3>
+			<ficti:flvplayer url="{video.mediaUri}" width="448" height="310" />
+			<f:if condition="{video.description}">
+				<p class="bodytext">
+					{video.description}
+				</p>
+			</f:if>			
+		</div>		
+			
+	</f:for>
+  
+</f:if>

@@ -1,0 +1,16 @@
+   
+<f:if condition="{links}">
+
+	<div class="listados latest">
+		<f:for each="{links}" as="link">
+			<div class="item">
+				<div class="textos">
+					<h4>
+						<f:link.external uri="{link.url}" target="_blank">{link.name}</f:link.external>
+					</h4>
+				</div>
+			</div>
+		</f:for>
+	</div>	
+	
+</f:if>    

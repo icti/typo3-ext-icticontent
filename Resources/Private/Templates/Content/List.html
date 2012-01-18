@@ -1,55 +1,80 @@
 <f:layout name="Default" />
 
-This Template is responsible for creating a table of domain objects.
 
-
-If you modify this template, do not forget to change the overwrite settings
-in /Configuration/ExtensionBuilder/settings.yaml:
-  Resources:
-    Private:
-      Templates:
-        List.html: keep
-
-Otherwise your changes will be overwritten the next time you save the extension in the extension builder
 
 <f:section name="main">
-<h1>Listing for Content</h1>
-
-<f:flashMessages />
-
-<table  class="tx_icticontent" >
-	<tr>
-		<th><f:translate key="tx_icticontent_domain_model_content.name" /></th>
-		<th><f:translate key="tx_icticontent_domain_model_content.content_type" /></th>
-		<th><f:translate key="tx_icticontent_domain_model_content.short" /></th>
-		<th><f:translate key="tx_icticontent_domain_model_content.description" /></th>
-		<th><f:translate key="tx_icticontent_domain_model_content.front_image" /></th>
-		<th><f:translate key="tx_icticontent_domain_model_content.images" /></th>
-		<th><f:translate key="tx_icticontent_domain_model_content.start_date" /></th>
-		<th><f:translate key="tx_icticontent_domain_model_content.end_date" /></th>
-		<th><f:translate key="tx_icticontent_domain_model_content.city" /></th>
-		<th><f:translate key="tx_icticontent_domain_model_content.highlight" /></th>
-		<th> </th>
-		<th> </th>
-	</tr>
-
-	<f:for each="{contents}" as="content">
-		<tr>
-			<td><f:link.action action="show" arguments="{content : content}"> {content.name}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{content : content}"> {content.contentType}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{content : content}"> {content.short}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{content : content}"> {content.description}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{content : content}"> {content.frontImage}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{content : content}"> {content.images}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{content : content}"> {content.startDate -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{content : content}"> {content.endDate -> f:format.date()}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{content : content}"> {content.city}</f:link.action></td>
-			<td><f:link.action action="show" arguments="{content : content}"> {content.highlight}</f:link.action></td>
-			<td><f:link.action action="edit" arguments="{content : content}">Edit</f:link.action></td>
-			<td><f:link.action action="delete" arguments="{content : content}">Delete</f:link.action></td>
-		</tr>
-	</f:for>
-</table>
-
-<f:link.action action="new">New Content</f:link.action>
+    
+    <f:if condition="{contents}">
+        <f:then>
+            
+            <f:if condition="{settings.hidePager}">
+                <f:then>
+                    <f:widget.paginate objects="{contents}" as="paginatedContents" configuration="{itemsPerPage:settings.itemsPerPage, insertAbove:0, insertBelow:0}">
+                        <f:render section="listItems" arguments="{paginatedContents:paginatedContents}"/>
+                    </f:widget.paginate>   
+                </f:then>
+                <f:else>
+                    <f:widget.paginate objects="{contents}" as="paginatedContents" configuration="{itemsPerPage:settings.itemsPerPage, insertAbove:0, insertBelow:1}">
+                        <f:render section="listItems" arguments="{paginatedContents:paginatedContents}"/>
+                    </f:widget.paginate>                       
+                </f:else>
+            </f:if>
+                
+        </f:then>
+        <f:else>
+            <p><f:translate key="noContentFound">Sorry, no content were found.</f:translate></p>
+        </f:else>
+    </f:if>  
 </f:section>
+
+
+
+<f:section name="listItems">
+    <div class="listados list">
+        <f:for each="{paginatedContents}" as="content">
+			<div class="item">
+				<div class="wrapper-imagen-textos">
+					<f:if condition="{content.frontImage}">
+						<div class="imagen">
+							<f:image src="{content.frontImage.mediaUri}" width="90" height="90c" alt="{content.name}" />
+						</div>
+					</f:if>      
+					<div class="textos">
+						<h4>
+							<f:link.action action="show" arguments="{content : content}" pageUid="{settings.singlePid}">
+								{content.name}
+							</f:link.action> 					
+						</h4>
+						<p class="fecha">
+							{content.startDate -> f:format.date(format:"j \d\e F \d\e Y")}
+						</p>
+						<div class="etiquetas">
+							<f:if condition="{content.keywords}">
+								<div class="tag_group">
+									<p class="group_name">Keywords:</p>
+									<ul class="tags">
+										<f:for each="{content.keywords}" as="keyword">
+											<li>
+												<f:link.action action="list" arguments="{filterKeyword : keyword}">
+													<span>{keyword.name}</span>
+												</f:link.action>
+											</li>
+										</f:for>
+									</ul>                    
+
+								</div>	
+							</f:if>		
+
+						</div>
+						<p>
+							{content.short -> f:format.nl2br()}
+						</p>
+
+					</div>
+				</div>
+			</div>          
+        </f:for>
+    </div>     
+</f:section>
+
+

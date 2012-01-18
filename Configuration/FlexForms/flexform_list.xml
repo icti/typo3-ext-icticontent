@@ -1,0 +1,189 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Options</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+
+                    
+                    <settings.itemsPerPage>
+                        <TCEforms>
+                          <label>Elementos por pagina</label>
+                          <config>
+                            <type>input</type>
+                            <size>2</size>
+                            <eval>int</eval>
+                            <default>10</default>
+                          </config>
+                        </TCEforms>
+                    </settings.itemsPerPage>  
+                    
+                    <settings.hidePager>
+                        <TCEforms>
+                          <label>No mostrar paginador</label>
+                          <config>
+                            <type>check</type>
+                            <default>0</default>
+                          </config>
+                        </TCEforms>
+                    </settings.hidePager>      
+                    
+                    <settings.noFiltersFromArguments>
+                        <TCEforms>
+                          <label>No aplicar filtros de la página (sólo los de este contenido)</label>
+                          <config>
+                            <type>check</type>
+                            <default>0</default>
+                          </config>
+                        </TCEforms>
+                    </settings.noFiltersFromArguments>                     
+                    
+                    <settings.filterOrderBy>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>Ordenar</label>
+                            <config>
+                                <type>select</type>
+                                    <items type="array">
+                                        <numIndex index="0" type="array">
+                                            <numIndex index="0">Por defecto</numIndex>
+                                            <numIndex index="1"></numIndex>
+                                        </numIndex>
+                                        <numIndex index="1" type="array">
+                                            <numIndex index="0">Fecha asc</numIndex>
+                                            <numIndex index="1">startDate</numIndex>
+                                        </numIndex> 
+                                        <numIndex index="2" type="array">
+                                            <numIndex index="0">Fecha desc</numIndex>
+                                            <numIndex index="1">startDateDesc</numIndex>
+                                        </numIndex> 
+                                        <numIndex index="3" type="array">
+                                            <numIndex index="0">Nombre</numIndex>
+                                            <numIndex index="1">name</numIndex>
+                                        </numIndex>  
+                                        <numIndex index="4" type="array">
+                                            <numIndex index="0">Orden de registros</numIndex>
+                                            <numIndex index="1">sorting</numIndex>
+                                        </numIndex>     
+                                        
+                                        <numIndex index="21" type="array">
+                                            <numIndex index="0">Destacados + Fecha asc</numIndex>
+                                            <numIndex index="1">highlightStartDate</numIndex>
+                                        </numIndex> 
+                                        <numIndex index="22" type="array">
+                                            <numIndex index="0">Destacados + Fecha desc</numIndex>
+                                            <numIndex index="1">highlightStartDateDesc</numIndex>
+                                        </numIndex> 
+                                        <numIndex index="23" type="array">
+                                            <numIndex index="0">Destacados + Nombre</numIndex>
+                                            <numIndex index="1">highlightName</numIndex>
+                                        </numIndex>  
+                                        <numIndex index="24" type="array">
+                                            <numIndex index="0">Destacados + Orden de registros</numIndex>
+                                            <numIndex index="1">highlightSorting</numIndex>
+                                        </numIndex>                                             
+                                        
+                                    </items>                                					 
+                                    <size>1</size> 
+                                    <maxitems>1</maxitems>
+                            </config>
+                        </TCEforms>
+                    </settings.filterOrderBy>                     
+                    
+
+                    
+                    <settings.filterCategory>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>Filtro por categoria</label>
+                            <config>
+                                <type>select</type>
+                                    <items type="array">
+                                        <numIndex index="0" type="array">
+                                            <numIndex index="0">Todos</numIndex>
+                                            <numIndex index="1"></numIndex>
+                                        </numIndex>
+                                    </items>                                
+                                    <foreign_table>tx_icticontent_domain_model_category</foreign_table>
+                                    <foreign_table_where>
+                                            ORDER BY tx_icticontent_domain_model_category.name
+                                    </foreign_table_where>					 
+                                    <size>1</size> 
+                                    <minitems>0</minitems>
+                                    <maxitems>1</maxitems>
+                            </config>
+                        </TCEforms>
+                    </settings.filterCategory>                     
+                    
+ 
+                    
+                    <settings.filterHighlight>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>Filtro por destacados</label>
+                            <config>
+                                <type>select</type>
+                                    <items type="array">
+                                        <numIndex index="0" type="array">
+                                            <numIndex index="0">Todos</numIndex>
+                                            <numIndex index="1"></numIndex>
+                                        </numIndex>
+                                        <numIndex index="1" type="array">
+                                            <numIndex index="0">Mostrar solo destacados</numIndex>
+                                            <numIndex index="1">1</numIndex>
+                                        </numIndex>                                        
+                                    </items>                                				 
+                                    <size>1</size> 
+                                    <minitems>0</minitems>
+                                    <maxitems>1</maxitems>
+                            </config>
+                        </TCEforms>
+                    </settings.filterHighlight>     
+                    
+                    <settings.filterNewerDates>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>Filtro por fechas</label>
+                            <config>
+                                <type>select</type>
+                                    <items type="array">
+                                        <numIndex index="0" type="array">
+                                            <numIndex index="0">Todos</numIndex>
+                                            <numIndex index="1"></numIndex>
+                                        </numIndex>
+                                        <numIndex index="1" type="array">
+                                            <numIndex index="0">Mostrar solo los que comienzan a partir de hoy</numIndex>
+                                            <numIndex index="1">1</numIndex>
+                                        </numIndex>                                        
+                                    </items>                                				 
+                                    <size>1</size> 
+                                    <minitems>0</minitems>
+                                    <maxitems>1</maxitems>
+                            </config>
+                        </TCEforms>
+                    </settings.filterNewerDates>    
+                    
+                    <settings.singlePid>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>Página de detalle para este listado (sobreescribe el indicado en el tipo de contenido)</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>pages</allowed>
+                                <size>1</size>
+                                <maxitems>1</maxitems>
+                                <minitems>0</minitems>
+                                <show_thumbs>0</show_thumbs>
+                            </config>
+                        </TCEforms>
+                    </settings.singlePid>                    
+                    
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>
