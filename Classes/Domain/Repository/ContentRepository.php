@@ -49,6 +49,7 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 		$this->addHighlightConstraint();
 		$this->addOrderingFromFilters();
 		$this->addKeywordConstraint();
+		$this->addGeoAreaConstraint();
 		
 		return $this->executeQueryWithConstraintArray();
 	}
@@ -75,6 +76,12 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 	protected function addHighlightConstraint(){
 		if($this->filtersService->getFilterHighlight()){
 			$this->constraintArr[] = $this->query->equals('highlight', true);
+		}
+	}	
+	
+	protected function addGeoAreaConstraint(){
+		if($this->filtersService->getFilterGeoArea()){
+			$this->constraintArr[] = $this->query->contains('geoAreas', $this->filtersService->getFilterGeoArea());
 		}
 	}	
 	
