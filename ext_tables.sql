@@ -112,7 +112,6 @@ CREATE TABLE tx_icticontent_domain_model_geolocation (
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
-	content int(11) unsigned DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
@@ -346,6 +345,23 @@ CREATE TABLE tx_icticontent_domain_model_province (
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
 );
+
+#
+# Table structure for table 'tx_icticontent_content_geolocation_mm'
+#
+CREATE TABLE tx_icticontent_content_geolocation_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
+
+
+
+
 
 #
 # Table structure for table 'tx_icticontent_content_keyword_mm'
