@@ -63,6 +63,13 @@ class Tx_Icticontent_Service_FiltersService extends Tx_Ictiextbase_Service_Abstr
 	 * 
 	 */
 	protected $filterNewerDates;	
+	
+	/**
+	 * @Ictiextbase\Service\Filters\filter
+	 * @Ictiextbase\Service\Filters\class Tx_Icticontent_Domain_Model_GeoArea
+	 * 
+	 */
+	protected $filterGeoArea;	
  
 
 }

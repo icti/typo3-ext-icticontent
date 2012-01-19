@@ -12,7 +12,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	),
 	// non-cacheable actions
 	array(
-		'Content' => '',
+		'Content' => 'list',
 		
 	)
 );
@@ -40,7 +40,7 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	),
 	// non-cacheable actions
 	array(
-		'Content' => '',
+		'Content' => 'filters',
 		
 	)
 );

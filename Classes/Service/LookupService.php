@@ -24,7 +24,7 @@
 ***************************************************************/
 
 
-class Tx_Icticontent_Service_LookupService implements Tx_Icticontent_Service_ServiceInterface {
+class Tx_Icticontent_Service_LookupService extends Tx_Ictiextbase_Service_AbstractLookupService {
 
 	
 

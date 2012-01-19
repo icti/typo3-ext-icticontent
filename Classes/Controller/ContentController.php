@@ -72,6 +72,8 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	 * action filters
 	 *
 	 * @return void
+	 * 
+	 * @dontverifyrequesthash true
 	 */
 	public function filtersAction() {
 
@@ -93,6 +95,8 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	 * @param Tx_Icticontent_Domain_Model_Keyword $filterKeyword
 	 *
 	 * @return void
+	 * 
+	 * @dontverifyrequesthash true
 	 */
 	public function listAction(
 			Tx_Icticontent_Domain_Model_Category $filterCategory = null,

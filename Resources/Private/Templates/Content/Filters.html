@@ -1,0 +1,46 @@
+{namespace ficti=Tx_Ictiextbase_ViewHelpers}
+<f:layout name="Default" />
+
+<f:section name="main">
+
+    <div class="wrapper_csc">
+        <div class="cajadestacados color1">
+            <div class="wrapper_csc">
+                <div class="tx-powermail-pi1" id="buscador_estructurados">
+                    <div class="titular_formulario disp02">
+                        <h3>Buscador</h3>
+                    </div>
+
+					<ficti:form id="quicksearch" action="list" method="get">
+                        <legend>Legend del formulario</legend>
+
+                        <fieldset class="tx-powermail-pi1_fieldset">
+                            <div class="wrapper_labelinput_bonito">
+                                <div class="labelbonito">
+                                    <label for="filterCategory">Category</label>
+                                </div>
+
+                                <div class="inputbonito">
+									<ficti:form.select id="filterCategory" name="filterCategory" 
+														withAnyOption="Any category" 
+														options="{lookupService.filterCategory}" 
+														optionLabelField="name" optionValueField="uid" 
+														value="{filtersService.filterCategory}" />
+                                </div>
+                            </div>
+
+                            <div class="wrapper_submit">
+                                <div class="inputbonito">
+                                    <label>
+										<f:form.submit value="Search" />
+									</label>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </ficti:form>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+</f:section>

@@ -66,10 +66,9 @@ class Tx_Icticontent_Controller_BaseController extends Tx_Extbase_MVC_Controller
 	protected function initializeView($view) {
 		        parent::initializeView($view);
 		        $this->filtersService->init($this->arguments, $this->settings);
-		        //$this->lookupService->setFiltersService($this->filtersService);
+		        $this->lookupService->setFiltersService($this->filtersService);
 		        $this->addCommonItems();
                 
-                //debug($_GET);
 	}    
 
 	/**
