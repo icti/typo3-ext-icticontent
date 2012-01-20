@@ -74,6 +74,7 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	 * @return void
 	 * 
 	 * @dontverifyrequesthash true
+	 * @Ictiextbase\Controller\cache
 	 */
 	public function filtersAction() {
 
@@ -83,6 +84,7 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	 * action calendar
 	 *
 	 * @return void
+	 * @Ictiextbase\Controller\cache
 	 */
 	public function calendarAction() {
 
@@ -97,6 +99,7 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	 * @return void
 	 * 
 	 * @dontverifyrequesthash true
+	 * @Ictiextbase\Controller\cache
 	 */
 	public function listAction(
 			Tx_Icticontent_Domain_Model_Category $filterCategory = null,

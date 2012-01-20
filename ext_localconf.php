@@ -60,4 +60,16 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 );
 
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+
+
+if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['cache_icticontent_contentcache'])) {
+    $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['cache_icticontent_contentcache'] = array(
+        'frontend' => 't3lib_cache_frontend_StringFrontend',
+        'backend' => 't3lib_cache_backend_DbBackend',
+        'options' => array(
+            'cacheTable' => 'tx_icticontent_contentcache',
+            'tagsTable' => 'tx_icticontent_contentcache_tags',
+        ),
+    );
+}
 ?>

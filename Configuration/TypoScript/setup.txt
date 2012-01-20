@@ -12,6 +12,8 @@ plugin.tx_icticontent {
 	settings {
 		itemsPerPage = 10
 	}
+
+	#icticontent.disableCache = 1
 }
 
 plugin.tx_icticontent._CSS_DEFAULT_STYLE (
