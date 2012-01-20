@@ -70,6 +70,38 @@ class Tx_Icticontent_Service_FiltersService extends Tx_Ictiextbase_Service_Abstr
 	 * 
 	 */
 	protected $filterGeoArea;	
+	
+	
+	/**
+	 * @Ictiextbase\Service\Filters\filter
+	 * 
+	 */
+	protected $filterMonth;		
+	
+	/**
+	 * @Ictiextbase\Service\Filters\filter
+	 * 
+	 */
+	protected $filterYear;	
+	
+	
+	public function getFilterMonth(){
+        
+        if(!$this->filterMonth){
+            $this->filterMonth = strftime('%m');
+        }
+		
+		return $this->filterMonth;
+	}
+	
+	public function getFilterYear(){
+		
+        if(!$this->filterYear){
+            $this->filterYear = strftime('%Y');
+        }
+		
+		return $this->filterYear;		
+	}	
  
 
 }

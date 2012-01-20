@@ -54,6 +54,50 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 		return $this->executeQueryWithConstraintArray();
 	}
 	
+	/**
+	 *
+	 * @param Tx_IctiContent_Service_FiltersService $filtersService
+	 * @return type 
+	 */
+	public function findByCalendarMonth(Tx_IctiContent_Service_FiltersService $filtersService) {
+		        
+		$this->initQuery($filtersService);
+		
+		$this->addCalendarMonthConstraint();
+
+		$this->query->setOrderings(array(
+			'startDate' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING
+				));
+		
+		return $this->executeQueryWithConstraintArray();
+         
+	}
+	
+	
+	protected function addCalendarMonthConstraint(){
+		
+		$year = $this->filtersService->getFilterYear();
+		$month = $this->filtersService->getFilterMonth();
+		
+		if($year && $month){
+			
+			/*
+			 * En el calendario no sólo aparecen los días de este mes sino que para rellenar la tabla
+			 * pueden aparecer hasta los últimos 6 del mes pasado y los 6 primeros
+			 * del mes siguiente...
+			 */			
+			$startDate = mktime(0,0,0,$month,-7,$year);
+			$endDate = mktime(0,0,0,$month+1,7,$year);			
+			
+			$this->constraintArr[] = $this->query->greaterThan('startDate', $startDate);
+			$this->constraintArr[] = $this->query->lessThan('startDate', $endDate);
+			
+		}
+			
+	}	
+	
+		
+	
 	
 	protected function addCategoryConstraint(){
 		if($this->filtersService->getFilterCategory()){

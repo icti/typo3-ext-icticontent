@@ -26,7 +26,25 @@
 
 class Tx_Icticontent_Service_LookupService extends Tx_Ictiextbase_Service_AbstractLookupService {
 
+    public function getFilterYear(){
+        $result = array();
+        for($year = 2003;$year<= strftime("%Y", strtotime("+1 year"));$year++){
+            
+            $result[$year] = $year;
+
+        }
+        return $result;
+    }	
 	
+    public function getFilterMonth(){
+        $result = array();
+        for($month = 1;$month<=12;$month++){
+                       
+			$result[$month] = $month;         
+            
+        }
+        return $result;
+    }		
 
 }
 ?>
