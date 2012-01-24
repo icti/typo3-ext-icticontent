@@ -51,22 +51,6 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 		$this->contentRepository = $contentRepository;
 	}
 	
-	/**
-	 * filtersService
-	 *
-	 * @var Tx_IctiContent_Service_FiltersService
-	 */
-	protected $filtersService; 
-	
-	/**
-	 * injectFiltersService
-	 *
-	 * @param Tx_IctiContent_Service_FiltersService $filtersService
-	 * @return void
-	 */
-	public function injectFiltersService(Tx_Icticontent_Service_FiltersService $filtersService) {
-		$this->filtersService = $filtersService;
-	} 	
 
 	/**
 	 * action filters

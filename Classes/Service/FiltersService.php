@@ -33,6 +33,7 @@ class Tx_Icticontent_Service_FiltersService extends Tx_Ictiextbase_Service_Abstr
 	/**
 	 * @Ictiextbase\Service\Filters\filter
 	 * @Ictiextbase\Service\Filters\class Tx_Icticontent_Domain_Model_Category
+	 * @Ictiextbase\Service\Filters\multiple true
 	 * 
 	 */
 	protected $filterCategory;

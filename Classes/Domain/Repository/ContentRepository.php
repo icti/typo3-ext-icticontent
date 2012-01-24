@@ -101,7 +101,19 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 	
 	protected function addCategoryConstraint(){
 		if($this->filtersService->getFilterCategory()){
-			$this->constraintArr[] = $this->query->contains('categories', $this->filtersService->getFilterCategory());
+			
+			if($this->filtersService->getFilterCategory() instanceof Tx_Icticontent_Domain_Model_Category){
+				$this->constraintArr[] = $this->query->contains('categories', $this->filtersService->getFilterCategory());
+			} else {
+				$constraintArray = array();
+				
+				foreach( $this->filtersService->getFilterCategory() as $category ){
+					$constraintArray[] = $this->query->contains('categories', $category);
+				}
+				
+				$this->constraintArr[] = $this->query->logicalOr($constraintArray);
+				
+			}
 		}
 	}
 	
