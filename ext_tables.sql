@@ -16,6 +16,8 @@ CREATE TABLE tx_icticontent_domain_model_content (
 	end_date int(11) DEFAULT '0' NOT NULL,
 	city varchar(255) DEFAULT '' NOT NULL,
 	highlight tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	images_captions text NOT NULL,
+	images_alt_text text NOT NULL,
 	videos int(11) unsigned DEFAULT '0' NOT NULL,
 	geo_locations int(11) unsigned DEFAULT '0' NOT NULL,
 	keywords int(11) unsigned DEFAULT '0' NOT NULL,

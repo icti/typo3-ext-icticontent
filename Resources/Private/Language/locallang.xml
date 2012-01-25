@@ -17,6 +17,8 @@
 			<label index="tx_icticontent_domain_model_content.end_date">endDate</label>
 			<label index="tx_icticontent_domain_model_content.city">city</label>
 			<label index="tx_icticontent_domain_model_content.highlight">highlight</label>
+			<label index="tx_icticontent_domain_model_content.images_captions">imagesCaptions</label>
+			<label index="tx_icticontent_domain_model_content.images_alt_text">imagesAltText</label>
 			<label index="tx_icticontent_domain_model_content.videos">videos</label>
 			<label index="tx_icticontent_domain_model_content.geo_locations">geoLocations</label>
 			<label index="tx_icticontent_domain_model_content.keywords">keywords</label>

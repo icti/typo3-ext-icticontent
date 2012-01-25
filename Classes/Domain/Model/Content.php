@@ -100,6 +100,13 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	protected $city;
 
 	/**
+	 * highlight
+	 *
+	 * @var boolean
+	 */
+	protected $highlight;
+
+	/**
 	 * videos
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
@@ -163,13 +170,6 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	protected $provinces;
 
 	/**
-	 * highlight
-	 *
-	 * @var boolean
-	 */
-	protected $highlight;
-
-	/**
 	 * downloads
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
@@ -182,6 +182,20 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
 	 */
 	protected $links;
+
+	/**
+	 * imagesCaptions
+	 *
+	 * @var string
+	 */
+	protected $imagesCaptions;
+
+	/**
+	 * imagesAltText
+	 *
+	 * @var string
+	 */
+	protected $imagesAltText;
 
 	/**
 	 * __construct
@@ -312,7 +326,6 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 		} else {
 			return false;
 		}
-		
 	}
 
 	/**
@@ -332,7 +345,9 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function getImages() {
 		if($this->images){
-			return new Tx_Ictiextbase_Domain_Model_CsvMediaIterator($this->images, 'uploads/tx_icticontent/');
+			return new Tx_Ictiextbase_Domain_Model_CsvMediaIterator($this->images, 
+					'uploads/tx_icticontent/', 
+					$this->getImagesCaptions(), $this->getImagesAltText());
 		}
 	}
 
@@ -838,6 +853,44 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function setLinks(Tx_Extbase_Persistence_ObjectStorage $links) {
 		$this->links = $links;
+	}
+
+	/**
+	 * Returns the imagesCaptions
+	 *
+	 * @return string $imagesCaptions
+	 */
+	public function getImagesCaptions() {
+		return $this->imagesCaptions;
+	}
+
+	/**
+	 * Sets the imagesCaptions
+	 *
+	 * @param string $imagesCaptions
+	 * @return void
+	 */
+	public function setImagesCaptions($imagesCaptions) {
+		$this->imagesCaptions = $imagesCaptions;
+	}
+
+	/**
+	 * Returns the imagesAltText
+	 *
+	 * @return string $imagesAltText
+	 */
+	public function getImagesAltText() {
+		return $this->imagesAltText;
+	}
+
+	/**
+	 * Sets the imagesAltText
+	 *
+	 * @param string $imagesAltText
+	 * @return void
+	 */
+	public function setImagesAltText($imagesAltText) {
+		$this->imagesAltText = $imagesAltText;
 	}
 
 }

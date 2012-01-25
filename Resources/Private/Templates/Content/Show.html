@@ -249,11 +249,16 @@
 						<div class="wrapper_csc">
 							<div class="csc-textpic csc-textpic-left csc-textpic-above">
 								<div class="csc-textpic-imagewrap csc-textpic-single-image">
-									<f:image src="{image.mediaUri}" width="208" alt="{content.name}" />
+									<f:image src="{image.mediaUri}" width="208" alt="{image.altText}" />
 								</div>
 							</div>
 							<div class="csc-textpic-clear">
-								<!-- -->
+								<f:if condition="{image.caption}">
+									<p>
+										{image.caption}
+									</p>
+								</f:if>
+								
 							</div>
 						</div>						
 					</f:for>

@@ -17,6 +17,8 @@
 			<label index="end_date.description">endDate</label>
 			<label index="city.description">city</label>
 			<label index="highlight.description">highlight</label>
+			<label index="images_captions.description">imagesCaptions</label>
+			<label index="images_alt_text.description">imagesAltText</label>
 			<label index="videos.description">videos</label>
 			<label index="geo_locations.description">geoLocations</label>
 			<label index="keywords.description">keywords</label>

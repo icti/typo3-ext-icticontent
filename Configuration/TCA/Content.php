@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_icticontent_domain_model_content'] = array(
 	'ctrl' => $TCA['tx_icticontent_domain_model_content']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, content_type, short, description, front_image, images, start_date, end_date, city, highlight, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces, downloads, links',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, content_type, short, description, front_image, images, start_date, end_date, city, highlight, images_captions, images_alt_text, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces, downloads, links',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, content_type, short, description, front_image, images, start_date, end_date, city, highlight, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces, downloads, links,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, content_type, short, description, front_image, images, start_date, end_date, city, highlight, images_captions, images_alt_text, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces, downloads, links,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -200,6 +200,26 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 			'config' => array(
 				'type' => 'check',
 				'default' => 0
+			),
+		),
+		'images_captions' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.images_captions',
+			'config' => array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => 'trim'
+			),
+		),
+		'images_alt_text' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.images_alt_text',
+			'config' => array(
+				'type' => 'text',
+				'cols' => 40,
+				'rows' => 15,
+				'eval' => 'trim'
 			),
 		),
 		'videos' => array(
@@ -546,7 +566,7 @@ $TCA['tx_icticontent_domain_model_content']['columns']['content_type']['config']
 
 $TCA['tx_icticontent_domain_model_content']['types']['Tx_Icticontent_Domain_Model_Content'] = array(
 	'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
-		name, content_type, short, description, front_image, images, start_date, end_date, highlight,
+		name, content_type, short, description, front_image, images, images_captions, images_alt_text, start_date, end_date, highlight,
 		city, videos, downloads, links, 
 		geo_locations, keywords, related_page, categories, related_contents, 
 		geo_areas, countries, provinces,

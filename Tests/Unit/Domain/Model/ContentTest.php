@@ -220,6 +220,40 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	/**
 	 * @test
 	 */
+	public function getImagesCaptionsReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setImagesCaptionsForStringSetsImagesCaptions() { 
+		$this->fixture->setImagesCaptions('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getImagesCaptions()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getImagesAltTextReturnsInitialValueForString() { }
+
+	/**
+	 * @test
+	 */
+	public function setImagesAltTextForStringSetsImagesAltText() { 
+		$this->fixture->setImagesAltText('Conceived at T3CON10');
+
+		$this->assertSame(
+			'Conceived at T3CON10',
+			$this->fixture->getImagesAltText()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
 	public function getVideosReturnsInitialValueForObjectStorageContainingTx_Icticontent_Domain_Model_Media() { 
 		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->assertEquals(
