@@ -220,7 +220,7 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 	protected function initQuery(Tx_IctiContent_Service_FiltersService $filtersService){
 		$this->filtersService = $filtersService;
 		$this->query = $this->createQuery();
-		$this->constraintArray = array();
+		$this->constraintArr = array();
 	}
 	
 	/**
@@ -234,7 +234,6 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 		if(count($this->constraintArr)){
 			$this->query->matching($this->query->logicalAnd($this->constraintArr));
 		}        
-        
         return $this->query->execute();        
 	}
 	
