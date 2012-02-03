@@ -72,4 +72,7 @@ if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['cache_i
         ),
     );
 }
+
+$TYPO3_CONF_VARS['EXTCONF']['icticontent']['additionalContentTCAIncludes'] = array();
+
 ?>

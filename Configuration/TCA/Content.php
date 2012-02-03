@@ -580,4 +580,11 @@ $TCA['tx_icticontent_domain_model_content']['types']['1'] =
  */
 
 Tx_Ictiextbase_Helpers_Tca::setRte('tx_icticontent_domain_model_content', 'description');
+
+
+global $TYPO3_CONF_VARS;
+foreach($TYPO3_CONF_VARS['EXTCONF']['icticontent']['additionalContentTCAIncludes'] as $includeFile){
+	include($includeFile);
+}
+
 ?>
