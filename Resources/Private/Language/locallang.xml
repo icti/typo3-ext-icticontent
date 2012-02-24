@@ -30,6 +30,8 @@
 			<label index="tx_icticontent_domain_model_content.provinces">provinces</label>
 			<label index="tx_icticontent_domain_model_content.downloads">downloads</label>
 			<label index="tx_icticontent_domain_model_content.links">links</label>
+			<label index="tx_icticontent_domain_model_content.authors">authors</label>
+			<label index="tx_icticontent_domain_model_content.regions">regions</label>
 			<label index="tx_icticontent_domain_model_media">Media</label>
 			<label index="tx_icticontent_domain_model_media.name">name</label>
 			<label index="tx_icticontent_domain_model_media.media_type">mediaType</label>
@@ -59,6 +61,14 @@
 			<label index="tx_icticontent_domain_model_province">Province</label>
 			<label index="tx_icticontent_domain_model_province.name">name</label>
 			<label index="tx_icticontent_domain_model_province.country">country</label>
+			<label index="tx_icticontent_domain_model_province.region">region</label>
+			<label index="tx_icticontent_domain_model_author">Author</label>
+			<label index="tx_icticontent_domain_model_author.name">name</label>
+			<label index="tx_icticontent_domain_model_author.description">description</label>
+			<label index="tx_icticontent_domain_model_author.image">image</label>
+			<label index="tx_icticontent_domain_model_region">Region</label>
+			<label index="tx_icticontent_domain_model_region.name">name</label>
+			<label index="tx_icticontent_domain_model_region.country">country</label>
 		</languageKey>
 	</data>
 </T3locallang>

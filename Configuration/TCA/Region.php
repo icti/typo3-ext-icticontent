@@ -3,13 +3,13 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_icticontent_domain_model_keyword'] = array(
-	'ctrl' => $TCA['tx_icticontent_domain_model_keyword']['ctrl'],
+$TCA['tx_icticontent_domain_model_region'] = array(
+	'ctrl' => $TCA['tx_icticontent_domain_model_region']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, description',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, country',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, description,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, country,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -37,8 +37,8 @@ $TCA['tx_icticontent_domain_model_keyword'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_icticontent_domain_model_keyword',
-				'foreign_table_where' => 'AND tx_icticontent_domain_model_keyword.pid=###CURRENT_PID### AND tx_icticontent_domain_model_keyword.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_icticontent_domain_model_region',
+				'foreign_table_where' => 'AND tx_icticontent_domain_model_region.pid=###CURRENT_PID### AND tx_icticontent_domain_model_region.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -95,25 +95,30 @@ $TCA['tx_icticontent_domain_model_keyword'] = array(
 		),
 		'name' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_keyword.name',
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_region.name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
 				'eval' => 'trim,required'
 			),
 		),
-		'description' => array(
+		'country' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_keyword.description',
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_region.country',
 			'config' => array(
-				'type' => 'text',
-				'cols' => 40,
-				'rows' => 15,
-				'eval' => 'trim'
+				'type' => 'select',
+				'foreign_table' => 'tx_icticontent_domain_model_country',
+				'minitems' => 0,
+				'maxitems' => 1,
 			),
 		),
 	),
 );
 
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+
+
+Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_region', 'country');
+
+Tx_Ictiextbase_Helpers_Tca::setDefaultItemOnSelect('tx_icticontent_domain_model_region', 'country');
 ?>

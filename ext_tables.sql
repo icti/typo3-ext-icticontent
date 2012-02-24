@@ -2,9 +2,9 @@
 # Table structure for table 'tx_icticontent_domain_model_content'
 #
 CREATE TABLE tx_icticontent_domain_model_content (
+
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
-
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	content_type int(11) DEFAULT '0' NOT NULL,
@@ -29,6 +29,8 @@ CREATE TABLE tx_icticontent_domain_model_content (
 	provinces int(11) unsigned DEFAULT '0' NOT NULL,
 	downloads int(11) unsigned DEFAULT '0' NOT NULL,
 	links int(11) unsigned DEFAULT '0' NOT NULL,
+	authors int(11) unsigned DEFAULT '0' NOT NULL,
+	regions int(11) unsigned DEFAULT '0' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
 	crdate int(11) unsigned DEFAULT '0' NOT NULL,
@@ -47,8 +49,8 @@ CREATE TABLE tx_icticontent_domain_model_content (
 	t3ver_count int(11) DEFAULT '0' NOT NULL,
 	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
 	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
-	t3_origuid int(11) DEFAULT '0' NOT NULL,
 
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
 	sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	l10n_diffsource mediumblob,
@@ -57,12 +59,14 @@ CREATE TABLE tx_icticontent_domain_model_content (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
+
 );
 
 #
 # Table structure for table 'tx_icticontent_domain_model_media'
 #
 CREATE TABLE tx_icticontent_domain_model_media (
+
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
@@ -93,8 +97,8 @@ CREATE TABLE tx_icticontent_domain_model_media (
 	t3ver_count int(11) DEFAULT '0' NOT NULL,
 	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
 	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
-	t3_origuid int(11) DEFAULT '0' NOT NULL,
 
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
 	sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	l10n_diffsource mediumblob,
@@ -103,6 +107,7 @@ CREATE TABLE tx_icticontent_domain_model_media (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
+
 );
 
 
@@ -111,9 +116,9 @@ CREATE TABLE tx_icticontent_domain_model_media (
 # Table structure for table 'tx_icticontent_domain_model_geolocation'
 #
 CREATE TABLE tx_icticontent_domain_model_geolocation (
+
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
-
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
@@ -137,8 +142,8 @@ CREATE TABLE tx_icticontent_domain_model_geolocation (
 	t3ver_count int(11) DEFAULT '0' NOT NULL,
 	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
 	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
-	t3_origuid int(11) DEFAULT '0' NOT NULL,
 
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
 	sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	l10n_diffsource mediumblob,
@@ -147,15 +152,16 @@ CREATE TABLE tx_icticontent_domain_model_geolocation (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
+
 );
 
 #
 # Table structure for table 'tx_icticontent_domain_model_keyword'
 #
 CREATE TABLE tx_icticontent_domain_model_keyword (
+
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
-
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
@@ -177,8 +183,8 @@ CREATE TABLE tx_icticontent_domain_model_keyword (
 	t3ver_count int(11) DEFAULT '0' NOT NULL,
 	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
 	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
-	t3_origuid int(11) DEFAULT '0' NOT NULL,
 
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
 	sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	l10n_diffsource mediumblob,
@@ -187,15 +193,16 @@ CREATE TABLE tx_icticontent_domain_model_keyword (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
+
 );
 
 #
 # Table structure for table 'tx_icticontent_domain_model_category'
 #
 CREATE TABLE tx_icticontent_domain_model_category (
+
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
-
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	description text NOT NULL,
@@ -217,8 +224,8 @@ CREATE TABLE tx_icticontent_domain_model_category (
 	t3ver_count int(11) DEFAULT '0' NOT NULL,
 	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
 	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
-	t3_origuid int(11) DEFAULT '0' NOT NULL,
 
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
 	sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	l10n_diffsource mediumblob,
@@ -227,15 +234,16 @@ CREATE TABLE tx_icticontent_domain_model_category (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
+
 );
 
 #
 # Table structure for table 'tx_icticontent_domain_model_geoarea'
 #
 CREATE TABLE tx_icticontent_domain_model_geoarea (
+
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
-
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	countries int(11) unsigned DEFAULT '0' NOT NULL,
@@ -257,8 +265,8 @@ CREATE TABLE tx_icticontent_domain_model_geoarea (
 	t3ver_count int(11) DEFAULT '0' NOT NULL,
 	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
 	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
-	t3_origuid int(11) DEFAULT '0' NOT NULL,
 
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
 	sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	l10n_diffsource mediumblob,
@@ -267,15 +275,16 @@ CREATE TABLE tx_icticontent_domain_model_geoarea (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
+
 );
 
 #
 # Table structure for table 'tx_icticontent_domain_model_country'
 #
 CREATE TABLE tx_icticontent_domain_model_country (
+
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
-
 
 	name varchar(255) DEFAULT '' NOT NULL,
 
@@ -296,8 +305,8 @@ CREATE TABLE tx_icticontent_domain_model_country (
 	t3ver_count int(11) DEFAULT '0' NOT NULL,
 	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
 	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
-	t3_origuid int(11) DEFAULT '0' NOT NULL,
 
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
 	sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	l10n_diffsource mediumblob,
@@ -306,15 +315,100 @@ CREATE TABLE tx_icticontent_domain_model_country (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
+
 );
 
 #
 # Table structure for table 'tx_icticontent_domain_model_province'
 #
 CREATE TABLE tx_icticontent_domain_model_province (
+
 	uid int(11) NOT NULL auto_increment,
 	pid int(11) DEFAULT '0' NOT NULL,
 
+	name varchar(255) DEFAULT '' NOT NULL,
+	country int(11) unsigned DEFAULT '0',
+	region int(11) unsigned DEFAULT '0',
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(255) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage int(11) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
+
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+	KEY language (l10n_parent,sys_language_uid)
+
+);
+
+#
+# Table structure for table 'tx_icticontent_domain_model_author'
+#
+CREATE TABLE tx_icticontent_domain_model_author (
+
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
+
+	name varchar(255) DEFAULT '' NOT NULL,
+	description text NOT NULL,
+	image text NOT NULL,
+
+	tstamp int(11) unsigned DEFAULT '0' NOT NULL,
+	crdate int(11) unsigned DEFAULT '0' NOT NULL,
+	cruser_id int(11) unsigned DEFAULT '0' NOT NULL,
+	deleted tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	hidden tinyint(4) unsigned DEFAULT '0' NOT NULL,
+	starttime int(11) unsigned DEFAULT '0' NOT NULL,
+	endtime int(11) unsigned DEFAULT '0' NOT NULL,
+
+	t3ver_oid int(11) DEFAULT '0' NOT NULL,
+	t3ver_id int(11) DEFAULT '0' NOT NULL,
+	t3ver_wsid int(11) DEFAULT '0' NOT NULL,
+	t3ver_label varchar(255) DEFAULT '' NOT NULL,
+	t3ver_state tinyint(4) DEFAULT '0' NOT NULL,
+	t3ver_stage int(11) DEFAULT '0' NOT NULL,
+	t3ver_count int(11) DEFAULT '0' NOT NULL,
+	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
+	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
+
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
+	sys_language_uid int(11) DEFAULT '0' NOT NULL,
+	l10n_parent int(11) DEFAULT '0' NOT NULL,
+	l10n_diffsource mediumblob,
+
+	PRIMARY KEY (uid),
+	KEY parent (pid),
+	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
+	KEY language (l10n_parent,sys_language_uid)
+
+);
+
+#
+# Table structure for table 'tx_icticontent_domain_model_region'
+#
+CREATE TABLE tx_icticontent_domain_model_region (
+
+	uid int(11) NOT NULL auto_increment,
+	pid int(11) DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
 	country int(11) unsigned DEFAULT '0',
@@ -336,8 +430,8 @@ CREATE TABLE tx_icticontent_domain_model_province (
 	t3ver_count int(11) DEFAULT '0' NOT NULL,
 	t3ver_tstamp int(11) DEFAULT '0' NOT NULL,
 	t3ver_move_id int(11) DEFAULT '0' NOT NULL,
-	t3_origuid int(11) DEFAULT '0' NOT NULL,
 
+	t3_origuid int(11) DEFAULT '0' NOT NULL,
 	sys_language_uid int(11) DEFAULT '0' NOT NULL,
 	l10n_parent int(11) DEFAULT '0' NOT NULL,
 	l10n_diffsource mediumblob,
@@ -346,7 +440,9 @@ CREATE TABLE tx_icticontent_domain_model_province (
 	KEY parent (pid),
 	KEY t3ver_oid (t3ver_oid,t3ver_wsid),
 	KEY language (l10n_parent,sys_language_uid)
+
 );
+
 
 #
 # Table structure for table 'tx_icticontent_content_geolocation_mm'
@@ -361,10 +457,6 @@ CREATE TABLE tx_icticontent_content_geolocation_mm (
 	KEY uid_foreign (uid_foreign)
 );
 
-
-
-
-
 #
 # Table structure for table 'tx_icticontent_content_keyword_mm'
 #
@@ -377,12 +469,6 @@ CREATE TABLE tx_icticontent_content_keyword_mm (
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );
-
-
-
-
-
-
 
 #
 # Table structure for table 'tx_icticontent_content_category_mm'
@@ -397,10 +483,6 @@ CREATE TABLE tx_icticontent_content_category_mm (
 	KEY uid_foreign (uid_foreign)
 );
 
-
-
-
-
 #
 # Table structure for table 'tx_icticontent_content_content_mm'
 #
@@ -413,10 +495,6 @@ CREATE TABLE tx_icticontent_content_content_mm (
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );
-
-
-
-
 
 #
 # Table structure for table 'tx_icticontent_content_geoarea_mm'
@@ -431,10 +509,6 @@ CREATE TABLE tx_icticontent_content_geoarea_mm (
 	KEY uid_foreign (uid_foreign)
 );
 
-
-
-
-
 #
 # Table structure for table 'tx_icticontent_content_country_mm'
 #
@@ -447,10 +521,6 @@ CREATE TABLE tx_icticontent_content_country_mm (
 	KEY uid_local (uid_local),
 	KEY uid_foreign (uid_foreign)
 );
-
-
-
-
 
 #
 # Table structure for table 'tx_icticontent_content_province_mm'
@@ -465,15 +535,31 @@ CREATE TABLE tx_icticontent_content_province_mm (
 	KEY uid_foreign (uid_foreign)
 );
 
+#
+# Table structure for table 'tx_icticontent_content_author_mm'
+#
+CREATE TABLE tx_icticontent_content_author_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
 
+#
+# Table structure for table 'tx_icticontent_content_region_mm'
+#
+CREATE TABLE tx_icticontent_content_region_mm (
+	uid_local int(11) unsigned DEFAULT '0' NOT NULL,
+	uid_foreign int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting int(11) unsigned DEFAULT '0' NOT NULL,
+	sorting_foreign int(11) unsigned DEFAULT '0' NOT NULL,
 
-
-
-
-
-
-
+	KEY uid_local (uid_local),
+	KEY uid_foreign (uid_foreign)
+);
 
 #
 # Table structure for table 'tx_icticontent_geoarea_country_mm'

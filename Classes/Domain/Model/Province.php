@@ -24,7 +24,6 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-
 /**
  *
  *
@@ -48,6 +47,13 @@ class Tx_Icticontent_Domain_Model_Province extends Tx_Extbase_DomainObject_Abstr
 	 * @var Tx_Icticontent_Domain_Model_Country
 	 */
 	protected $country;
+
+	/**
+	 * region
+	 *
+	 * @var Tx_Icticontent_Domain_Model_Region
+	 */
+	protected $region;
 
 	/**
 	 * Returns the name
@@ -85,6 +91,25 @@ class Tx_Icticontent_Domain_Model_Province extends Tx_Extbase_DomainObject_Abstr
 	 */
 	public function setCountry(Tx_Icticontent_Domain_Model_Country $country) {
 		$this->country = $country;
+	}
+
+	/**
+	 * Returns the region
+	 *
+	 * @return Tx_Icticontent_Domain_Model_Region $region
+	 */
+	public function getRegion() {
+		return $this->region;
+	}
+
+	/**
+	 * Sets the region
+	 *
+	 * @param Tx_Icticontent_Domain_Model_Region $region
+	 * @return void
+	 */
+	public function setRegion(Tx_Icticontent_Domain_Model_Region $region) {
+		$this->region = $region;
 	}
 
 }

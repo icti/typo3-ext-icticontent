@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_icticontent_domain_model_province'] = array(
 	'ctrl' => $TCA['tx_icticontent_domain_model_province']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, country',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, country, region',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, country,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, country, region,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -112,7 +112,24 @@ $TCA['tx_icticontent_domain_model_province'] = array(
 				'maxitems' => 1,
 			),
 		),
+		'region' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_province.region',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'tx_icticontent_domain_model_region',
+				'minitems' => 0,
+				'maxitems' => 1,
+			),
+		),
 	),
 );
+
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+
+Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_province', 'country');
+Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_province', 'region');
+
+Tx_Ictiextbase_Helpers_Tca::setDefaultItemOnSelect('tx_icticontent_domain_model_province', 'country');
+Tx_Ictiextbase_Helpers_Tca::setDefaultItemOnSelect('tx_icticontent_domain_model_province', 'region');
 ?>

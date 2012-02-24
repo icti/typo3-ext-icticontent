@@ -3,13 +3,13 @@ if (!defined ('TYPO3_MODE')) {
 	die ('Access denied.');
 }
 
-$TCA['tx_icticontent_domain_model_keyword'] = array(
-	'ctrl' => $TCA['tx_icticontent_domain_model_keyword']['ctrl'],
+$TCA['tx_icticontent_domain_model_author'] = array(
+	'ctrl' => $TCA['tx_icticontent_domain_model_author']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, description',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, description, image',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, description,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, description, image,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -37,8 +37,8 @@ $TCA['tx_icticontent_domain_model_keyword'] = array(
 				'items' => array(
 					array('', 0),
 				),
-				'foreign_table' => 'tx_icticontent_domain_model_keyword',
-				'foreign_table_where' => 'AND tx_icticontent_domain_model_keyword.pid=###CURRENT_PID### AND tx_icticontent_domain_model_keyword.sys_language_uid IN (-1,0)',
+				'foreign_table' => 'tx_icticontent_domain_model_author',
+				'foreign_table_where' => 'AND tx_icticontent_domain_model_author.pid=###CURRENT_PID### AND tx_icticontent_domain_model_author.sys_language_uid IN (-1,0)',
 			),
 		),
 		'l10n_diffsource' => array(
@@ -95,7 +95,7 @@ $TCA['tx_icticontent_domain_model_keyword'] = array(
 		),
 		'name' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_keyword.name',
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_author.name',
 			'config' => array(
 				'type' => 'input',
 				'size' => 30,
@@ -104,12 +104,36 @@ $TCA['tx_icticontent_domain_model_keyword'] = array(
 		),
 		'description' => array(
 			'exclude' => 0,
-			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_keyword.description',
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_author.description',
 			'config' => array(
 				'type' => 'text',
 				'cols' => 40,
 				'rows' => 15,
-				'eval' => 'trim'
+				'eval' => 'trim',
+				'wizards' => array(
+					'RTE' => array(
+						'icon' => 'wizard_rte2.gif',
+						'notNewRecords'=> 1,
+						'RTEonly' => 1,
+						'script' => 'wizard_rte.php',
+						'title' => 'LLL:EXT:cms/locallang_ttc.xml:bodytext.W.RTE',
+						'type' => 'script'
+					)
+				)
+			),
+			'defaultExtras' => 'richtext[]',
+		),
+		'image' => array(
+			'exclude' => 0,
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_author.image',
+			'config' => array(
+				'type' => 'group',
+				'internal_type' => 'file',
+				'uploadfolder' => 'uploads/tx_icticontent',
+				'show_thumbs' => 1,
+				'size' => 5,
+				'allowed' => $GLOBALS['TYPO3_CONF_VARS']['GFX']['imagefile_ext'],
+				'disallowed' => '',
 			),
 		),
 	),

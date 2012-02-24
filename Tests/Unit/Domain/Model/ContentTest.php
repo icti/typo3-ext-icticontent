@@ -49,8 +49,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	public function tearDown() {
 		unset($this->fixture);
 	}
-	
-	
+
 	/**
 	 * @test
 	 */
@@ -266,7 +265,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 * @test
 	 */
 	public function setVideosForObjectStorageContainingTx_Icticontent_Domain_Model_MediaSetsVideos() { 
-		$video = new Tx_Icticontent_Domain_Model_Media();
+		$video = new Tx_Icticontent_Domain_Model_MediaExternal();
 		$objectStorageHoldingExactlyOneVideos = new Tx_Extbase_Persistence_ObjectStorage();
 		$objectStorageHoldingExactlyOneVideos->attach($video);
 		$this->fixture->setVideos($objectStorageHoldingExactlyOneVideos);
@@ -281,7 +280,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 * @test
 	 */
 	public function addVideoToObjectStorageHoldingVideos() {
-		$video = new Tx_Icticontent_Domain_Model_Media();
+		$video = new Tx_Icticontent_Domain_Model_MediaExternal();
 		$objectStorageHoldingExactlyOneVideo = new Tx_Extbase_Persistence_ObjectStorage();
 		$objectStorageHoldingExactlyOneVideo->attach($video);
 		$this->fixture->addVideo($video);
@@ -296,7 +295,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 * @test
 	 */
 	public function removeVideoFromObjectStorageHoldingVideos() {
-		$video = new Tx_Icticontent_Domain_Model_Media();
+		$video = new Tx_Icticontent_Domain_Model_MediaExternal();
 		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$localObjectStorage->attach($video);
 		$localObjectStorage->detach($video);
@@ -753,7 +752,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 * @test
 	 */
 	public function setDownloadsForObjectStorageContainingTx_Icticontent_Domain_Model_MediaSetsDownloads() { 
-		$download = new Tx_Icticontent_Domain_Model_Media();
+		$download = new Tx_Icticontent_Domain_Model_MediaExternal();
 		$objectStorageHoldingExactlyOneDownloads = new Tx_Extbase_Persistence_ObjectStorage();
 		$objectStorageHoldingExactlyOneDownloads->attach($download);
 		$this->fixture->setDownloads($objectStorageHoldingExactlyOneDownloads);
@@ -768,7 +767,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 * @test
 	 */
 	public function addDownloadToObjectStorageHoldingDownloads() {
-		$download = new Tx_Icticontent_Domain_Model_Media();
+		$download = new Tx_Icticontent_Domain_Model_MediaExternal();
 		$objectStorageHoldingExactlyOneDownload = new Tx_Extbase_Persistence_ObjectStorage();
 		$objectStorageHoldingExactlyOneDownload->attach($download);
 		$this->fixture->addDownload($download);
@@ -783,7 +782,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 * @test
 	 */
 	public function removeDownloadFromObjectStorageHoldingDownloads() {
-		$download = new Tx_Icticontent_Domain_Model_Media();
+		$download = new Tx_Icticontent_Domain_Model_MediaExternal();
 		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$localObjectStorage->attach($download);
 		$localObjectStorage->detach($download);
@@ -811,7 +810,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 * @test
 	 */
 	public function setLinksForObjectStorageContainingTx_Icticontent_Domain_Model_MediaSetsLinks() { 
-		$link = new Tx_Icticontent_Domain_Model_Media();
+		$link = new Tx_Icticontent_Domain_Model_MediaExternal();
 		$objectStorageHoldingExactlyOneLinks = new Tx_Extbase_Persistence_ObjectStorage();
 		$objectStorageHoldingExactlyOneLinks->attach($link);
 		$this->fixture->setLinks($objectStorageHoldingExactlyOneLinks);
@@ -826,7 +825,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 * @test
 	 */
 	public function addLinkToObjectStorageHoldingLinks() {
-		$link = new Tx_Icticontent_Domain_Model_Media();
+		$link = new Tx_Icticontent_Domain_Model_MediaExternal();
 		$objectStorageHoldingExactlyOneLink = new Tx_Extbase_Persistence_ObjectStorage();
 		$objectStorageHoldingExactlyOneLink->attach($link);
 		$this->fixture->addLink($link);
@@ -841,7 +840,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 * @test
 	 */
 	public function removeLinkFromObjectStorageHoldingLinks() {
-		$link = new Tx_Icticontent_Domain_Model_Media();
+		$link = new Tx_Icticontent_Domain_Model_MediaExternal();
 		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$localObjectStorage->attach($link);
 		$localObjectStorage->detach($link);
@@ -851,6 +850,122 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 		$this->assertEquals(
 			$localObjectStorage,
 			$this->fixture->getLinks()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getAuthorsReturnsInitialValueForObjectStorageContainingTx_Icticontent_Domain_Model_Author() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getAuthors()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setAuthorsForObjectStorageContainingTx_Icticontent_Domain_Model_AuthorSetsAuthors() { 
+		$author = new Tx_Icticontent_Domain_Model_Author();
+		$objectStorageHoldingExactlyOneAuthors = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneAuthors->attach($author);
+		$this->fixture->setAuthors($objectStorageHoldingExactlyOneAuthors);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneAuthors,
+			$this->fixture->getAuthors()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addAuthorToObjectStorageHoldingAuthors() {
+		$author = new Tx_Icticontent_Domain_Model_Author();
+		$objectStorageHoldingExactlyOneAuthor = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneAuthor->attach($author);
+		$this->fixture->addAuthor($author);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneAuthor,
+			$this->fixture->getAuthors()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeAuthorFromObjectStorageHoldingAuthors() {
+		$author = new Tx_Icticontent_Domain_Model_Author();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($author);
+		$localObjectStorage->detach($author);
+		$this->fixture->addAuthor($author);
+		$this->fixture->removeAuthor($author);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getAuthors()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getRegionsReturnsInitialValueForObjectStorageContainingTx_Icticontent_Domain_Model_Region() { 
+		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->assertEquals(
+			$newObjectStorage,
+			$this->fixture->getRegions()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setRegionsForObjectStorageContainingTx_Icticontent_Domain_Model_RegionSetsRegions() { 
+		$region = new Tx_Icticontent_Domain_Model_Region();
+		$objectStorageHoldingExactlyOneRegions = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneRegions->attach($region);
+		$this->fixture->setRegions($objectStorageHoldingExactlyOneRegions);
+
+		$this->assertSame(
+			$objectStorageHoldingExactlyOneRegions,
+			$this->fixture->getRegions()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function addRegionToObjectStorageHoldingRegions() {
+		$region = new Tx_Icticontent_Domain_Model_Region();
+		$objectStorageHoldingExactlyOneRegion = new Tx_Extbase_Persistence_ObjectStorage();
+		$objectStorageHoldingExactlyOneRegion->attach($region);
+		$this->fixture->addRegion($region);
+
+		$this->assertEquals(
+			$objectStorageHoldingExactlyOneRegion,
+			$this->fixture->getRegions()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function removeRegionFromObjectStorageHoldingRegions() {
+		$region = new Tx_Icticontent_Domain_Model_Region();
+		$localObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
+		$localObjectStorage->attach($region);
+		$localObjectStorage->detach($region);
+		$this->fixture->addRegion($region);
+		$this->fixture->removeRegion($region);
+
+		$this->assertEquals(
+			$localObjectStorage,
+			$this->fixture->getRegions()
 		);
 	}
 	

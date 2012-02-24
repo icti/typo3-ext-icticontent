@@ -30,6 +30,8 @@
 			<label index="provinces.description">provinces</label>
 			<label index="downloads.description">downloads</label>
 			<label index="links.description">links</label>
+			<label index="authors.description">authors</label>
+			<label index="regions.description">regions</label>
 		</languageKey>
 	</data>
 </T3locallang>

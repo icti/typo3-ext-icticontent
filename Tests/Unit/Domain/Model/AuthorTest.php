@@ -25,7 +25,7 @@
  ***************************************************************/
 
 /**
- * Test case for class Tx_Icticontent_Domain_Model_GeoLocation.
+ * Test case for class Tx_Icticontent_Domain_Model_Author.
  *
  * @version $Id$
  * @copyright Copyright belongs to the respective authors
@@ -36,14 +36,14 @@
  *
  * @author Jose Antonio Guerra <jaguerra@icti.es>
  */
-class Tx_Icticontent_Domain_Model_GeoLocationTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
+class Tx_Icticontent_Domain_Model_AuthorTest extends Tx_Extbase_Tests_Unit_BaseTestCase {
 	/**
-	 * @var Tx_Icticontent_Domain_Model_GeoLocation
+	 * @var Tx_Icticontent_Domain_Model_Author
 	 */
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new Tx_Icticontent_Domain_Model_GeoLocation();
+		$this->fixture = new Tx_Icticontent_Domain_Model_Author();
 	}
 
 	public function tearDown() {
@@ -87,34 +87,17 @@ class Tx_Icticontent_Domain_Model_GeoLocationTest extends Tx_Extbase_Tests_Unit_
 	/**
 	 * @test
 	 */
-	public function getCoordXReturnsInitialValueForString() { }
+	public function getImageReturnsInitialValueForString() { }
 
 	/**
 	 * @test
 	 */
-	public function setCoordXForStringSetsCoordX() { 
-		$this->fixture->setCoordX('Conceived at T3CON10');
+	public function setImageForStringSetsImage() { 
+		$this->fixture->setImage('Conceived at T3CON10');
 
 		$this->assertSame(
 			'Conceived at T3CON10',
-			$this->fixture->getCoordX()
-		);
-	}
-	
-	/**
-	 * @test
-	 */
-	public function getCoordYReturnsInitialValueForString() { }
-
-	/**
-	 * @test
-	 */
-	public function setCoordYForStringSetsCoordY() { 
-		$this->fixture->setCoordY('Conceived at T3CON10');
-
-		$this->assertSame(
-			'Conceived at T3CON10',
-			$this->fixture->getCoordY()
+			$this->fixture->getImage()
 		);
 	}
 	

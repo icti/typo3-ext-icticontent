@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_icticontent_domain_model_content'] = array(
 	'ctrl' => $TCA['tx_icticontent_domain_model_content']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, content_type, short, description, front_image, images, start_date, end_date, city, highlight, images_captions, images_alt_text, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces, downloads, links',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, content_type, short, description, front_image, images, start_date, end_date, city, highlight, images_captions, images_alt_text, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces, downloads, links, authors, regions',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, content_type, short, description, front_image, images, start_date, end_date, city, highlight, images_captions, images_alt_text, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces, downloads, links,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, content_type, short, description, front_image, images, start_date, end_date, city, highlight, images_captions, images_alt_text, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces, downloads, links, authors, regions,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -166,8 +166,7 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.start_date',
 			'config' => array(
 				'type' => 'input',
-				'size' => 12,
-				'max' => 20,
+				'size' => 10,
 				'eval' => 'datetime',
 				'checkbox' => 1,
 				'default' => time()
@@ -178,8 +177,7 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.end_date',
 			'config' => array(
 				'type' => 'input',
-				'size' => 12,
-				'max' => 20,
+				'size' => 10,
 				'eval' => 'datetime',
 				'checkbox' => 1,
 				'default' => time()
@@ -535,8 +533,81 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 				),
 			),
 		),
+		'authors' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.authors',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'tx_icticontent_domain_model_author',
+				'MM' => 'tx_icticontent_content_author_mm',
+				'size' => 10,
+				'autoSizeMax' => 30,
+				'maxitems' => 9999,
+				'multiple' => 0,
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'icon' => 'edit2.gif',
+						'popup_onlyOpenIfSelected' => 1,
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+						),
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_icticontent_domain_model_author',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+							),
+						'script' => 'wizard_add.php',
+					),
+				),
+			),
+		),
+		'regions' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.regions',
+			'config' => array(
+				'type' => 'select',
+				'foreign_table' => 'tx_icticontent_domain_model_region',
+				'MM' => 'tx_icticontent_content_region_mm',
+				'size' => 10,
+				'autoSizeMax' => 30,
+				'maxitems' => 9999,
+				'multiple' => 0,
+				'wizards' => array(
+					'_PADDING' => 1,
+					'_VERTICAL' => 1,
+					'edit' => array(
+						'type' => 'popup',
+						'title' => 'Edit',
+						'script' => 'wizard_edit.php',
+						'icon' => 'edit2.gif',
+						'popup_onlyOpenIfSelected' => 1,
+						'JSopenParams' => 'height=350,width=580,status=0,menubar=0,scrollbars=1',
+						),
+					'add' => Array(
+						'type' => 'script',
+						'title' => 'Create new',
+						'icon' => 'add.gif',
+						'params' => array(
+							'table' => 'tx_icticontent_domain_model_region',
+							'pid' => '###CURRENT_PID###',
+							'setValue' => 'prepend'
+							),
+						'script' => 'wizard_add.php',
+					),
+				),
+			),
+		),
 	),
 );
+
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 
 Tx_Ictiextbase_Helpers_Tca::setSelectTYPO3Pages('tx_icticontent_domain_model_content', 'related_page');
@@ -551,6 +622,8 @@ Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_doma
 Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_content', 'countries');
 Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_content', 'provinces');
 Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_content', 'geo_locations');
+Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_content', 'authors');
+Tx_Ictiextbase_Helpers_Tca::setForeignTableWhereForAuxTable('tx_icticontent_domain_model_content', 'regions');
 
 
 $TCA['tx_icticontent_domain_model_content']['columns']['start_date']['config']['default'] = 0;
@@ -569,7 +642,7 @@ $TCA['tx_icticontent_domain_model_content']['types']['Tx_Icticontent_Domain_Mode
 		name, content_type, short, description, front_image, images, images_captions, images_alt_text, start_date, end_date, highlight,
 		city, videos, downloads, links, 
 		geo_locations, keywords, related_page, categories, related_contents, 
-		geo_areas, countries, provinces,
+		geo_areas, countries, regions, provinces, authors,
 		--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'
 	);
 
@@ -586,5 +659,4 @@ global $TYPO3_CONF_VARS;
 foreach($TYPO3_CONF_VARS['EXTCONF']['icticontent']['additionalContentTCAIncludes'] as $includeFile){
 	include($includeFile);
 }
-
 ?>

@@ -49,8 +49,7 @@ class Tx_Icticontent_Domain_Model_ProvinceTest extends Tx_Extbase_Tests_Unit_Bas
 	public function tearDown() {
 		unset($this->fixture);
 	}
-	
-	
+
 	/**
 	 * @test
 	 */
@@ -88,6 +87,29 @@ class Tx_Icticontent_Domain_Model_ProvinceTest extends Tx_Extbase_Tests_Unit_Bas
 		$this->assertSame(
 			$dummyObject,
 			$this->fixture->getCountry()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getRegionReturnsInitialValueForTx_Icticontent_Domain_Model_Region() { 
+		$this->assertEquals(
+			NULL,
+			$this->fixture->getRegion()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setRegionForTx_Icticontent_Domain_Model_RegionSetsRegion() { 
+		$dummyObject = new Tx_Icticontent_Domain_Model_Region();
+		$this->fixture->setRegion($dummyObject);
+
+		$this->assertSame(
+			$dummyObject,
+			$this->fixture->getRegion()
 		);
 	}
 	

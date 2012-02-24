@@ -24,7 +24,6 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-
 /**
  *
  *
@@ -107,6 +106,20 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	protected $highlight;
 
 	/**
+	 * imagesCaptions
+	 *
+	 * @var string
+	 */
+	protected $imagesCaptions;
+
+	/**
+	 * imagesAltText
+	 *
+	 * @var string
+	 */
+	protected $imagesAltText;
+
+	/**
 	 * videos
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
@@ -184,18 +197,18 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	protected $links;
 
 	/**
-	 * imagesCaptions
+	 * authors
 	 *
-	 * @var string
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Author>
 	 */
-	protected $imagesCaptions;
+	protected $authors;
 
 	/**
-	 * imagesAltText
+	 * regions
 	 *
-	 * @var string
+	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Region>
 	 */
-	protected $imagesAltText;
+	protected $regions;
 
 	/**
 	 * __construct
@@ -237,6 +250,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 		$this->downloads = new Tx_Extbase_Persistence_ObjectStorage();
 		
 		$this->links = new Tx_Extbase_Persistence_ObjectStorage();
+		
+		$this->authors = new Tx_Extbase_Persistence_ObjectStorage();
+		
+		$this->regions = new Tx_Extbase_Persistence_ObjectStorage();
 	}
 
 	/**
@@ -891,6 +908,84 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function setImagesAltText($imagesAltText) {
 		$this->imagesAltText = $imagesAltText;
+	}
+
+	/**
+	 * Adds a Author
+	 *
+	 * @param Tx_Icticontent_Domain_Model_Author $author
+	 * @return void
+	 */
+	public function addAuthor(Tx_Icticontent_Domain_Model_Author $author) {
+		$this->authors->attach($author);
+	}
+
+	/**
+	 * Removes a Author
+	 *
+	 * @param Tx_Icticontent_Domain_Model_Author $authorToRemove The Author to be removed
+	 * @return void
+	 */
+	public function removeAuthor(Tx_Icticontent_Domain_Model_Author $authorToRemove) {
+		$this->authors->detach($authorToRemove);
+	}
+
+	/**
+	 * Returns the authors
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Author> $authors
+	 */
+	public function getAuthors() {
+		return $this->authors;
+	}
+
+	/**
+	 * Sets the authors
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Author> $authors
+	 * @return void
+	 */
+	public function setAuthors(Tx_Extbase_Persistence_ObjectStorage $authors) {
+		$this->authors = $authors;
+	}
+
+	/**
+	 * Adds a Region
+	 *
+	 * @param Tx_Icticontent_Domain_Model_Region $region
+	 * @return void
+	 */
+	public function addRegion(Tx_Icticontent_Domain_Model_Region $region) {
+		$this->regions->attach($region);
+	}
+
+	/**
+	 * Removes a Region
+	 *
+	 * @param Tx_Icticontent_Domain_Model_Region $regionToRemove The Region to be removed
+	 * @return void
+	 */
+	public function removeRegion(Tx_Icticontent_Domain_Model_Region $regionToRemove) {
+		$this->regions->detach($regionToRemove);
+	}
+
+	/**
+	 * Returns the regions
+	 *
+	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Region> $regions
+	 */
+	public function getRegions() {
+		return $this->regions;
+	}
+
+	/**
+	 * Sets the regions
+	 *
+	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Region> $regions
+	 * @return void
+	 */
+	public function setRegions(Tx_Extbase_Persistence_ObjectStorage $regions) {
+		$this->regions = $regions;
 	}
 
 }

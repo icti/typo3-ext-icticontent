@@ -49,8 +49,7 @@ class Tx_Icticontent_Domain_Model_Typo3PageTest extends Tx_Extbase_Tests_Unit_Ba
 	public function tearDown() {
 		unset($this->fixture);
 	}
-	
-	
+
 	/**
 	 * @test
 	 */

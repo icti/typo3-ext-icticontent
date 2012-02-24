@@ -43,14 +43,13 @@ class Tx_Icticontent_Domain_Model_MediaTest extends Tx_Extbase_Tests_Unit_BaseTe
 	protected $fixture;
 
 	public function setUp() {
-		$this->fixture = new Tx_Icticontent_Domain_Model_Media();
+		$this->fixture = new Tx_Icticontent_Domain_Model_MediaExternal();
 	}
 
 	public function tearDown() {
 		unset($this->fixture);
 	}
-	
-	
+
 	/**
 	 * @test
 	 */

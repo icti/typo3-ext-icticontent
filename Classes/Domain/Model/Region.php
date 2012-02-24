@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Jose Antonio Guerra <jaguerra@icti.es>, ICTI Internet Passion S.L.
+ *  (c) 2012 Jose Antonio Guerra <jaguerra@icti.es>, ICTI Internet Passion S.L.
  *  
  *  All rights reserved
  *
@@ -28,10 +28,10 @@
  *
  *
  * @package icticontent
- * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
+ * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
-class Tx_Icticontent_Domain_Model_Country extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_Icticontent_Domain_Model_Region extends Tx_Extbase_DomainObject_AbstractEntity {
 
 	/**
 	 * name
@@ -40,6 +40,13 @@ class Tx_Icticontent_Domain_Model_Country extends Tx_Extbase_DomainObject_Abstra
 	 * @validate NotEmpty
 	 */
 	protected $name;
+
+	/**
+	 * country
+	 *
+	 * @var Tx_Icticontent_Domain_Model_Country
+	 */
+	protected $country;
 
 	/**
 	 * Returns the name
@@ -58,6 +65,25 @@ class Tx_Icticontent_Domain_Model_Country extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function setName($name) {
 		$this->name = $name;
+	}
+
+	/**
+	 * Returns the country
+	 *
+	 * @return Tx_Icticontent_Domain_Model_Country $country
+	 */
+	public function getCountry() {
+		return $this->country;
+	}
+
+	/**
+	 * Sets the country
+	 *
+	 * @param Tx_Icticontent_Domain_Model_Country $country
+	 * @return void
+	 */
+	public function setCountry(Tx_Icticontent_Domain_Model_Country $country) {
+		$this->country = $country;
 	}
 
 }
