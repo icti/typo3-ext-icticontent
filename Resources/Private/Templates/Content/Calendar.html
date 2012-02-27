@@ -1,0 +1,239 @@
+{namespace ficti=Tx_Ictiextbase_ViewHelpers}
+<f:layout name="Default" />
+
+
+<f:section name="main">
+    
+	
+    <div class="wrapper_csc">
+        <div class="cajadestacados color1">
+            <div class="retroceder_mes"> 
+				<div class="botoncolorido"><div class="enlace"><f:link.action action="calendar" arguments="{filterYear : prevYear, filterMonth : prevMonth}" 
+							   title="{f:translate(key:'goPrevMonth')}">
+					&laquo;&nbsp;Mes anterior<!--{prevMonth}/{prevYear}-->
+				</f:link.action></div></div>
+			</div>
+		<div class="mes_actual">
+		<h4><span class="capitaliza">{currentMonthDateTime -> ficti:format.strftime(format:"%B")}</span> de {year}</h4>
+		</div>
+            <div class="seleccionar_datos">
+
+                <f:form id="quicksearch" method="get" action="calendar">
+				<fieldset>
+				<div class="wrapper_fila">
+					<legend>Ver otro mes:</legend>
+					<div class="wrapper-opcion">
+					    <label for="form_filtrarmes" class="accesibilidad">
+								<f:translate key="selectMonth">
+									Seleccione mes:
+								</f:translate>
+								
+							</label>
+					    <f:form.select id="form_filtrarmes" name="filterMonth" 
+										   options="{lookupService.filterMonth}" 
+										   optionLabelField="name" optionValueField="uid" 
+										   value="{filtersService.filterMonth}" />
+					</div>
+					<div class="wrapper-opcion">
+					    <label for="form_filtrarano" class="accesibilidad">
+								<f:translate key="selectYear">
+									Seleccione a&ntilde;o:
+								</f:translate>
+							</label>
+					    <f:form.select id="form_filtrarano" name="filterYear" 
+										   options="{lookupService.filterYear}" 
+										   optionLabelField="name" optionValueField="uid" 
+										   value="{filtersService.filterYear}" />
+					</div>
+					<div class="wrapper-opcion">
+					    <label for="form_ordenarpor_submit">
+								<f:form.submit id="form_ordenarpor_submit" value="Actualizar" />
+							</label>
+					</div>
+				</div>
+				<!--
+				
+				ESTA FILA ES PARA AÑADIR EL FILTRO POR TIPO DE CONTENIDO
+				
+				<div class="wrapper_fila">
+					<legend>Mostrar:</legend>
+					<div class="wrapper-opcion">
+					    <label for="form_filtrarmes" class="accesibilidad">
+								<f:translate key="selectMonth">
+									Seleccione mes:
+								</f:translate>
+								
+							</label>
+					    <f:form.select id="form_filtrarmes" name="filterMonth" 
+										   options="{lookupService.filterMonth}" 
+										   optionLabelField="name" optionValueField="uid" 
+										   value="{filtersService.filterMonth}" />
+					</div>
+				</div>
+				
+				-->
+				</fieldset>
+                </f:form>
+            </div>             
+
+            <div class="avanzar_mes">
+				<div class="botoncolorido"><div class="enlace"><f:link.action action="calendar" arguments="{filterYear : nextYear, filterMonth : nextMonth}" 
+							   title="{f:translate(key:'goNextMonth')}">
+					Mes siguiente&nbsp;&raquo;<!--{nextMonth}/{nextYear}-->
+				</f:link.action></div></div>
+			</div>
+        </div>
+    </div>
+    
+    
+    
+    
+    <div class="wrapper_csc">
+        <div class="calendario">
+            <f:for each="{calendarArray}" as="calendarWeek">
+                <div class="wrapper_semana">   
+                    <f:for each="{calendarWeek}" as="calendarDay">
+                        
+                        
+                        
+                        <div class="wrapper_dia {f:if(condition: '{calendarDay.notThisMonth}', then: 'inactivo', else: 'activo')} 
+							 {f:if(condition: '{calendarDay.content}', then: 'conevento')} 
+							 {f:if(condition: '{calendarDay.today}', then: 'hoy')}">
+                            <div class="numerodia">
+								<h4>
+									<span class="accesibilidad">
+										<f:translate key="eventsFromDay">
+											Eventos del d&iacute;a
+										</f:translate>
+										&nbsp;
+									</span>
+									{calendarDay.day}
+								</h4>
+							</div>
+                            <f:for each="{calendarDay.content}" as="dayContent">
+                                <div class="evento">
+									<f:if condition="{dayContent.frontImage}">
+										<!--
+										LE QUITAMOS LA IMAGEN AL CALENDARIO
+										25.01.2012 Relates #10342
+										
+										<div class="foto_evento">
+											<f:image src="{dayContent.frontImage.mediaUri}" 
+													 width="129" height="129c" alt="{dayContent.name}" />
+										</div>
+										-->
+									</f:if> 									
+                                    <f:if condition="{dayContent.keywords}">
+                                        <div class="tags_evento">
+                                            <ul class="tags">
+                                                <f:for each="{dayContent.keywords}" as="keyword">
+                                                    <li class="grisclaro">
+                                                        <f:link.action action="list" arguments="{filterKeyword : keyword}" 
+																	   pageUid="{settings.listPid}">
+                                                            <span>{keyword.name}</span>
+                                                        </f:link.action>
+                                                    </li>
+                                                </f:for>
+                                            </ul>  
+                                        </div>
+                                    </f:if>                                     
+                                    <div class="titular_evento">
+                                        <h5>
+                                            <f:link.action action="show" arguments="{content : dayContent}" pageUid="{settings.singlePid}">
+                                                {dayContent.name}
+                                            </f:link.action>
+                                        </h5>
+                                    </div>
+                                    
+                                    <div class="texto_evento">
+										<p class="bodytext">
+											{dayContent.subtitle -> f:format.nl2br()}
+										</p>
+									</div>
+                                </div>                                                                           
+                            </f:for>                              
+
+                        </div> 
+                    </f:for>
+                </div>
+            </f:for>
+        </div>
+    </div>
+
+</f:section>
+
+<f:section name="main2">
+    <h1>Calendar</h1>
+    <h2>{month}/{year}</h2>
+    <ul>
+        <li>
+            <f:link.action action="calendar" arguments="{filterYear : prevYear, filterMonth : prevMonth}">
+                {prevMonth}/{prevYear}
+            </f:link.action>                
+        </li>
+        <li>
+            <f:link.action action="calendar" arguments="{filterYear : nextYear, filterMonth : nextMonth}">
+                {nextMonth}/{nextYear}
+            </f:link.action>                
+        </li>        
+    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <f:for each="{calendarHeadings}" as="calendarHead">
+                    <th>{calendarHead}</th>
+                </f:for>
+            </tr>
+        </thead>
+        <tbody>
+            <f:for each="{calendarArray}" as="calendarWeek">
+                <tr>
+                    <f:for each="{calendarWeek}" as="calendarDay">
+                        <f:if condition="{calendarDay.notThisMonth}">
+                            <f:then>
+                                <td>
+                                    <em>{calendarDay.day}</em>
+                                    <f:if condition="{calendarDay.content}">
+                                        <ul>
+                                            <f:for each="{calendarDay.content}" as="dayContent">
+                                                <li>
+                                                    <f:link.action action="show" arguments="{content : dayContent}" pageUid="{settings.singlePid}">
+                                                        {dayContent.name}
+                                                    </f:link.action>
+                                                </li>                                            
+                                            </f:for>                                            
+
+                                        </ul>
+
+                                    </f:if>
+                                    
+                                </td>
+                            </f:then>
+                            <f:else>
+                                <td>
+                                    {calendarDay.day}
+                                    <f:if condition="{calendarDay.content}">
+                                        <ul>
+                                            <f:for each="{calendarDay.content}" as="dayContent">
+                                                <li>
+                                                    <f:link.action action="show" arguments="{content : dayContent}" pageUid="{settings.singlePid}">
+                                                        {dayContent.name}
+                                                    </f:link.action>
+                                                </li>                                            
+                                            </f:for>                                            
+
+                                        </ul>
+
+                                    </f:if>
+                                </td>
+                            </f:else>
+                        </f:if>
+                        
+                    </f:for>
+                </tr>
+            </f:for>
+        </tbody>
+    </table>
+</f:section>
+

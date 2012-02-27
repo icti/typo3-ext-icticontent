@@ -1,0 +1,30 @@
+<T3DataStructure>
+	<sheets>
+		<sDEF>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>Options</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+				<el>
+                    <settings.listPid>
+                        <TCEforms>
+                            <exclude>1</exclude>
+                            <label>Página de listado</label>
+                            <config>
+                                <type>group</type>
+                                <internal_type>db</internal_type>
+                                <allowed>pages</allowed>
+                                <size>1</size>
+                                <maxitems>1</maxitems>
+                                <minitems>0</minitems>
+                                <show_thumbs>0</show_thumbs>
+                            </config>
+                        </TCEforms>
+                    </settings.listPid>                    
+                    
+				</el>
+			</ROOT>
+		</sDEF>
+	</sheets>
+</T3DataStructure>

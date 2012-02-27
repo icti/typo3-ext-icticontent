@@ -987,6 +987,31 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	public function setRegions(Tx_Extbase_Persistence_ObjectStorage $regions) {
 		$this->regions = $regions;
 	}
+	
+	/**
+	 * Check if this content should appear on the given calendar day
+	 *
+	 * @param int $year
+	 * @param int $month
+	 * @param int $day
+	 * @return boolean
+	 */
+	public function isInCalendarDay($year, $month, $day) {
+		
+		$startDate = new DateTime;
+		$startDate->setDate($year, $month, $day);
+		$startDate->setTime(0,0);
+		$endDate = new DateTime;
+		$endDate->setDate($year, $month, $day);
+		$endDate->setTime(23,59,59);
+
+
+		if($this->getStartDate() >= $startDate && $this->getStartDate() <= $endDate){
+			return true;
+		} else {
+			return false;
+		}
+	}	
 
 }
 ?>

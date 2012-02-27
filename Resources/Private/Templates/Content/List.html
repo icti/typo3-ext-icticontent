@@ -1,3 +1,4 @@
+{namespace ficti=Tx_Ictiextbase_ViewHelpers}
 <f:layout name="Default" />
 
 
@@ -9,14 +10,14 @@
             
             <f:if condition="{settings.hidePager}">
                 <f:then>
-                    <f:widget.paginate objects="{contents}" as="paginatedContents" configuration="{itemsPerPage:settings.itemsPerPage, insertAbove:0, insertBelow:0}">
+                    <ficti:widget.paginate objects="{contents}" as="paginatedContents" configuration="{itemsPerPage:settings.itemsPerPage, insertAbove:0, insertBelow:0}">
                         <f:render section="listItems" arguments="{paginatedContents:paginatedContents}"/>
-                    </f:widget.paginate>   
+                    </ficti:widget.paginate>   
                 </f:then>
                 <f:else>
-                    <f:widget.paginate objects="{contents}" as="paginatedContents" configuration="{itemsPerPage:settings.itemsPerPage, insertAbove:0, insertBelow:1}">
+                    <ficti:widget.paginate objects="{contents}" as="paginatedContents" configuration="{itemsPerPage:settings.itemsPerPage, insertAbove:0, insertBelow:1}">
                         <f:render section="listItems" arguments="{paginatedContents:paginatedContents}"/>
-                    </f:widget.paginate>                       
+                    </ficti:widget.paginate>                       
                 </f:else>
             </f:if>
                 
@@ -46,7 +47,7 @@
 							</f:link.action> 					
 						</h4>
 						<p class="fecha">
-							{content.startDate -> f:format.date(format:"j \d\e F \d\e Y")}
+							{content.startDate -> ficti:format.strftime(format:"%e de %B de %Y")}
 						</p>
 						<div class="etiquetas">
 							<f:if condition="{content.keywords}">
