@@ -77,33 +77,29 @@ class Tx_Icticontent_Service_FiltersService extends Tx_Ictiextbase_Service_Abstr
 	 * @Ictiextbase\Service\Filters\filter
 	 * 
 	 */
-	protected $filterMonth;		
+	protected $filterMonth = 0;		
 	
 	/**
 	 * @Ictiextbase\Service\Filters\filter
 	 * 
 	 */
-	protected $filterYear;	
+	protected $filterYear = 0;	
 	
 	
-	public function getFilterMonth(){
-        
-        if(!$this->filterMonth){
-            $this->filterMonth = strftime('%m');
-        }
-		
+	public function getFilterMonth(){        
 		return $this->filterMonth;
 	}
 	
 	public function getFilterYear(){
-		
-        if(!$this->filterYear){
-            $this->filterYear = strftime('%Y');
-        }
-		
 		return $this->filterYear;		
 	}	
  
+	
+	
+	public function __construct() {		
+		$this->filterMonth = strftime('%m');
+		$this->filterYear = strftime('%Y');
+	}
 
 }
 ?>
