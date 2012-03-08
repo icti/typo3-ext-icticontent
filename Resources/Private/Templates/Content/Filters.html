@@ -17,12 +17,12 @@
                         <fieldset class="tx-powermail-pi1_fieldset">
                             <div class="wrapper_labelinput_bonito">
                                 <div class="labelbonito">
-                                    <label for="filterCategory">Category</label>
+                                    <label for="filterCategory">Categor&iacute;a</label>
                                 </div>
 
                                 <div class="inputbonito">
 									<ficti:form.select id="filterCategory" name="filterCategory" 
-														withAnyOption="Any category" 
+														withAnyOption="Cualquier categoría" 
 														options="{lookupService.filterCategory}" 
 														optionLabelField="name" optionValueField="uid" 
 														value="{filtersService.filterCategory}" />
@@ -32,7 +32,7 @@
                             <div class="wrapper_submit">
                                 <div class="inputbonito">
                                     <label>
-										<f:form.submit value="Search" />
+										<f:form.submit class="powermail_submit" value="Buscar" />
 									</label>
                                 </div>
                             </div>
