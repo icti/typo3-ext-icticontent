@@ -6,11 +6,14 @@ plugin.tx_icticontent {
 		partialRootPath = EXT:icticontent/Resources/Private/Partials/
 		# cat=plugin.tx_icticontent/file; type=string; label=Path to template layouts (FE)
 		layoutRootPath = EXT:icticontent/Resources/Private/Layouts/
-
-		pluginNamespace = tx_icticontent
 	}
 	persistence {
 		# cat=plugin.tx_icticontent//a; type=int+; label=Default storage PID
 		storagePid = 
 	}
+}
+## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+
+plugin.tx_icticontent {
+	view.pluginNamespace = tx_icticontent
 }

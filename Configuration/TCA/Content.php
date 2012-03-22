@@ -132,8 +132,19 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 				'type' => 'text',
 				'cols' => 40,
 				'rows' => 15,
-				'eval' => 'trim'
+				'eval' => 'trim',
+				'wizards' => array(
+					'RTE' => array(
+						'icon' => 'wizard_rte2.gif',
+						'notNewRecords'=> 1,
+						'RTEonly' => 1,
+						'script' => 'wizard_rte.php',
+						'title' => 'LLL:EXT:cms/locallang_ttc.xml:bodytext.W.RTE',
+						'type' => 'script'
+					)
+				)
 			),
+			'defaultExtras' => 'richtext[]',
 		),
 		'front_image' => array(
 			'exclude' => 1,
@@ -344,7 +355,7 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.related_page',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_icticontent_domain_model_typo3page',
+				'foreign_table' => 'pages',
 				'minitems' => 0,
 				'maxitems' => 1,
 			),

@@ -38,7 +38,7 @@
 ############  extension settings  ##############
 
 emConf:
-  dependencies: cms,extbase,fluid,ictiextbase
+  dependencies: cms,extbase,fluid,ictiextbase,fed
 
 overwriteSettings:
   Classes:

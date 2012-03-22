@@ -3,17 +3,12 @@ plugin.tx_icticontent {
 		templateRootPath = {$plugin.tx_icticontent.view.templateRootPath}
 		partialRootPath = {$plugin.tx_icticontent.view.partialRootPath}
 		layoutRootPath = {$plugin.tx_icticontent.view.layoutRootPath}
-		pluginNamespace = {$plugin.tx_icticontent.view.pluginNamespace}
 	}
 	persistence {
 		storagePid = {$plugin.tx_icticontent.persistence.storagePid}
 	}
 
-	settings {
-		itemsPerPage = 10
-	}
 
-	#icticontent.disableCache = 1
 }
 
 plugin.tx_icticontent._CSS_DEFAULT_STYLE (
@@ -36,6 +31,21 @@ plugin.tx_icticontent._CSS_DEFAULT_STYLE (
 	}
 )
 
+
+
+
+## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
+plugin.tx_icticontent {
+
+	view {
+		pluginNamespace = {$plugin.tx_icticontent.view.pluginNamespace}
+	}
+	settings {
+		itemsPerPage = 10
+	}
+
+	#icticontent.disableCache = 1
+}
 
 config.tx_extbase {
 	persistence{

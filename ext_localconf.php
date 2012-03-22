@@ -168,5 +168,4 @@ if(is_array($TYPO3_CONF_VARS['EXTCONF']['realurl']['_DEFAULT'])){
 else {
 	$TYPO3_CONF_VARS['EXTCONF']['realurl']['_DEFAULT'] = $realURLTmp;
 }
-
 ?>

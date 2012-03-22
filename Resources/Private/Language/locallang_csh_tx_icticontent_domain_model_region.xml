@@ -6,8 +6,7 @@
 		<csh_table>tx_icticontent_domain_model_region</csh_table>
 	</meta>
 	<data type="array">
-	<languageKey index="default" type="array">
-	   
+		<languageKey index="default" type="array">
 			<label index="name.description">name</label>
 			<label index="country.description">country</label>
 		</languageKey>

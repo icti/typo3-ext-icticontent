@@ -113,7 +113,12 @@ CREATE TABLE tx_icticontent_domain_model_media (
 
 );
 
+#
+# Table structure for table 'pages'
+#
+CREATE TABLE pages (
 
+);
 
 #
 # Table structure for table 'tx_icticontent_domain_model_geolocation'

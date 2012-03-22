@@ -120,6 +120,27 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	protected $imagesAltText;
 
 	/**
+	 * isRecurringEvent
+	 *
+	 * @var boolean
+	 */
+	protected $isRecurringEvent = FALSE;
+
+	/**
+	 * recurringType
+	 *
+	 * @var integer
+	 */
+	protected $recurringType;
+
+	/**
+	 * recurringInterval
+	 *
+	 * @var integer
+	 */
+	protected $recurringInterval;
+
+	/**
 	 * videos
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
@@ -209,27 +230,6 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Region>
 	 */
 	protected $regions;
-
-	/**
-	 * isRecurringEvent
-	 *
-	 * @var boolean
-	 */
-	protected $isRecurringEvent = FALSE;
-
-	/**
-	 * recurringType
-	 *
-	 * @var integer
-	 */
-	protected $recurringType;
-
-	/**
-	 * recurringInterval
-	 *
-	 * @var integer
-	 */
-	protected $recurringInterval;
 
 	/**
 	 * __construct

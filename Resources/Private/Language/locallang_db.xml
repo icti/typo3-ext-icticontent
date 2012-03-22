@@ -6,7 +6,6 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
-            
 			<label index="tx_icticontent_domain_model_content">Content</label>
 			<label index="tx_icticontent_domain_model_content.name">Name</label>
 			<label index="tx_icticontent_domain_model_content.content_type">Content Type</label>
@@ -36,54 +35,44 @@
 			<label index="tx_icticontent_domain_model_content.links">Links</label>
 			<label index="tx_icticontent_domain_model_content.authors">Authors</label>
 			<label index="tx_icticontent_domain_model_content.regions">Regions</label>
-
 			<label index="tx_icticontent_domain_model_media">Media</label>
 			<label index="tx_icticontent_domain_model_media.name">Name</label>
 			<label index="tx_icticontent_domain_model_media.media_type">Media Type</label>
 			<label index="tx_icticontent_domain_model_media.description">Description</label>
 			<label index="tx_icticontent_domain_model_media.files">Files</label>
 			<label index="tx_icticontent_domain_model_media.url">Url</label>
-
 			<label index="tx_icticontent_domain_model_typo3page">Typo3 Page</label>
-			<label index="tx_icticontent_domain_model_typo3page.name">Name</label>
-			<label index="tx_icticontent_domain_model_typo3page.description">Description</label>
-			<label index="tx_icticontent_domain_model_typo3page.page">Page</label>
-
+			<label index="pages.tx_extbase_type.Tx_Icticontent_Typo3Page">ICTI structured content framework Typo3Page</label>
 			<label index="tx_icticontent_domain_model_geolocation">Geo Location</label>
 			<label index="tx_icticontent_domain_model_geolocation.name">Name</label>
 			<label index="tx_icticontent_domain_model_geolocation.description">Description</label>
 			<label index="tx_icticontent_domain_model_geolocation.coord_x">Coord X</label>
 			<label index="tx_icticontent_domain_model_geolocation.coord_y">Coord Y</label>
-
 			<label index="tx_icticontent_domain_model_keyword">Keyword</label>
 			<label index="tx_icticontent_domain_model_keyword.name">Name</label>
 			<label index="tx_icticontent_domain_model_keyword.description">Description</label>
-
 			<label index="tx_icticontent_domain_model_category">Category</label>
 			<label index="tx_icticontent_domain_model_category.name">Name</label>
 			<label index="tx_icticontent_domain_model_category.description">Description</label>
-
 			<label index="tx_icticontent_domain_model_geoarea">Geo Area</label>
 			<label index="tx_icticontent_domain_model_geoarea.name">Name</label>
 			<label index="tx_icticontent_domain_model_geoarea.countries">Countries</label>
-
 			<label index="tx_icticontent_domain_model_country">Country</label>
 			<label index="tx_icticontent_domain_model_country.name">Name</label>
-
 			<label index="tx_icticontent_domain_model_province">Province</label>
 			<label index="tx_icticontent_domain_model_province.name">Name</label>
 			<label index="tx_icticontent_domain_model_province.country">Country</label>
 			<label index="tx_icticontent_domain_model_province.region">Region</label>
-
 			<label index="tx_icticontent_domain_model_author">Author</label>
 			<label index="tx_icticontent_domain_model_author.name">Name</label>
 			<label index="tx_icticontent_domain_model_author.description">Description</label>
 			<label index="tx_icticontent_domain_model_author.image">Image</label>
-
 			<label index="tx_icticontent_domain_model_region">Region</label>
 			<label index="tx_icticontent_domain_model_region.name">Name</label>
 			<label index="tx_icticontent_domain_model_region.country">Country</label>
-
+			<label index="tx_icticontent_domain_model_typo3page.name">Name</label>
+			<label index="tx_icticontent_domain_model_typo3page.description">Description</label>
+			<label index="tx_icticontent_domain_model_typo3page.page">Page</label>
 		</languageKey>
 		<languageKey index="es" type="array">
 			<label index="tx_icticontent_domain_model_content">Contenido</label>
@@ -110,61 +99,48 @@
 			<label index="tx_icticontent_domain_model_content.links">Enlaces</label>
 			<label index="tx_icticontent_domain_model_content.authors">Autores</label>
 			<label index="tx_icticontent_domain_model_content.regions">Regiones</label>
-			
 			<label index="tx_icticontent_domain_model_media">Medios</label>
 			<label index="tx_icticontent_domain_model_media.name">Nombre</label>
 			<label index="tx_icticontent_domain_model_media.media_type">Tipo de medio</label>
 			<label index="tx_icticontent_domain_model_media.description">Descripción</label>
 			<label index="tx_icticontent_domain_model_media.files">Ficheros</label>
 			<label index="tx_icticontent_domain_model_media.url">Url</label>
-			
 			<label index="tx_icticontent_domain_model_typo3page">Typo3 Page</label>
 			<label index="tx_icticontent_domain_model_typo3page.name">Name</label>
 			<label index="tx_icticontent_domain_model_typo3page.description">Description</label>
 			<label index="tx_icticontent_domain_model_typo3page.page">Page</label>
-			
 			<label index="tx_icticontent_domain_model_geolocation">Punto en el mapa</label>
 			<label index="tx_icticontent_domain_model_geolocation.name">Nombre</label>
 			<label index="tx_icticontent_domain_model_geolocation.description">Descripción</label>
 			<label index="tx_icticontent_domain_model_geolocation.coord_x">Longitud</label>
 			<label index="tx_icticontent_domain_model_geolocation.coord_y">Latitud</label>
-			
 			<label index="tx_icticontent_domain_model_keyword">Palabra clave</label>
 			<label index="tx_icticontent_domain_model_keyword.name">Nombre</label>
 			<label index="tx_icticontent_domain_model_keyword.description">Descripción</label>
-			
 			<label index="tx_icticontent_domain_model_category">Categoría</label>
 			<label index="tx_icticontent_domain_model_category.name">Nombre</label>
 			<label index="tx_icticontent_domain_model_category.description">Descripción</label>
-			
 			<label index="tx_icticontent_domain_model_geoarea">Area geográfica</label>
 			<label index="tx_icticontent_domain_model_geoarea.name">Nombre</label>
 			<label index="tx_icticontent_domain_model_geoarea.countries">Países</label>
-			
 			<label index="tx_icticontent_domain_model_country">País</label>
 			<label index="tx_icticontent_domain_model_country.name">Nombre</label>
-			
 			<label index="tx_icticontent_domain_model_province">Provincia</label>
 			<label index="tx_icticontent_domain_model_province.name">Nombre</label>
 			<label index="tx_icticontent_domain_model_province.country">País</label>
 			<label index="tx_icticontent_domain_model_province.region">Región</label>
-			
-			
 			<label index="tx_icticontent_domain_model_content.images_captions">Imágenes: Pie de foto</label>
-			<label index="tx_icticontent_domain_model_content.images_alt_text">Imágenes: Texto alternativo</label>			
-			
+			<label index="tx_icticontent_domain_model_content.images_alt_text">Imágenes: Texto alternativo</label>
 			<label index="tx_icticontent_domain_model_content.content_type.Tx_Icticontent_Domain_Model_Content">Content</label>
 			<label index="tx_icticontent_domain_model_media.media_type.Tx_Icticontent_Domain_Model_MediaFile">File</label>
-			<label index="tx_icticontent_domain_model_media.media_type.Tx_Icticontent_Domain_Model_MediaExternal">External media</label>	
-			
+			<label index="tx_icticontent_domain_model_media.media_type.Tx_Icticontent_Domain_Model_MediaExternal">External media</label>
 			<label index="tx_icticontent_domain_model_author">Autor</label>
 			<label index="tx_icticontent_domain_model_author.name">Nombre</label>
 			<label index="tx_icticontent_domain_model_author.description">Descripción</label>
 			<label index="tx_icticontent_domain_model_author.image">Imagen</label>
-
 			<label index="tx_icticontent_domain_model_region">Región</label>
 			<label index="tx_icticontent_domain_model_region.name">Nombre</label>
-			<label index="tx_icticontent_domain_model_region.country">País</label>			
+			<label index="tx_icticontent_domain_model_region.country">País</label>
 		</languageKey>
 	</data>
 </T3locallang>
