@@ -49,12 +49,11 @@ overwriteSettings:
 
   Configuration:
     TCA: merge
-    #TypoScript: keep
+    TypoScript: merge
 
   Resources:
     Private:
-      Language:
-        locallang.xml: merge
+      Language: merge
       Partials: keep
       Layouts: keep
       Templates: keep      

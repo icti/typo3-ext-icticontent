@@ -6,6 +6,7 @@
 	</meta>
 	<data type="array">
 		<languageKey index="default" type="array">
+            
 			<label index="tx_icticontent_domain_model_content">Content</label>
 			<label index="tx_icticontent_domain_model_content.name">Name</label>
 			<label index="tx_icticontent_domain_model_content.content_type">Content Type</label>
@@ -19,6 +20,9 @@
 			<label index="tx_icticontent_domain_model_content.highlight">Highlight</label>
 			<label index="tx_icticontent_domain_model_content.images_captions">Images Captions</label>
 			<label index="tx_icticontent_domain_model_content.images_alt_text">Images Alt Text</label>
+			<label index="tx_icticontent_domain_model_content.is_recurring_event">Is Recurring Event</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type">Recurring Type</label>
+			<label index="tx_icticontent_domain_model_content.recurring_interval">Recurring Interval</label>
 			<label index="tx_icticontent_domain_model_content.videos">Videos</label>
 			<label index="tx_icticontent_domain_model_content.geo_locations">Geo Locations</label>
 			<label index="tx_icticontent_domain_model_content.keywords">Keywords</label>

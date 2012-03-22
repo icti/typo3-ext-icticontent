@@ -103,7 +103,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 *
 	 * @var boolean
 	 */
-	protected $highlight;
+	protected $highlight = FALSE;
 
 	/**
 	 * imagesCaptions
@@ -209,6 +209,27 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Region>
 	 */
 	protected $regions;
+
+	/**
+	 * isRecurringEvent
+	 *
+	 * @var boolean
+	 */
+	protected $isRecurringEvent = FALSE;
+
+	/**
+	 * recurringType
+	 *
+	 * @var integer
+	 */
+	protected $recurringType;
+
+	/**
+	 * recurringInterval
+	 *
+	 * @var integer
+	 */
+	protected $recurringInterval;
 
 	/**
 	 * __construct
@@ -987,7 +1008,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	public function setRegions(Tx_Extbase_Persistence_ObjectStorage $regions) {
 		$this->regions = $regions;
 	}
-	
+
 	/**
 	 * Check if this content should appear on the given calendar day
 	 *
@@ -1005,13 +1026,78 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 		$endDate->setDate($year, $month, $day);
 		$endDate->setTime(23,59,59);
 
-
 		if($this->getStartDate() >= $startDate && $this->getStartDate() <= $endDate){
 			return true;
 		} else {
 			return false;
 		}
-	}	
+	}
+
+	/**
+	 * Returns the isRecurringEvent
+	 *
+	 * @return boolean $isRecurringEvent
+	 */
+	public function getIsRecurringEvent() {
+		return $this->isRecurringEvent;
+	}
+
+	/**
+	 * Sets the isRecurringEvent
+	 *
+	 * @param boolean $isRecurringEvent
+	 * @return void
+	 */
+	public function setIsRecurringEvent($isRecurringEvent) {
+		$this->isRecurringEvent = $isRecurringEvent;
+	}
+
+	/**
+	 * Returns the boolean state of isRecurringEvent
+	 *
+	 * @return boolean
+	 */
+	public function isIsRecurringEvent() {
+		return $this->getIsRecurringEvent();
+	}
+
+	/**
+	 * Returns the recurringType
+	 *
+	 * @return integer $recurringType
+	 */
+	public function getRecurringType() {
+		return $this->recurringType;
+	}
+
+	/**
+	 * Sets the recurringType
+	 *
+	 * @param integer $recurringType
+	 * @return void
+	 */
+	public function setRecurringType($recurringType) {
+		$this->recurringType = $recurringType;
+	}
+
+	/**
+	 * Returns the recurringInterval
+	 *
+	 * @return integer $recurringInterval
+	 */
+	public function getRecurringInterval() {
+		return $this->recurringInterval;
+	}
+
+	/**
+	 * Sets the recurringInterval
+	 *
+	 * @param integer $recurringInterval
+	 * @return void
+	 */
+	public function setRecurringInterval($recurringInterval) {
+		$this->recurringInterval = $recurringInterval;
+	}
 
 }
 ?>

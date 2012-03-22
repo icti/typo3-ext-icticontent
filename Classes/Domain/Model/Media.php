@@ -3,7 +3,7 @@
 /***************************************************************
  *  Copyright notice
  *
- *  (c) 2011 Jose Antonio Guerra <jaguerra@icti.es>, ICTI Internet Passion S.L.
+ *  (c) 2012 Jose Antonio Guerra <jaguerra@icti.es>, ICTI Internet Passion S.L.
  *  
  *  All rights reserved
  *
@@ -24,12 +24,11 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
-
 /**
  *
  *
  * @package icticontent
- * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
+ * @license http://www.gnu.org/licenses/gpl.html GNU General Public License, version 3 or later
  *
  */
 abstract class Tx_Icticontent_Domain_Model_Media extends Tx_Extbase_DomainObject_AbstractEntity 
@@ -75,25 +74,6 @@ implements Tx_Ictiextbase_Domain_Model_MediaInterface {
 	protected $url;
 
 	/**
-	 * Returns the mediaType
-	 *
-	 * @return integer $mediaType
-	 */
-	public function getMediaType() {
-		return $this->mediaType;
-	}
-
-	/**
-	 * Sets the mediaType
-	 *
-	 * @param integer $mediaType
-	 * @return void
-	 */
-	public function setMediaType($mediaType) {
-		$this->mediaType = $mediaType;
-	}
-
-	/**
 	 * Returns the name
 	 *
 	 * @return string $name
@@ -110,6 +90,25 @@ implements Tx_Ictiextbase_Domain_Model_MediaInterface {
 	 */
 	public function setName($name) {
 		$this->name = $name;
+	}
+
+	/**
+	 * Returns the mediaType
+	 *
+	 * @return integer $mediaType
+	 */
+	public function getMediaType() {
+		return $this->mediaType;
+	}
+
+	/**
+	 * Sets the mediaType
+	 *
+	 * @param integer $mediaType
+	 * @return void
+	 */
+	public function setMediaType($mediaType) {
+		$this->mediaType = $mediaType;
 	}
 
 	/**
@@ -168,10 +167,6 @@ implements Tx_Ictiextbase_Domain_Model_MediaInterface {
 	public function setUrl($url) {
 		$this->url = $url;
 	}
-	
-	
-	
-
 
 }
 ?>

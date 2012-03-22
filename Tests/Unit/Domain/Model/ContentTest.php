@@ -253,6 +253,72 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	/**
 	 * @test
 	 */
+	public function getIsRecurringEventReturnsInitialValueForBoolean() { 
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getIsRecurringEvent()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setIsRecurringEventForBooleanSetsIsRecurringEvent() { 
+		$this->fixture->setIsRecurringEvent(TRUE);
+
+		$this->assertSame(
+			TRUE,
+			$this->fixture->getIsRecurringEvent()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getRecurringTypeReturnsInitialValueForInteger() { 
+		$this->assertSame(
+			0,
+			$this->fixture->getRecurringType()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setRecurringTypeForIntegerSetsRecurringType() { 
+		$this->fixture->setRecurringType(12);
+
+		$this->assertSame(
+			12,
+			$this->fixture->getRecurringType()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
+	public function getRecurringIntervalReturnsInitialValueForInteger() { 
+		$this->assertSame(
+			0,
+			$this->fixture->getRecurringInterval()
+		);
+	}
+
+	/**
+	 * @test
+	 */
+	public function setRecurringIntervalForIntegerSetsRecurringInterval() { 
+		$this->fixture->setRecurringInterval(12);
+
+		$this->assertSame(
+			12,
+			$this->fixture->getRecurringInterval()
+		);
+	}
+	
+	/**
+	 * @test
+	 */
 	public function getVideosReturnsInitialValueForObjectStorageContainingTx_Icticontent_Domain_Model_Media() { 
 		$newObjectStorage = new Tx_Extbase_Persistence_ObjectStorage();
 		$this->assertEquals(
