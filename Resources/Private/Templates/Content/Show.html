@@ -55,7 +55,7 @@
 						<div class="multimedia">
 							<f:if condition="{content.frontImage}">
 								<div class="imagen_principal">
-									<f:image rel="lightbox[galeria_detalle]" src="{content.frontImage.mediaUri}" width="90" height="90c" alt="{content.name}" />
+									<a rel="lightbox[galeria_detalle]" href="{content.frontImage.mediaUri}"><f:image src="{content.frontImage.mediaUri}" width="90" height="90c" alt="{content.name}" /></a>
 								</div>
 							</f:if>
 						</div>
@@ -117,7 +117,7 @@
 							</h4>					
 							<div class="csc-textpic csc-textpic-left csc-textpic-above">
 								<div class="csc-textpic-imagewrap csc-textpic-single-image">
-									<f:image src="{image.mediaUri}" width="208" alt="{image.altText}" />
+									<a rel="lightbox[galeria_detalle]" href="{image.mediaUri}"><f:image src="{image.mediaUri}" width="208" alt="{image.altText}" /></a>
 								</div>
 							</div>
 							<div class="csc-textpic-clear">
