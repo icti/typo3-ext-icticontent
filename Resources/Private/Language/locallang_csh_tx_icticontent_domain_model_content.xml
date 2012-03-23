@@ -6,7 +6,7 @@
 		<csh_table>tx_icticontent_domain_model_content</csh_table>
 	</meta>
 	<data type="array">
-	<languageKey index="default" type="array">
+		<languageKey index="default" type="array">
 			<label index="name.description">name</label>
 			<label index="content_type.description">contentType</label>
 			<label index="short.description">short</label>
@@ -19,6 +19,9 @@
 			<label index="highlight.description">highlight</label>
 			<label index="images_captions.description">imagesCaptions</label>
 			<label index="images_alt_text.description">imagesAltText</label>
+			<label index="is_recurring_event.description">isRecurringEvent</label>
+			<label index="recurring_type.description">recurringType</label>
+			<label index="recurring_interval.description">recurringInterval</label>
 			<label index="videos.description">videos</label>
 			<label index="geo_locations.description">geoLocations</label>
 			<label index="keywords.description">keywords</label>

@@ -243,6 +243,27 @@ class Tx_Icticontent_Controller_BaseController extends Tx_Extbase_MVC_Controller
 			return false;
 		}		
 	}
+	
+	
+	/**
+	 * @var string
+	 */
+	protected $defaultViewObjectName = 'Tx_Ictiextbase_View_VariantView';   	
+	
+	/**
+	 * @param Tx_Extbase_MVC_View_ViewInterface $view It's a Tx_YourExtension_View_VariantView here!
+	 * @return void
+	 */
+	protected function setViewConfiguration(Tx_Extbase_MVC_View_ViewInterface $view) {
+		parent::setViewConfiguration($view);
+		$extbaseFrameworkConfiguration = $this->configurationManager->getConfiguration(Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
+		if (isset($extbaseFrameworkConfiguration['view']['layoutVariant'])
+			&& strlen($extbaseFrameworkConfiguration['view']['layoutVariant']) > 0
+			&& method_exists($view, 'setLayoutVariant')) {
+			$view->setLayoutVariant($extbaseFrameworkConfiguration['view']['layoutVariant']);
+		}
+      
+	}	
 
 }
 ?>

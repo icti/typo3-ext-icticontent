@@ -18,6 +18,9 @@ CREATE TABLE tx_icticontent_domain_model_content (
 	highlight tinyint(1) unsigned DEFAULT '0' NOT NULL,
 	images_captions text NOT NULL,
 	images_alt_text text NOT NULL,
+	is_recurring_event tinyint(1) unsigned DEFAULT '0' NOT NULL,
+	recurring_type int(11) DEFAULT '0' NOT NULL,
+	recurring_interval int(11) DEFAULT '0' NOT NULL,
 	videos int(11) unsigned DEFAULT '0' NOT NULL,
 	geo_locations int(11) unsigned DEFAULT '0' NOT NULL,
 	keywords int(11) unsigned DEFAULT '0' NOT NULL,
@@ -110,7 +113,12 @@ CREATE TABLE tx_icticontent_domain_model_media (
 
 );
 
+#
+# Table structure for table 'pages'
+#
+CREATE TABLE pages (
 
+);
 
 #
 # Table structure for table 'tx_icticontent_domain_model_geolocation'

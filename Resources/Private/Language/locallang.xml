@@ -19,6 +19,9 @@
 			<label index="tx_icticontent_domain_model_content.highlight">highlight</label>
 			<label index="tx_icticontent_domain_model_content.images_captions">imagesCaptions</label>
 			<label index="tx_icticontent_domain_model_content.images_alt_text">imagesAltText</label>
+			<label index="tx_icticontent_domain_model_content.is_recurring_event">isRecurringEvent</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type">recurringType</label>
+			<label index="tx_icticontent_domain_model_content.recurring_interval">recurringInterval</label>
 			<label index="tx_icticontent_domain_model_content.videos">videos</label>
 			<label index="tx_icticontent_domain_model_content.geo_locations">geoLocations</label>
 			<label index="tx_icticontent_domain_model_content.keywords">keywords</label>
@@ -39,9 +42,6 @@
 			<label index="tx_icticontent_domain_model_media.files">files</label>
 			<label index="tx_icticontent_domain_model_media.url">url</label>
 			<label index="tx_icticontent_domain_model_typo3page">Typo3Page</label>
-			<label index="tx_icticontent_domain_model_typo3page.name">name</label>
-			<label index="tx_icticontent_domain_model_typo3page.description">description</label>
-			<label index="tx_icticontent_domain_model_typo3page.page">page</label>
 			<label index="tx_icticontent_domain_model_geolocation">GeoLocation</label>
 			<label index="tx_icticontent_domain_model_geolocation.name">name</label>
 			<label index="tx_icticontent_domain_model_geolocation.description">description</label>
@@ -69,6 +69,9 @@
 			<label index="tx_icticontent_domain_model_region">Region</label>
 			<label index="tx_icticontent_domain_model_region.name">name</label>
 			<label index="tx_icticontent_domain_model_region.country">country</label>
+			<label index="tx_icticontent_domain_model_typo3page.name">name</label>
+			<label index="tx_icticontent_domain_model_typo3page.description">description</label>
+			<label index="tx_icticontent_domain_model_typo3page.page">page</label>
 		</languageKey>
 	</data>
 </T3locallang>

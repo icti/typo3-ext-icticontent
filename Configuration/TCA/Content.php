@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $TCA['tx_icticontent_domain_model_content'] = array(
 	'ctrl' => $TCA['tx_icticontent_domain_model_content']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, content_type, short, description, front_image, images, start_date, end_date, city, highlight, images_captions, images_alt_text, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces, downloads, links, authors, regions',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, content_type, short, description, front_image, images, start_date, end_date, city, highlight, images_captions, images_alt_text, is_recurring_event, recurring_type, recurring_interval, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces, downloads, links, authors, regions',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, content_type, short, description, front_image, images, start_date, end_date, city, highlight, images_captions, images_alt_text, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces, downloads, links, authors, regions,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, content_type, short, description, front_image, images, start_date, end_date, city, highlight, images_captions, images_alt_text, is_recurring_event, recurring_type, recurring_interval, videos, geo_locations, keywords, related_page, categories, related_contents, geo_areas, countries, provinces, downloads, links, authors, regions,--div--;LLL:EXT:cms/locallang_ttc.xml:tabs.access,starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -132,8 +132,19 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 				'type' => 'text',
 				'cols' => 40,
 				'rows' => 15,
-				'eval' => 'trim'
+				'eval' => 'trim',
+				'wizards' => array(
+					'RTE' => array(
+						'icon' => 'wizard_rte2.gif',
+						'notNewRecords'=> 1,
+						'RTEonly' => 1,
+						'script' => 'wizard_rte.php',
+						'title' => 'LLL:EXT:cms/locallang_ttc.xml:bodytext.W.RTE',
+						'type' => 'script'
+					)
+				)
 			),
+			'defaultExtras' => 'richtext[]',
 		),
 		'front_image' => array(
 			'exclude' => 1,
@@ -218,6 +229,36 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 				'cols' => 40,
 				'rows' => 15,
 				'eval' => 'trim'
+			),
+		),
+		'is_recurring_event' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.is_recurring_event',
+			'config' => array(
+				'type' => 'check',
+				'default' => 0
+			),
+		),
+		'recurring_type' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.recurring_type',
+			'config' => array(
+				'type' => 'select',
+				'items' => array(
+					array('-- Label --', 0),
+				),
+				'size' => 1,
+				'maxitems' => 1,
+				'eval' => ''
+			),
+		),
+		'recurring_interval' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.recurring_interval',
+			'config' => array(
+				'type' => 'input',
+				'size' => 4,
+				'eval' => 'int'
 			),
 		),
 		'videos' => array(
@@ -314,7 +355,7 @@ $TCA['tx_icticontent_domain_model_content'] = array(
 			'label' => 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.related_page',
 			'config' => array(
 				'type' => 'select',
-				'foreign_table' => 'tx_icticontent_domain_model_typo3page',
+				'foreign_table' => 'pages',
 				'minitems' => 0,
 				'maxitems' => 1,
 			),
