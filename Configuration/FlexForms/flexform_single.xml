@@ -21,7 +21,28 @@
                                 <show_thumbs>0</show_thumbs>
                             </config>
                         </TCEforms>
-                    </settings.listPid>                    
+                    </settings.listPid> 
+					
+					<view.layoutVariant>
+						<TCEforms>
+							<label>Plantilla</label>
+							<config>
+								<type>select</type>
+								<items type="array">
+									<numIndex index="0" type="array">
+										<numIndex index="0">Por defecto (2 columnas)</numIndex>
+										<numIndex index="1"></numIndex>
+									</numIndex>
+									<numIndex index="1" type="array">
+										<numIndex index="0">1 columna</numIndex>
+										<numIndex index="1">1Columna</numIndex>
+									</numIndex>  								
+								</items>
+								<maxitems>1</maxitems>
+								<size>1</size>
+							</config>
+						</TCEforms>
+					</view.layoutVariant>					
                     
 				</el>
 			</ROOT>
