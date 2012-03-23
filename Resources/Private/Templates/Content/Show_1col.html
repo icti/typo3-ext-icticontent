@@ -1,0 +1,150 @@
+{namespace ficti=Tx_Ictiextbase_ViewHelpers} 
+<f:layout name="Default" />
+
+
+<f:section name="main">
+    <ficti:htmltitle>{content.name}</ficti:htmltitle>
+    <ficti:canonicaluri>
+        <f:uri.action action="show" arguments="{content : content}" />
+    </ficti:canonicaluri>   
+	
+
+
+	<div class="wrapper_csc">
+		<div class="wrapper-titularpagina">
+			<div class="titularpagina">
+				<h1>
+					<span>{content.name}</span>
+				</h1>
+				<h2>
+					<span>{content.short}</span>
+				</h2>
+			</div>
+		</div>
+	</div>
+	
+	<div class="wrapper_csc">
+		<f:render partial="socialMedia" />
+	</div>
+
+	<f:if condition="{content.keywords}">
+		<div class="wrapper_csc">
+			<div class="etiquetas">
+				<h3>
+					Keywords
+				</h3>
+				<div class="tag_group">
+					<ul class="tags">
+						<f:for each="{content.keywords}" as="keyword">
+							<li>
+								<f:link.action action="list" arguments="{filterKeyword : keyword}">
+									<span>{keyword.name}</span>
+								</f:link.action>
+							</li>
+						</f:for>
+					</ul> 
+				</div>
+			</div>
+		</div>
+	</f:if>
+	
+	<div class="wrapper_csc">
+		<!--<h3>
+			Descripci&oacute;n
+		</h3>-->
+		<div class="multimedia">
+			
+			<f:if condition="{content.frontImage}">
+				<div class="imagen_principal">
+					<f:image rel="lightbox[galeria_detalle]" src="{content.frontImage.mediaUri}" width="90" height="90c" alt="{content.name}" />
+				</div>
+			</f:if>
+			
+			<f:if condition="{content.images}">
+				<div class="imagenes_relacionadas">
+					<f:for each="{content.images}" as="image">
+						<div class="wrapper_imagen_relacionada">
+							<div class="imagen"><f:image rel="lightbox[galeria_detalle]" src="{image.mediaUri}" width="95" alt="{image.altText}" /></div>
+							<f:if condition="{image.caption}"><div class="descripcion"><p class="piedefoto">{image.caption}</p></div></f:if>
+						</div>
+					</f:for>
+				</div>
+			</f:if>
+			
+		</div>
+		
+		{content.description -> f:format.html()}
+	</div>
+
+	<f:render partial="videos" arguments="{videos: content.videos}" />
+
+	<f:if condition="{content.downloads}">
+		<div class="wrapper_csc">
+			<h3>
+				Archivos &uacute;tiles
+			</h3>
+			<f:render partial="files" arguments="{files: content.downloads}" />
+		</div>
+	</f:if>
+	
+	<f:if condition="{content.links}">
+		<div class="wrapper_csc">
+			<h4>
+				Enlaces
+			</h4>					
+			<f:render partial="links" arguments="{links:content.links}" />
+		</div>
+	</f:if>
+	
+	<f:if condition="{content.relatedContents}">
+		<div class="wrapper_csc">
+			<h4>
+				Contenidos relacionados
+			</h4>					
+			<div class="listados latest">
+				<f:for each="{content.relatedContents}" as="relatedContent">
+					<div class="item">
+						<div class="textos">
+							<h4>
+								<f:link.action action="show" arguments="{content : content}">
+									{relatedContent.name}
+								</f:link.action>
+							</h4>
+						</div>
+					</div>								
+				</f:for>
+			</div>
+		</div>					
+	</f:if>
+
+	<f:if condition="{content.geoLocations}">
+		<div class="wrapper_csc">
+			<h4>
+				Mapa
+			</h4>					
+			<f:render partial="geoLocations" arguments="{geoLocations: content.geoLocations}" />
+		</div>
+	</f:if>	
+
+	<div class="wrapper_csc">
+		<div class="divider">
+			<hr />
+		</div>
+	</div>
+
+	<div class="wrapper_csc">
+		<div class="botoncolorido">
+			<div class="enlace">
+				<f:link.action action="list"  pageUid="{settings.listPid}">
+					&laquo; Volver a la lista
+				</f:link.action>
+			</div>
+		</div>
+	</div>
+
+
+</f:section>
+
+
+
+

@@ -18,6 +18,9 @@
 								<h1>
 									<span>{content.name}</span>
 								</h1>
+								<h2>
+									<span>{content.short}</span>
+								</h2>
 							</div>
 						</div>
 					</div>
@@ -46,9 +49,16 @@
 						</div>
 					</f:if>
 					<div class="wrapper_csc">
-						<h3>
+						<!--<h3>
 							Descripci&oacute;n
-						</h3>
+						</h3>-->
+						<div class="multimedia">
+							<f:if condition="{content.frontImage}">
+								<div class="imagen_principal">
+									<f:image rel="lightbox[galeria_detalle]" src="{content.frontImage.mediaUri}" width="90" height="90c" alt="{content.name}" />
+								</div>
+							</f:if>
+						</div>
 						{content.description -> f:format.html()}
 					</div>
 					
@@ -102,6 +112,9 @@
 				<f:if condition="{content.images}">
 					<f:for each="{content.images}" as="image">
 						<div class="wrapper_csc">
+							<h4>
+								Im&aacute;genes relacionadas
+							</h4>					
 							<div class="csc-textpic csc-textpic-left csc-textpic-above">
 								<div class="csc-textpic-imagewrap csc-textpic-single-image">
 									<f:image src="{image.mediaUri}" width="208" alt="{image.altText}" />
