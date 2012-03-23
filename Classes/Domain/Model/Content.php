@@ -80,14 +80,14 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * startDate
 	 *
-	 * @var DateTime
+	 * @var Tx_Ictiextbase_Helpers_DateTime
 	 */
 	protected $startDate;
 
 	/**
 	 * endDate
 	 *
-	 * @var DateTime
+	 * @var Tx_Ictiextbase_Helpers_DateTime
 	 */
 	protected $endDate;
 
@@ -131,14 +131,20 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 *
 	 * @var integer
 	 */
-	protected $recurringType;
+	protected $recurringType = 0;
+	
+	const recurringTypeNone = 0;
+	const recurringTypeDaily = 1;
+	const recurringTypeWeekly = 2;
+	const recurringTypeMonthly = 3;
+	const recurringTypeYearly = 4;
 
 	/**
 	 * recurringInterval
 	 *
 	 * @var integer
 	 */
-	protected $recurringInterval;
+	protected $recurringInterval = 0;
 
 	/**
 	 * videos
@@ -402,7 +408,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the startDate
 	 *
-	 * @return DateTime $startDate
+	 * @return Tx_Ictiextbase_Helpers_DateTime $startDate
 	 */
 	public function getStartDate() {
 		return $this->startDate;
@@ -411,7 +417,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the startDate
 	 *
-	 * @param DateTime $startDate
+	 * @param Tx_Ictiextbase_Helpers_DateTime $startDate
 	 * @return void
 	 */
 	public function setStartDate($startDate) {
@@ -421,7 +427,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the endDate
 	 *
-	 * @return DateTime $endDate
+	 * @return Tx_Ictiextbase_Helpers_DateTime $endDate
 	 */
 	public function getEndDate() {
 		return $this->endDate;
@@ -430,7 +436,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the endDate
 	 *
-	 * @param DateTime $endDate
+	 * @param Tx_Ictiextbase_Helpers_DateTime $endDate
 	 * @return void
 	 */
 	public function setEndDate($endDate) {
@@ -1019,6 +1025,40 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 */
 	public function isInCalendarDay($year, $month, $day) {
 		
+		if(!$this->isIsRecurringEvent()){
+			return $this->isInCalendarDayNotRecurring($year, $month, $day);
+		} else {
+			switch($this->getRecurringType()){
+				
+				case Tx_Icticontent_Domain_Model_Content::recurringTypeDaily:
+					return $this->isInCalendarDayRecurringTypeDaily($year, $month, $day);
+
+				case Tx_Icticontent_Domain_Model_Content::recurringTypeWeekly:
+					return $this->isInCalendarDayRecurringTypeWeekly($year, $month, $day);
+					
+				case Tx_Icticontent_Domain_Model_Content::recurringTypeMonthly:
+					return $this->isInCalendarDayRecurringTypeMonthly($year, $month, $day);
+
+				case Tx_Icticontent_Domain_Model_Content::recurringTypeYearly:
+					return $this->isInCalendarDayRecurringTypeYearly($year, $month, $day);
+					
+				default:
+					return false;
+			}
+		}
+
+	}
+	
+	/**
+	 * Check if this content should appear on the given calendar day
+	 *
+	 * @param int $year
+	 * @param int $month
+	 * @param int $day
+	 * @return boolean
+	 */
+	protected function isInCalendarDayNotRecurring($year, $month, $day) {
+		
 		$startDate = new DateTime;
 		$startDate->setDate($year, $month, $day);
 		$startDate->setTime(0,0);
@@ -1031,7 +1071,185 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 		} else {
 			return false;
 		}
-	}
+	}	
+	
+	/**
+	 * Check if this content should appear on the given calendar day
+	 *
+	 * @param int $year
+	 * @param int $month
+	 * @param int $day
+	 * @return boolean
+	 */
+	protected function isInCalendarDayRecurringTypeDaily($year, $month, $day) {
+		
+		$dayBegin = new DateTime;
+		$dayBegin->setDate($year, $month, $day);
+		$dayBegin->setTime(0,0);
+		$dayEnd = new DateTime;
+		$dayEnd->setDate($year, $month, $day);
+		$dayEnd->setTime(23,59,59);
+
+		if($this->getStartDate() <= $dayBegin){
+			
+			if($this->getRecurringInterval() > 0){
+				/**
+				 * Can't use DateDiff, need to be PHP 5.2 compatible...
+				 */
+				$diffTstamp =  $dayBegin->format('U') - $this->getStartDate()->format('U');
+				$diffDays = (int)floor($diffTstamp / (60*60*24));
+				if( ($diffDays % ($this->getRecurringInterval() + 1)) != 0) {
+					return false;
+				}
+				
+			}
+			
+			
+			if($this->getEndDate() && $this->getEndDate() < $dayBegin){
+				return false;
+			} else {
+				return true;
+			}
+			
+		} else {
+			return false;
+		}
+	}	
+	
+	/**
+	 * Check if this content should appear on the given calendar day
+	 *
+	 * @param int $year
+	 * @param int $month
+	 * @param int $day
+	 * @return boolean
+	 */
+	protected function isInCalendarDayRecurringTypeWeekly($year, $month, $day) {
+		
+		$dayBegin = new DateTime;
+		$dayBegin->setDate($year, $month, $day);
+		$dayBegin->setTime(0,0);
+		$dayEnd = new DateTime;
+		$dayEnd->setDate($year, $month, $day);
+		$dayEnd->setTime(23,59,59);
+
+		if($this->getStartDate() <= $dayBegin){
+			
+			/**
+			 * Can't use DateDiff, need to be PHP 5.2 compatible...
+			 */
+			$diffTstamp =  $dayBegin->format('U') - $this->getStartDate()->format('U');
+			$diffDays = (int)floor($diffTstamp / (60*60*24));
+			if( ($diffDays % (($this->getRecurringInterval() + 1) * 7)) != 0) {
+				return false;
+			}
+				
+			
+			
+			if($this->getEndDate() && $this->getEndDate() < $dayBegin){
+				return false;
+			} else {
+				return true;
+			}
+			
+		} else {
+			return false;
+		}
+	}		
+	
+	
+	/**
+	 * Check if this content should appear on the given calendar day
+	 *
+	 * @param int $year
+	 * @param int $month
+	 * @param int $day
+	 * @return boolean
+	 */
+	protected function isInCalendarDayRecurringTypeMonthly($year, $month, $day) {
+		
+		$dayBegin = new Tx_Ictiextbase_Helpers_DateTime;
+		$dayBegin->setDate($year, $month, $day);
+		$dayBegin->setTime(0,0);
+		$dayEnd = new Tx_Ictiextbase_Helpers_DateTime;
+		$dayEnd->setDate($year, $month, $day);
+		$dayEnd->setTime(23,59,59);
+
+				
+		if($this->getStartDate() <= $dayBegin){
+			
+			$diffMonths = $dayBegin->diffMonths($this->getStartDate()) * -1;
+			
+			if( ($diffMonths % ($this->getRecurringInterval() + 1)) != 0) {
+				return false;
+			}
+				
+			$checkDate = clone $this->getStartDate();
+			if($diffMonths > 0){
+				$checkDate->addMonths($diffMonths);
+			}
+
+			if($checkDate >= $dayBegin && $checkDate <= $dayEnd){
+				if($this->getEndDate() && $this->getEndDate() < $dayBegin){
+					return false;
+				} else {
+					return true;
+				}				
+			} else {
+				return false;
+			}
+			
+		} else {
+			return false;
+		}
+	}		
+	
+	
+	/**
+	 * Check if this content should appear on the given calendar day
+	 *
+	 * @param int $year
+	 * @param int $month
+	 * @param int $day
+	 * @return boolean
+	 */
+	protected function isInCalendarDayRecurringTypeYearly($year, $month, $day) {
+		
+		$dayBegin = new Tx_Ictiextbase_Helpers_DateTime;
+		$dayBegin->setDate($year, $month, $day);
+		$dayBegin->setTime(0,0);
+		$dayEnd = new Tx_Ictiextbase_Helpers_DateTime;
+		$dayEnd->setDate($year, $month, $day);
+		$dayEnd->setTime(23,59,59);
+
+				
+		if($this->getStartDate() <= $dayBegin){
+			
+			$diffMonths = $dayBegin->diffMonths($this->getStartDate()) * -1;
+			
+			if( ($diffMonths % (($this->getRecurringInterval() + 1) * 12) ) != 0) {
+				return false;
+			}
+				
+			$checkDate = clone $this->getStartDate();
+			if($diffMonths > 0){
+				$checkDate->addMonths($diffMonths);
+			}
+
+			if($checkDate >= $dayBegin && $checkDate <= $dayEnd){
+				if($this->getEndDate() && $this->getEndDate() < $dayBegin){
+					return false;
+				} else {
+					return true;
+				}				
+			} else {
+				return false;
+			}
+			
+		} else {
+			return false;
+		}
+	}		
 
 	/**
 	 * Returns the isRecurringEvent
