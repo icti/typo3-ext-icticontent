@@ -68,9 +68,24 @@ class Tx_Icticontent_Controller_BaseController extends Tx_Extbase_MVC_Controller
 		        $this->filtersService->init($this->arguments, $this->settings);
 		        $this->lookupService->setFiltersService($this->filtersService);
 		        $this->addCommonItems();
-                
+				                
 	}    
 
+	
+	/**
+	 * Para modificar valores globales antes de crear la vista...	
+	 * 
+	 * @return type 
+	 */
+	protected function resolveView() {	
+		
+		if(!$this->settings['listPid']){
+			$this->settings['listPid'] = $GLOBALS['TSFE']->id;
+		}
+		
+		return parent::resolveView();
+	}
+	
 	/**
 	 * injectLookupService
 	 *
