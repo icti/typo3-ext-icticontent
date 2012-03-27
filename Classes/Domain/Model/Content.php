@@ -80,14 +80,14 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * startDate
 	 *
-	 * @var Tx_Ictiextbase_Helpers_DateTime
+	 * @var DateTime
 	 */
 	protected $startDate;
 
 	/**
 	 * endDate
 	 *
-	 * @var Tx_Ictiextbase_Helpers_DateTime
+	 * @var DateTime
 	 */
 	protected $endDate;
 
@@ -1090,13 +1090,13 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 		$dayEnd->setDate($year, $month, $day);
 		$dayEnd->setTime(23,59,59);
 
-		if($this->getStartDate() <= $dayBegin){
+		if($this->getStartDate() <= $dayEnd){
 			
 			if($this->getRecurringInterval() > 0){
 				/**
 				 * Can't use DateDiff, need to be PHP 5.2 compatible...
 				 */
-				$diffTstamp =  $dayBegin->format('U') - $this->getStartDate()->format('U');
+				$diffTstamp =  $dayEnd->format('U') - $this->getStartDate()->format('U');
 				$diffDays = (int)floor($diffTstamp / (60*60*24));
 				if( ($diffDays % ($this->getRecurringInterval() + 1)) != 0) {
 					return false;
@@ -1133,12 +1133,12 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 		$dayEnd->setDate($year, $month, $day);
 		$dayEnd->setTime(23,59,59);
 
-		if($this->getStartDate() <= $dayBegin){
+		if($this->getStartDate() <= $dayEnd){
 			
 			/**
 			 * Can't use DateDiff, need to be PHP 5.2 compatible...
 			 */
-			$diffTstamp =  $dayBegin->format('U') - $this->getStartDate()->format('U');
+			$diffTstamp =  $dayEnd->format('U') - $this->getStartDate()->format('U');
 			$diffDays = (int)floor($diffTstamp / (60*60*24));
 			if( ($diffDays % (($this->getRecurringInterval() + 1) * 7)) != 0) {
 				return false;
@@ -1174,9 +1174,12 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 		$dayEnd = new Tx_Ictiextbase_Helpers_DateTime;
 		$dayEnd->setDate($year, $month, $day);
 		$dayEnd->setTime(23,59,59);
+		
+		$dayBegin_debug = $dayBegin->format('c');
+		$dayEnd_debug = $dayEnd->format('c');
+		$startDate_debug = $this->getStartDate()->format('c');
 
-				
-		if($this->getStartDate() <= $dayBegin){
+		if($this->getStartDate() <= $dayEnd){
 			
 			$diffMonths = $dayBegin->diffMonths($this->getStartDate()) * -1;
 			
@@ -1184,7 +1187,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 				return false;
 			}
 				
-			$checkDate = clone $this->getStartDate();
+			$checkDate = Tx_Ictiextbase_Helpers_DateTime::copyFromDateTime($this->getStartDate());
 			if($diffMonths > 0){
 				$checkDate->addMonths($diffMonths);
 			}
@@ -1223,7 +1226,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 		$dayEnd->setTime(23,59,59);
 
 				
-		if($this->getStartDate() <= $dayBegin){
+		if($this->getStartDate() <= $dayEnd){
 			
 			$diffMonths = $dayBegin->diffMonths($this->getStartDate()) * -1;
 			
@@ -1231,7 +1234,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 				return false;
 			}
 				
-			$checkDate = clone $this->getStartDate();
+			$checkDate = Tx_Ictiextbase_Helpers_DateTime::copyFromDateTime($this->getStartDate());
 			if($diffMonths > 0){
 				$checkDate->addMonths($diffMonths);
 			}

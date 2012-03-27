@@ -1147,7 +1147,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
         
         $testDate = new DateTime;
         $testDate->setDate(1990, 1, 31);
-        $testDate->setTime(0,0);
+        $testDate->setTime(0,10);
 		$this->fixture->setStartDate($testDate);
 		$this->fixture->setIsRecurringEvent(true);
 		$this->fixture->setRecurringType(Tx_Icticontent_Domain_Model_Content::recurringTypeDaily);
@@ -1176,13 +1176,13 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
         
         $testDate = new DateTime;
         $testDate->setDate(1990, 1, 31);
-        $testDate->setTime(0,0);
+        $testDate->setTime(0,10);
 		$this->fixture->setStartDate($testDate);
 		
 		
         $endDate = new DateTime;
         $endDate->setDate(1990, 2, 1);
-        $endDate->setTime(0,0);	
+        $endDate->setTime(0,10);	
 		$this->fixture->setEndDate($endDate);
 		
 		$this->fixture->setIsRecurringEvent(true);
@@ -1217,13 +1217,13 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
         
         $testDate = new DateTime;
         $testDate->setDate(1990, 1, 31);
-        $testDate->setTime(0,0);
+        $testDate->setTime(0,10);
 		$this->fixture->setStartDate($testDate);
 		
 		
         $endDate = new DateTime;
         $endDate->setDate(1990, 2, 20);
-        $endDate->setTime(0,0);	
+        $endDate->setTime(0,10);	
 		$this->fixture->setEndDate($endDate);
 		
 		$this->fixture->setIsRecurringEvent(true);
@@ -1272,7 +1272,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
         
         $testDate = new DateTime;
         $testDate->setDate(1990, 1, 31);
-        $testDate->setTime(0,0);
+        $testDate->setTime(0,10);
 		$this->fixture->setStartDate($testDate);
 		$this->fixture->setIsRecurringEvent(true);
 		$this->fixture->setRecurringType(Tx_Icticontent_Domain_Model_Content::recurringTypeWeekly);
@@ -1309,9 +1309,9 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 */
 	public function isInCalendarDayRecurringWeeklyEndDateInterval() {
         
-        $testDate = new Tx_Ictiextbase_Helpers_DateTime;
+        $testDate = new DateTime;
         $testDate->setDate(1990, 1, 31);
-        $testDate->setTime(0,0);
+        $testDate->setTime(0,10);
 		$this->fixture->setStartDate($testDate);
 		$this->fixture->setIsRecurringEvent(true);
 		$this->fixture->setRecurringType(Tx_Icticontent_Domain_Model_Content::recurringTypeWeekly);
@@ -1319,7 +1319,7 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 		
         $endDate = new Tx_Ictiextbase_Helpers_DateTime;
         $endDate->setDate(1990, 2, 22);
-        $endDate->setTime(0,0);	
+        $endDate->setTime(0,10);	
 		$this->fixture->setEndDate($endDate);		
 		$this->fixture->setRecurringInterval(1);		
         
@@ -1367,9 +1367,9 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 */
 	public function isInCalendarDayRecurringMonthly() {
         
-        $testDate = new Tx_Ictiextbase_Helpers_DateTime;
+        $testDate = new DateTime;
         $testDate->setDate(1990, 1, 15);
-        $testDate->setTime(0,0);
+        $testDate->setTime(0,10);
 		$this->fixture->setStartDate($testDate);
 		$this->fixture->setIsRecurringEvent(true);
 		$this->fixture->setRecurringType(Tx_Icticontent_Domain_Model_Content::recurringTypeMonthly);
@@ -1412,9 +1412,9 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 */
 	public function isInCalendarDayRecurringMonthlyEdge1() {
         
-        $testDate = new Tx_Ictiextbase_Helpers_DateTime;
+        $testDate = new DateTime;
         $testDate->setDate(1990, 1, 31);
-        $testDate->setTime(0,0);
+        $testDate->setTime(0,10);
 		$this->fixture->setStartDate($testDate);
 		$this->fixture->setIsRecurringEvent(true);
 		$this->fixture->setRecurringType(Tx_Icticontent_Domain_Model_Content::recurringTypeMonthly);
@@ -1451,9 +1451,9 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 */
 	public function isInCalendarDayRecurringMonthlyEdge2() {
         
-        $testDate = new Tx_Ictiextbase_Helpers_DateTime;
+        $testDate = new DateTime;
         $testDate->setDate(1990, 1, 31);
-        $testDate->setTime(0,0);
+        $testDate->setTime(0,10);
 		$this->fixture->setStartDate($testDate);
 		$this->fixture->setIsRecurringEvent(true);
 		$this->fixture->setRecurringType(Tx_Icticontent_Domain_Model_Content::recurringTypeMonthly);
@@ -1487,9 +1487,9 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 */
 	public function isInCalendarDayRecurringYearly() {
         
-        $testDate = new Tx_Ictiextbase_Helpers_DateTime;
+        $testDate = new DateTime;
         $testDate->setDate(1990, 1, 31);
-        $testDate->setTime(0,0);
+        $testDate->setTime(0,10);
 		$this->fixture->setStartDate($testDate);
 		$this->fixture->setIsRecurringEvent(true);
 		$this->fixture->setRecurringType(Tx_Icticontent_Domain_Model_Content::recurringTypeYearly);
@@ -1525,9 +1525,9 @@ class Tx_Icticontent_Domain_Model_ContentTest extends Tx_Extbase_Tests_Unit_Base
 	 */
 	public function isInCalendarDayRecurringYearlyEdge1() {
         
-        $testDate = new Tx_Ictiextbase_Helpers_DateTime;
+        $testDate = new DateTime;
         $testDate->setDate(1992, 2, 29);
-        $testDate->setTime(0,0);
+        $testDate->setTime(0,10);
 		$this->fixture->setStartDate($testDate);
 		$this->fixture->setIsRecurringEvent(true);
 		$this->fixture->setRecurringType(Tx_Icticontent_Domain_Model_Content::recurringTypeYearly);

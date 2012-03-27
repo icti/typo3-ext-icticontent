@@ -87,10 +87,20 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 			 * del mes siguiente...
 			 */			
 			$startDate = mktime(0,0,0,$month,-7,$year);
-			$endDate = mktime(0,0,0,$month+1,7,$year);			
+			$endDate = mktime(0,0,0,$month+1,7,$year);		
 			
-			$this->constraintArr[] = $this->query->greaterThan('startDate', $startDate);
-			$this->constraintArr[] = $this->query->lessThan('startDate', $endDate);
+			$this->constraintArr[] = $this->query->logicalOr(
+				$this->query->logicalAnd(
+					$this->query->greaterThan('startDate', $startDate),
+					$this->query->lessThan('startDate', $endDate),
+					$this->query->equals('isRecurringEvent', false)
+				),
+				$this->query->logicalAnd(
+					$this->query->lessThan('startDate', $endDate),
+					$this->query->equals('isRecurringEvent', true)
+				)
+					
+			);
 			
 		}
 			
