@@ -21,6 +21,11 @@
 			<label index="tx_icticontent_domain_model_content.images_alt_text">Images Alt Text</label>
 			<label index="tx_icticontent_domain_model_content.is_recurring_event">Is Recurring Event</label>
 			<label index="tx_icticontent_domain_model_content.recurring_type">Recurring Type</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type.0">None</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type.1">Daily</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type.2">Weekly</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type.3">Monthly</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type.4">Yearly</label>
 			<label index="tx_icticontent_domain_model_content.recurring_interval">Recurring Interval</label>
 			<label index="tx_icticontent_domain_model_content.videos">Videos</label>
 			<label index="tx_icticontent_domain_model_content.geo_locations">Geo Locations</label>
@@ -141,6 +146,14 @@
 			<label index="tx_icticontent_domain_model_region">Región</label>
 			<label index="tx_icticontent_domain_model_region.name">Nombre</label>
 			<label index="tx_icticontent_domain_model_region.country">País</label>
+			<label index="tx_icticontent_domain_model_content.is_recurring_event">¿Es un evento repetitivo?</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type">Tipo de repetición</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type.0">Ninguna</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type.1">Diaria</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type.2">Semanal</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type.3">Mensual</label>
+			<label index="tx_icticontent_domain_model_content.recurring_type.4">Anual</label>
+			<label index="tx_icticontent_domain_model_content.recurring_interval">Intervalo entre repeticiones</label>			
 		</languageKey>
 	</data>
 </T3locallang>

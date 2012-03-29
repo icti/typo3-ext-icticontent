@@ -671,6 +671,14 @@ $TCA['tx_icticontent_domain_model_content']['columns']['start_date']['config']['
 $TCA['tx_icticontent_domain_model_content']['columns']['end_date']['config']['default'] = 0;
 $TCA['tx_icticontent_domain_model_content']['columns']['images']['config']['maxitems'] = 100;
 
+$TCA['tx_icticontent_domain_model_content']['columns']['recurring_type']['config']['items']['0']['0'] = 'LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.recurring_type.0';
+$TCA['tx_icticontent_domain_model_content']['columns']['recurring_type']['config']['items'][] = array('LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.recurring_type.1',1);
+$TCA['tx_icticontent_domain_model_content']['columns']['recurring_type']['config']['items'][] = array('LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.recurring_type.2',2);
+$TCA['tx_icticontent_domain_model_content']['columns']['recurring_type']['config']['items'][] = array('LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.recurring_type.3',3);
+$TCA['tx_icticontent_domain_model_content']['columns']['recurring_type']['config']['items'][] = array('LLL:EXT:icticontent/Resources/Private/Language/locallang_db.xml:tx_icticontent_domain_model_content.recurring_type.4',4);
+
+$TCA['tx_icticontent_domain_model_content']['palettes']['10'] = array('showitem' => 'recurring_type, recurring_interval');
+
 /*
  *  STI for Content - begin
  */
@@ -680,7 +688,10 @@ $TCA['tx_icticontent_domain_model_content']['columns']['content_type']['config']
 
 $TCA['tx_icticontent_domain_model_content']['types']['Tx_Icticontent_Domain_Model_Content'] = array(
 	'showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, 
-		name, content_type, short, description, front_image, images, images_captions, images_alt_text, start_date, end_date, highlight,
+		name, content_type, short, description, front_image, images, images_captions, images_alt_text, start_date, end_date, 
+		
+		is_recurring_event;;10, 
+		highlight,
 		city, videos, downloads, links, 
 		geo_locations, keywords, related_page, categories, related_contents, 
 		geo_areas, countries, regions, provinces, authors,
