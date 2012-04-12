@@ -135,7 +135,12 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 	
 	protected function addNewerDatesConstraint(){
 		if($this->filtersService->getFilterNewerDates()){
-			$this->constraintArr[] = $this->query->greaterThanOrEqual('startDate', time());
+			
+			$startTime = new DateTime;
+			$startTime->setTime(0,0);
+			$startTimestamp = $startTime->format('U');
+			
+			$this->constraintArr[] = $this->query->greaterThanOrEqual('startDate', $startTimestamp);
 		}
 	}	
 	
