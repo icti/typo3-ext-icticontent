@@ -72,6 +72,27 @@ class Tx_Icticontent_Service_FiltersService extends Tx_Ictiextbase_Service_Abstr
 	 */
 	protected $filterGeoArea;	
 	
+	/**
+	 * @Ictiextbase\Service\Filters\filter
+	 * @Ictiextbase\Service\Filters\class Tx_Icticontent_Domain_Model_Country
+	 * 
+	 */
+	protected $filterCountry;	
+	
+	/**
+	 * @Ictiextbase\Service\Filters\filter
+	 * @Ictiextbase\Service\Filters\class Tx_Icticontent_Domain_Model_Region
+	 * 
+	 */
+	protected $filterRegion;		
+	
+	/**
+	 * @Ictiextbase\Service\Filters\filter
+	 * @Ictiextbase\Service\Filters\class Tx_Icticontent_Domain_Model_Province
+	 * 
+	 */
+	protected $filterProvince;	
+	
 	
 	/**
 	 * @Ictiextbase\Service\Filters\filter

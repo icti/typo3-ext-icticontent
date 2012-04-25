@@ -44,14 +44,22 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 	public function findByFiltersService(Tx_IctiContent_Service_FiltersService $filtersService) {	
 		$this->initQuery($filtersService);
 		
+		$this->addConstraintsToFindByFiltersService();
+				
+		return $this->executeQueryWithConstraintArray();
+	}
+	
+	
+	protected function addConstraintsToFindByFiltersService(){
 		$this->addCategoryConstraint();
 		$this->addNewerDatesConstraint();
 		$this->addHighlightConstraint();
 		$this->addOrderingFromFilters();
 		$this->addKeywordConstraint();
-		$this->addGeoAreaConstraint();
-		
-		return $this->executeQueryWithConstraintArray();
+		$this->addGeoAreaConstraint();		
+		$this->addCountryConstraint();
+		$this->addRegionConstraint();
+		$this->addProvinceConstraint();
 	}
 	
 	/**
@@ -153,6 +161,24 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 	protected function addGeoAreaConstraint(){
 		if($this->filtersService->getFilterGeoArea()){
 			$this->constraintArr[] = $this->query->contains('geoAreas', $this->filtersService->getFilterGeoArea());
+		}
+	}	
+	
+	protected function addCountryConstraint(){
+		if($this->filtersService->getFilterCountry()){
+			$this->constraintArr[] = $this->query->contains('countries', $this->filtersService->getFilterCountry());
+		}
+	}
+	
+	protected function addRegionConstraint(){
+		if($this->filtersService->getFilterRegion()){
+			$this->constraintArr[] = $this->query->contains('regions', $this->filtersService->getFilterRegion());
+		}
+	}
+	
+	protected function addProvinceConstraint(){
+		if($this->filtersService->getFilterProvince()){
+			$this->constraintArr[] = $this->query->contains('provinces', $this->filtersService->getFilterProvince());
 		}
 	}	
 	
