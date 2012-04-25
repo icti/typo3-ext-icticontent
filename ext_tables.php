@@ -324,6 +324,8 @@ $TCA['tx_icticontent_domain_model_media']['ctrl']['type'] = 'media_type';
 
 $TCA['tx_icticontent_domain_model_geolocation']['ctrl']['sortby'] = 'sorting';
 
+$TCA['tx_icticontent_domain_model_category']['ctrl']['default_sortby'] = 'ORDER BY name';
+
 
 if (TYPO3_MODE == 'BE') {
 
