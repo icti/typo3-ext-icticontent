@@ -1319,6 +1319,15 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	public function setRecurringInterval($recurringInterval) {
 		$this->recurringInterval = $recurringInterval;
 	}
+	
+	/**
+	 * getObjectSignature
+	 *
+	 * @return
+	 */
+	public function getObjectSignature() {
+		return get_class($this);
+	}	
 
 }
 ?>
