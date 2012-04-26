@@ -150,6 +150,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * videos
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
+	 * @lazy
 	 */
 	protected $videos;
 
@@ -157,6 +158,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * geoLocations
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_GeoLocation>
+	 * @lazy
 	 */
 	protected $geoLocations;
 
@@ -164,6 +166,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * keywords
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Keyword>
+	 * @lazy
 	 */
 	protected $keywords;
 
@@ -171,6 +174,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * relatedPage
 	 *
 	 * @var Tx_Icticontent_Domain_Model_Typo3Page
+	 * @lazy
 	 */
 	protected $relatedPage;
 
@@ -178,6 +182,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * categories
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Category>
+	 * @lazy
 	 */
 	protected $categories;
 
@@ -185,6 +190,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * relatedContents
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Content>
+	 * @lazy
 	 */
 	protected $relatedContents;
 
@@ -192,6 +198,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * geoAreas
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_GeoArea>
+	 * @lazy
 	 */
 	protected $geoAreas;
 
@@ -199,6 +206,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * countries
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Country>
+	 * @lazy
 	 */
 	protected $countries;
 
@@ -206,6 +214,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * provinces
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Province>
+	 * @lazy
 	 */
 	protected $provinces;
 
@@ -213,6 +222,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * downloads
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
+	 * @lazy
 	 */
 	protected $downloads;
 
@@ -220,6 +230,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * links
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
+	 * @lazy
 	 */
 	protected $links;
 
@@ -227,6 +238,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * authors
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Author>
+	 * @lazy
 	 */
 	protected $authors;
 
@@ -234,6 +246,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	 * regions
 	 *
 	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Region>
+	 * @lazy
 	 */
 	protected $regions;
 
