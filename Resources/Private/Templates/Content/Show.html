@@ -109,16 +109,10 @@
 						</div>
 					</div>
 				</div>
-				<div class="wrapper_csc">
-					<div class="divider">
-						<hr />
-					</div>
-				</div>
-				<div class="wrapper_csc">
-					<h4>
-						Im&aacute;genes relacionadas
-					</h4>					
-					<f:if condition="{content.images}">
+				<f:if condition="{content.images}">
+					<div class="wrapper_csc"><div class="divider"><hr /></div></div>
+					<div class="wrapper_csc">
+						<h4>Im&aacute;genes relacionadas</h4>					
 						<f:for each="{content.images}" as="image">
 
 								<div class="csc-textpic csc-textpic-left csc-textpic-above">
@@ -137,15 +131,15 @@
 
 								</div>
 						</f:for>
-					</f:if>
-				</div>						
+					</div>						
+				</f:if>
+						
 
 				
 				<f:if condition="{content.relatedContents}">
+					<div class="wrapper_csc"><div class="divider"><hr /></div></div>
 					<div class="wrapper_csc">
-						<h4>
-							Contenidos relacionados
-						</h4>					
+						<h4>Contenidos relacionados</h4>					
 						<div class="listados latest">
 							<f:for each="{content.relatedContents}" as="relatedContent">
 								<div class="item">
