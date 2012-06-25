@@ -118,8 +118,8 @@ class Tx_Icticontent_Service_FiltersService extends Tx_Ictiextbase_Service_Abstr
 	
 	
 	public function __construct() {		
-		$this->filterMonth = strftime('%m');
-		$this->filterYear = strftime('%Y');
+		$this->filterMonth = strftime('%m',$GLOBALS['SIM_ACCESS_TIME']);
+		$this->filterYear = strftime('%Y',$GLOBALS['SIM_ACCESS_TIME']);
 	}
 
 }
