@@ -58,7 +58,9 @@
 						<div class="multimedia">
 							<f:if condition="{content.frontImage}">
 								<div class="imagen_principal">
-									<a rel="lightbox[galeria_detalle]" href="{content.frontImage.mediaUri}"><f:image src="{content.frontImage.mediaUri}" width="210" alt="{content.name}" /></a>
+									<a rel="lightbox[galeria_detalle]" href="{f:uri.image( src: '{content.frontImage.mediaUri}', maxWidth:800, maxHeight: 600)}">
+										<f:image src="{content.frontImage.mediaUri}" width="210" alt="{content.name}" />
+									</a>
 								</div>
 							</f:if>
 						</div>
@@ -107,40 +109,37 @@
 						</div>
 					</div>
 				</div>
-				<div class="wrapper_csc">
-					<div class="divider">
-						<hr />
-					</div>
-				</div>
 				<f:if condition="{content.images}">
-					<f:for each="{content.images}" as="image">
-						<div class="wrapper_csc">
-							<h4>
-								Im&aacute;genes relacionadas
-							</h4>					
-							<div class="csc-textpic csc-textpic-left csc-textpic-above">
-								<div class="csc-textpic-imagewrap csc-textpic-single-image">
-									<a rel="lightbox[galeria_detalle]" href="{image.mediaUri}"><f:image src="{image.mediaUri}" width="208" alt="{image.altText}" /></a>
+					<div class="wrapper_csc"><div class="divider"><hr /></div></div>
+					<div class="wrapper_csc">
+						<h4>Im&aacute;genes relacionadas</h4>					
+						<f:for each="{content.images}" as="image">
+
+								<div class="csc-textpic csc-textpic-left csc-textpic-above">
+									<div class="csc-textpic-imagewrap csc-textpic-single-image">
+										<a rel="lightbox[galeria_detalle]" href="{f:uri.image( src: '{image.mediaUri}', maxWidth:800, maxHeight: 600)}">
+											<f:image src="{image.mediaUri}" width="208" alt="{image.altText}" />
+										</a>
+									</div>
 								</div>
-							</div>
-							<div class="csc-textpic-clear">
-								<f:if condition="{image.caption}">
-									<p>
-										{image.caption}
-									</p>
-								</f:if>
-								
-							</div>
-						</div>						
-					</f:for>
+								<div class="csc-textpic-clear">
+									<f:if condition="{image.caption}">
+										<p>
+											{image.caption}
+										</p>
+									</f:if>
+
+								</div>
+						</f:for>
+					</div>						
 				</f:if>
+						
 
 				
 				<f:if condition="{content.relatedContents}">
+					<div class="wrapper_csc"><div class="divider"><hr /></div></div>
 					<div class="wrapper_csc">
-						<h4>
-							Contenidos relacionados
-						</h4>					
+						<h4>Contenidos relacionados</h4>					
 						<div class="listados latest">
 							<f:for each="{content.relatedContents}" as="relatedContent">
 								<div class="item">

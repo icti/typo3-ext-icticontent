@@ -57,7 +57,9 @@
 			
 			<f:if condition="{content.frontImage}">
 				<div class="imagen_principal">
-					<a rel="lightbox[galeria_detalle]" href="{content.frontImage.mediaUri}"><f:image src="{content.frontImage.mediaUri}" width="210" alt="{content.name}" /></a>
+					<a rel="lightbox[galeria_detalle]" href="{f:uri.image( src: '{content.frontImage.mediaUri}', maxWidth:800, maxHeight: 600)}">
+						<f:image src="{content.frontImage.mediaUri}" width="210" alt="{content.name}" />
+					</a>
 				</div>
 			</f:if>
 			
@@ -65,7 +67,11 @@
 				<div class="imagenes_relacionadas">
 					<f:for each="{content.images}" as="image">
 						<div class="wrapper_imagen_relacionada">
-							<div class="imagen"><a rel="lightbox[galeria_detalle]" href="{image.mediaUri}"><f:image src="{image.mediaUri}" width="95" height="55c" alt="{image.altText}" /></a></div>
+							<div class="imagen">
+								<a rel="lightbox[galeria_detalle]" href="{f:uri.image( src: '{image.mediaUri}', maxWidth:800, maxHeight: 600)}">
+									<f:image src="{image.mediaUri}" width="95" height="55c" alt="{image.altText}" />
+								</a>
+							</div>
 							<f:if condition="{image.caption}"><div class="descripcion"><p class="piedefoto">{image.caption}</p></div></f:if>
 						</div>
 					</f:for>
