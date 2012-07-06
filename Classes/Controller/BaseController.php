@@ -50,12 +50,12 @@ class Tx_Icticontent_Controller_BaseController extends Tx_Extbase_MVC_Controller
 	 *
 	 * @return void
 	 */
-	protected function addCommonItems() {
-		        
+  protected function addCommonItems() {
 
-        $this->view->assign('lookupService', $this->lookupService); 
-        $this->view->assign('filtersService', $this->filtersService);
-	}
+    $this->view->assign('lookupService', $this->lookupService); 
+    $this->view->assign('filtersService', $this->filtersService);
+    $this->view->assign('globalRegisters', $GLOBALS['TSFE']->register);
+  }
 
 	/**
 	 * initializeView
