@@ -71,7 +71,8 @@
 			<label index="tx_icticontent_domain_model_region.country">country</label>
 			<label index="tx_icticontent_domain_model_typo3page.name">name</label>
 			<label index="tx_icticontent_domain_model_typo3page.description">description</label>
-			<label index="tx_icticontent_domain_model_typo3page.page">page</label>
+      <label index="tx_icticontent_domain_model_typo3page.page">page</label>
+      <label index="noContentFound">Sorry, no content were found.</label>
 		</languageKey>
 	</data>
 </T3locallang>
