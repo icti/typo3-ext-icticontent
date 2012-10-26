@@ -20,18 +20,21 @@ $EM_CONF[$_EXTKEY] = array(
 	'shy' => '',
 	'priority' => '',
 	'module' => '',
-	'state' => 'alpha',
+	'state' => 'stable',
 	'internal' => '',
 	'uploadfolder' => '1',
 	'createDirs' => '',
 	'modify_tables' => '',
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
-	'version' => '',
+	'version' => '1.0.0',
 	'constraints' => array(
-		'depends' => array(
-			'extbase' => '1.3.0-0.0.0,',
-			'fluid' => '1.3.0-0.0.0,',
+    'depends' => array(
+      'cms' => '4.5.0',
+			'extbase' => '1.3.0',
+      'fluid' => '1.3.0',
+      'ictiextbase' => '1.0.0',
+      'flvplayer2' => '1.3.0'
 		),
 		'conflicts' => array(
 		),
