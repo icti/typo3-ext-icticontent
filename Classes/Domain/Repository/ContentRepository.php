@@ -60,6 +60,7 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 		$this->addCountryConstraint();
 		$this->addRegionConstraint();
 		$this->addProvinceConstraint();
+    $this->addAuthorConstraint();
 	}
 	
 	/**
@@ -180,7 +181,13 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 		if($this->filtersService->getFilterProvince()){
 			$this->constraintArr[] = $this->query->contains('provinces', $this->filtersService->getFilterProvince());
 		}
-	}	
+  }
+
+  protected function addAuthorConstraint(){
+		if($this->filtersService->getFilterAuthor()){
+			$this->constraintArr[] = $this->query->contains('authors', $this->filtersService->getFilterAuthor());
+		}
+	}  
 	
 	protected function addOrderingFromFilters(){
 		if($this->filtersService->getFilterOrderBy()){

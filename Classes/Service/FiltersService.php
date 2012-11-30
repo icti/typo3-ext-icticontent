@@ -91,7 +91,14 @@ class Tx_Icticontent_Service_FiltersService extends Tx_Ictiextbase_Service_Abstr
 	 * @Ictiextbase\Service\Filters\class Tx_Icticontent_Domain_Model_Province
 	 * 
 	 */
-	protected $filterProvince;	
+  protected $filterProvince;
+
+  /**
+	 * @Ictiextbase\Service\Filters\filter
+	 * @Ictiextbase\Service\Filters\class Tx_Icticontent_Domain_Model_Author
+	 * 
+	 */
+	protected $filterAuthor;
 	
 	
 	/**

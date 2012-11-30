@@ -55,13 +55,21 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	/**
 	 * action filters
 	 *
-	 * @param Tx_Icticontent_Domain_Model_Category $filterCategory
+   * @param Tx_Icticontent_Domain_Model_Category $filterCategory
+   * @param Tx_Icticontent_Domain_Model_Region $filterRegion
+   * @param Tx_Icticontent_Domain_Model_Country $filterCountry
+   * @param Tx_Icticontent_Domain_Model_Author $filterAuthor
 	 * 
 	 * @return void
 	 * 
 	 * @dontverifyrequesthash true
 	 */
-	public function filtersAction(Tx_Icticontent_Domain_Model_Category $filterCategory = null) {
+  public function filtersAction(
+    Tx_Icticontent_Domain_Model_Category $filterCategory = null,
+    Tx_Icticontent_Domain_Model_Region $filterRegion = null,
+    Tx_Icticontent_Domain_Model_Country $filterCountry = null,
+    Tx_Icticontent_Domain_Model_Author $filterAuthor = null
+  ) {
 
 	}
 
@@ -70,16 +78,22 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	 * action list
 	 * 
 	 * @param Tx_Icticontent_Domain_Model_Category $filterCategory
-	 * @param Tx_Icticontent_Domain_Model_Keyword $filterKeyword
+   * @param Tx_Icticontent_Domain_Model_Keyword $filterKeyword
+   * @param Tx_Icticontent_Domain_Model_Region $filterRegion
+   * @param Tx_Icticontent_Domain_Model_Country $filterCountry
+   * @param Tx_Icticontent_Domain_Model_Author $filterAuthor
 	 *
 	 * @return void
 	 * 
 	 * @dontverifyrequesthash true
 	 */
-	public function listAction(
-			Tx_Icticontent_Domain_Model_Category $filterCategory = null,
-			Tx_Icticontent_Domain_Model_Keyword $filterKeyword = null
-	) {
+  public function listAction(
+    Tx_Icticontent_Domain_Model_Category $filterCategory = null,
+    Tx_Icticontent_Domain_Model_Keyword $filterKeyword = null,
+    Tx_Icticontent_Domain_Model_Region $filterRegion = null,
+    Tx_Icticontent_Domain_Model_Country $filterCountry = null,
+    Tx_Icticontent_Domain_Model_Author $filterAuthor = null
+  ) {
 		$contents = $this->contentRepository->findByFiltersService($this->filtersService);
 		$this->view->assign('contents', $contents);
 	}
