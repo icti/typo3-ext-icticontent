@@ -59,6 +59,19 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 	)
 );
 
+Tx_Extbase_Utility_Extension::configurePlugin(
+	$_EXTKEY,
+	'Rss',
+	array(
+		'Content' => 'rss',
+		
+	),
+	// non-cacheable actions
+	array(
+		'Content' => '',
+	)
+);
+
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 
 

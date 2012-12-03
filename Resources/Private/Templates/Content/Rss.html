@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>{namespace ficti=Tx_Ictiextbase_ViewHelpers}
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>{rssTitle}</title>
+		<link>{rssSiteLink}</link>
+		<description>{rssDescription}</description>
+		<generator>TYPO3 - get.content.right</generator>
+		<docs>http://blogs.law.harvard.edu/tech/rss</docs>
+    <atom:link href="{rssUrl}" rel="self" type="application/rss+xml" />
+
+		<f:if condition="{contents}">
+			<f:for each="{contents}" as="content">				
+				<item>
+					<title>{content.name}</title>
+          <link><ficti:format.htmlentities><f:uri.action action="show" arguments="{content : content}" pageUid="{settings.singlePid}" /></ficti:format.htmlentities></link>
+					<guid><ficti:format.htmlentities><f:uri.action action="show" arguments="{content : content}" pageUid="{settings.singlePid}" /></ficti:format.htmlentities></guid>
+					<pubDate><f:format.date format="D, d M Y H:i:s O">{content.startDate}</f:format.date></pubDate>
+					<description>
+						<ficti:format.cdata>
+							<f:if condition="{content.frontImage}">
+                <f:image src="{content.frontImage.mediaUri}" width="90" height="90c" alt="{content.name}" />
+								{content.short -> f:format.nl2br()}
+							</f:if>							
+						</ficti:format.cdata>
+					</description>
+				</item>				
+
+			</f:for>
+		</f:if>
+	</channel>
+</rss>

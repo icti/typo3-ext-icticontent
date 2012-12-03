@@ -27,6 +27,12 @@ Tx_Extbase_Utility_Extension::registerPlugin(
 	'Content Calendar'
 );
 
+Tx_Extbase_Utility_Extension::registerPlugin(
+	$_EXTKEY,
+	'Rss',
+	'Content Rss'
+);
+
 t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'ICTI structured content framework');
 
 			t3lib_extMgm::addLLrefForTCAdescr('tx_icticontent_domain_model_content', 'EXT:icticontent/Resources/Private/Language/locallang_csh_tx_icticontent_domain_model_content.xml');
@@ -314,6 +320,10 @@ t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Co
 $pluginSignature = str_replace('_','',$_EXTKEY) . '_single';
 $TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_single' . '.xml');
+
+$pluginSignature = str_replace('_','',$_EXTKEY) . '_rss';
+$TCA['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
+t3lib_extMgm::addPiFlexFormValue($pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_list' . '.xml');
 
 
 $TCA['tx_icticontent_domain_model_content']['ctrl']['sortby'] = 'sorting';

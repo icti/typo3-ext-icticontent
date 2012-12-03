@@ -222,7 +222,29 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 				$dayArray['content'][] = $content->current();
             }
         }         
-    }    		
+    }   
+
+
+  /**
+	 * action rss
+	 * 
+	 * @return void
+	 */
+  public function rssAction() {
+    $contents = $this->contentRepository->findByFiltersService($this->filtersService);
+    $this->view->assign('contents', $contents);
+
+    $this->view->assign('rssTitle',$GLOBALS['TSFE']->page['title']);
+    $this->view->assign('rssSiteLink',t3lib_div::getIndpEnv('TYPO3_SITE_URL'));
+    $this->view->assign('rssDescription',$GLOBALS['TSFE']->page['description']);
+    $this->view->assign('rssUrl', t3lib_div::getIndpEnv('TYPO3_REQUEST_URL'));
+
+    if(!$this->settings['doNotOverrideRenderPipeline']){
+      header('Content-type: text/xml');
+      echo $this->view->render();
+      exit();
+    }
+  }
 
 }
 ?>
