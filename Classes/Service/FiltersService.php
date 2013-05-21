@@ -64,6 +64,18 @@ class Tx_Icticontent_Service_FiltersService extends Tx_Ictiextbase_Service_Abstr
 	 * 
 	 */
 	protected $filterNewerDates;	
+
+	/**
+	 * @Ictiextbase\Service\Filters\filter
+	 * 
+	 */
+	protected $filterFromDate;
+
+	/**
+	 * @Ictiextbase\Service\Filters\filter
+	 * 
+	 */
+	protected $filterToDate;
 	
 	/**
 	 * @Ictiextbase\Service\Filters\filter

@@ -53,6 +53,8 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 	protected function addConstraintsToFindByFiltersService(){
 		$this->addCategoryConstraint();
 		$this->addNewerDatesConstraint();
+		$this->addFromDateConstraint();
+		$this->addToDateConstraint();
 		$this->addHighlightConstraint();
 		$this->addOrderingFromFilters();
 		$this->addKeywordConstraint();
@@ -152,6 +154,18 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 			$this->constraintArr[] = $this->query->greaterThanOrEqual('startDate', $startTimestamp);
 		}
 	}	
+
+	protected function addFromDateConstraint(){
+		if($this->filtersService->getFilterFromDate()){
+			$this->constraintArr[] = $this->query->greaterThanOrEqual('startDate', $this->filtersService->getFilterFromDate());
+		}
+	}		
+
+	protected function addToDateConstraint(){
+		if($this->filtersService->getFilterToDate()){
+			$this->constraintArr[] = $this->query->lessThanOrEqual('startDate', $this->filtersService->getFilterToDate());
+		}
+	}		
 	
 	protected function addHighlightConstraint(){
 		if($this->filtersService->getFilterHighlight()){
