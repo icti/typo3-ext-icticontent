@@ -44,7 +44,6 @@ plugin.tx_icticontent {
 		itemsPerPage = 10
 	}
 
-	#icticontent.disableCache = 1
 }
 
 config.tx_extbase {

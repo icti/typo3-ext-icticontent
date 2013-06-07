@@ -337,21 +337,4 @@ $TCA['tx_icticontent_domain_model_geolocation']['ctrl']['sortby'] = 'sorting';
 $TCA['tx_icticontent_domain_model_category']['ctrl']['default_sortby'] = 'ORDER BY name';
 
 
-if (TYPO3_MODE == 'BE') {
-
-	// register the cache in BE so it will be cleared with "clear all caches"
-	try {
-		t3lib_cache::initializeCachingFramework();
-			// Reflection cache
-		$GLOBALS['typo3CacheFactory']->create(
-			'cache_icticontent_contentcache',
-			$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['cache_icticontent_contentcache']['frontend'],
-			$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['cache_icticontent_contentcache']['backend'],
-			$GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['cache_icticontent_contentcache']['options']
-		);
-	} catch(t3lib_cache_exception_NoSuchCache $exception) {
-
-	}
-
-}
 ?>
