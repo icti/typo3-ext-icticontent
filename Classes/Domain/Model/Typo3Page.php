@@ -54,7 +54,7 @@ class Tx_Icticontent_Domain_Model_Typo3Page extends Tx_Extbase_DomainObject_Abst
 	 * @var integer
 	 * @validate NotEmpty
 	 */
-	protected $page;
+	protected $page = 0;
 
 	/**
 	 * Returns the name

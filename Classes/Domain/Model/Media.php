@@ -48,7 +48,7 @@ implements Tx_Ictiextbase_Domain_Model_MediaInterface {
 	 * @var integer
 	 * @validate NotEmpty
 	 */
-	protected $mediaType;
+	protected $mediaType = 0;
 
 	/**
 	 * description
