@@ -27,14 +27,14 @@ $EM_CONF[$_EXTKEY] = array(
 	'modify_tables' => '',
 	'clearCacheOnLoad' => 0,
 	'lockType' => '',
-	'version' => '1.0.2',
+	'version' => '2.0.0-dev',
 	'constraints' => array(
     'depends' => array(
-      'cms' => '4.5.0',
-			'extbase' => '1.3.0',
-      'fluid' => '1.3.0',
-      'ictiextbase' => '1.0.1',
-      'flvplayer2' => '1.3.0'
+      'cms' => '6.1.0-6.1.99',
+			'extbase' => '6.1.0-6.1.99',
+      'fluid' => '6.1.0-6.1.99',
+      //'ictiextbase' => '2.0.0-2.0.99',
+      //'flvplayer2' => '2.0.0-2.0.99'
 		),
 		'conflicts' => array(
 		),
