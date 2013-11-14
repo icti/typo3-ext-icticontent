@@ -52,6 +52,7 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'ICTI structur
 					'transOrigPointerField' => 'l10n_parent',
 					'transOrigDiffSourceField' => 'l10n_diffsource',
 					'delete' => 'deleted',
+					'searchFields' => 'name',
 					'enablecolumns' => array(
 						'disabled' => 'hidden',
 						'starttime' => 'starttime',
@@ -79,6 +80,7 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'ICTI structur
 					'transOrigPointerField' => 'l10n_parent',
 					'transOrigDiffSourceField' => 'l10n_diffsource',
 					'delete' => 'deleted',
+					'searchFields' => 'name',
 					'enablecolumns' => array(
 						'disabled' => 'hidden',
 						'starttime' => 'starttime',
@@ -107,6 +109,7 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'ICTI structur
 					'transOrigPointerField' => 'l10n_parent',
 					'transOrigDiffSourceField' => 'l10n_diffsource',
 					'delete' => 'deleted',
+					'searchFields' => 'name',
 					'enablecolumns' => array(
 						'disabled' => 'hidden',
 						'starttime' => 'starttime',
@@ -134,6 +137,7 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'ICTI structur
 					'transOrigPointerField' => 'l10n_parent',
 					'transOrigDiffSourceField' => 'l10n_diffsource',
 					'delete' => 'deleted',
+					'searchFields' => 'name',
 					'enablecolumns' => array(
 						'disabled' => 'hidden',
 						'starttime' => 'starttime',
@@ -161,6 +165,7 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'ICTI structur
 					'transOrigPointerField' => 'l10n_parent',
 					'transOrigDiffSourceField' => 'l10n_diffsource',
 					'delete' => 'deleted',
+					'searchFields' => 'name',
 					'enablecolumns' => array(
 						'disabled' => 'hidden',
 						'starttime' => 'starttime',
@@ -188,6 +193,7 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'ICTI structur
 					'transOrigPointerField' => 'l10n_parent',
 					'transOrigDiffSourceField' => 'l10n_diffsource',
 					'delete' => 'deleted',
+					'searchFields' => 'name',
 					'enablecolumns' => array(
 						'disabled' => 'hidden',
 						'starttime' => 'starttime',
@@ -215,6 +221,7 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'ICTI structur
 					'transOrigPointerField' => 'l10n_parent',
 					'transOrigDiffSourceField' => 'l10n_diffsource',
 					'delete' => 'deleted',
+					'searchFields' => 'name',
 					'enablecolumns' => array(
 						'disabled' => 'hidden',
 						'starttime' => 'starttime',
@@ -242,6 +249,7 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'ICTI structur
 					'transOrigPointerField' => 'l10n_parent',
 					'transOrigDiffSourceField' => 'l10n_diffsource',
 					'delete' => 'deleted',
+					'searchFields' => 'name',
 					'enablecolumns' => array(
 						'disabled' => 'hidden',
 						'starttime' => 'starttime',
@@ -269,6 +277,7 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'ICTI structur
 					'transOrigPointerField' => 'l10n_parent',
 					'transOrigDiffSourceField' => 'l10n_diffsource',
 					'delete' => 'deleted',
+					'searchFields' => 'name',
 					'enablecolumns' => array(
 						'disabled' => 'hidden',
 						'starttime' => 'starttime',
@@ -296,6 +305,7 @@ t3lib_extMgm::addStaticFile($_EXTKEY, 'Configuration/TypoScript', 'ICTI structur
 					'transOrigPointerField' => 'l10n_parent',
 					'transOrigDiffSourceField' => 'l10n_diffsource',
 					'delete' => 'deleted',
+					'searchFields' => 'name',
 					'enablecolumns' => array(
 						'disabled' => 'hidden',
 						'starttime' => 'starttime',
