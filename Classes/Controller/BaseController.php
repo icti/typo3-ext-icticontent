@@ -55,6 +55,10 @@ class Tx_Icticontent_Controller_BaseController extends Tx_Extbase_MVC_Controller
     $this->view->assign('lookupService', $this->lookupService); 
     $this->view->assign('filtersService', $this->filtersService);
     $this->view->assign('globalRegisters', $GLOBALS['TSFE']->register);
+		$contentObjectRenderer = $this->configurationManager->getContentObject();
+		if ($contentObjectRenderer instanceof \TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer) {
+				$this->view->assign('contentObjectData', $contentObjectRenderer->data);
+		}
   }
 
 	/**
