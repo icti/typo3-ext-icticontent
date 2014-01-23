@@ -68,14 +68,23 @@ class Tx_Icticontent_Controller_BaseController extends Tx_Extbase_MVC_Controller
 	 * @param  $view
 	 */
 	protected function initializeView($view) {
-		        parent::initializeView($view);
-		        $this->filtersService->init($this->arguments, $this->settings);
-		        $this->lookupService->setFiltersService($this->filtersService);
-		        $this->addCommonItems();
-				                
-	}    
+			parent::initializeView($view);
+			$this->filtersService->init($this->arguments, $this->settings);
+			$this->lookupService->setFiltersService($this->filtersService);
+			$this->addCommonItems();
 
-	
+			/**
+			 * This marks the plugin presence on the page cache
+			 * TSConfig to clear only pages with the plugin: 
+			 *
+			 * TCEMAIN.clearCacheCmd = cacheTag:plugin_icticontent
+			 *
+			 * Tip: When editing a record in the backend the cache will be
+			 * cleared on tags like "<tablename>" and "<tablename>_<uid>"
+			 */
+			$GLOBALS['TSFE']->addCacheTags(array('plugin_icticontent'));
+	}
+
 	/**
 	 * Para modificar valores globales antes de crear la vista...	
 	 * 
