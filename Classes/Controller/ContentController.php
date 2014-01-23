@@ -50,6 +50,24 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	public function injectContentRepository(Tx_Icticontent_Domain_Repository_ContentRepository $contentRepository) {
 		$this->contentRepository = $contentRepository;
 	}
+
+
+	/**
+	 * categoryRepository
+	 *
+	 * @var Tx_Icticontent_Domain_Repository_CategoryRepository
+	 */
+	protected $categoryRepository;
+
+	/**
+	 * injectCategoryRepository
+	 *
+	 * @param Tx_Icticontent_Domain_Repository_CategoryRepository $categoryRepository
+	 * @return void
+	 */
+	public function injectCategoryRepository(Tx_Icticontent_Domain_Repository_CategoryRepository $categoryRepository) {
+			$this->categoryRepository = $categoryRepository;
+	}
 	
 
 	/**
@@ -71,6 +89,56 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
     Tx_Icticontent_Domain_Model_Author $filterAuthor = null
   ) {
 
+			/*
+			 * TODO: Refactorizar
+			 *
+			 * El cálculo de facetas deberíamos poder cachearlo..
+			 * Ver EXT:enetcache
+			 */
+			$allContents = $this->contentRepository->findAll();
+			$this->addFacet( $this->categoryRepository, 'countByCategory', 'facetedCategories', $allContents);
+
+	}
+
+
+	/**
+	 * @return void
+	 */
+	protected function addFacet(
+			\Tx_Extbase_Persistence_Repository $repository,
+			$countFunctionName,
+			$viewVariableName,
+			\Tx_Extbase_Persistence_QueryResultInterface $queryResult,
+			$useRawResult = TRUE
+	) {
+
+			$query = $repository->createQuery();
+			$querySettings = $query->getQuerySettings();
+			$querySettings->setReturnRawQueryResult($useRawResult);
+			$query->getQuerySettings( $querySettings );
+			$dataSet = $query->execute();
+
+			$facetArray = array();
+			foreach ($dataSet as $dataItem) {
+
+					if (is_array($dataItem)) {
+							$uid = $dataItem['uid'];
+					} else {
+							$uid = $dataItem;
+					}
+
+					$count = $this->contentRepository->$countFunctionName(
+							$uid,
+							$queryResult->getQuery()
+					);
+					if ($count > 0) {
+							$facetArray[] = array(
+									'facet' => $dataItem,
+									'count' => $count
+							);
+					}
+			}
+			$this->view->assign($viewVariableName, $facetArray);
 	}
 
 

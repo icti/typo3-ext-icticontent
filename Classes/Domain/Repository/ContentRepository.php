@@ -298,6 +298,31 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 		}        
         return $this->query->execute();        
 	}
+
+
+	/**
+	 *
+	 */
+	public function countByCategory($category, $query = NULL) {
+			if ($query === NULL) {
+					$query = $this->createQuery();
+			}
+
+			$constraint = $query->getConstraint();
+
+			if ($constraint !== NULL) {
+					$query->matching($query->logicalAnd(
+							$constraint,
+							$query->contains('categories', $category)
+					));
+			} else {
+					$query->matching(
+							$query->contains('categories', $category)
+					);
+			}
+
+			return $query->count();
+	}
 	
 	
 }
