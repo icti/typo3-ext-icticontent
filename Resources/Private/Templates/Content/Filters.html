@@ -8,21 +8,21 @@
             <div class="wrapper_csc">
                 <div class="tx-powermail-pi1" id="buscador_estructurados">
                     <div class="titular_formulario disp02">
-                        <h3>Buscador</h3>
+                        <h3><f:translate key="search">Buscador</f:translate></h3>
                     </div>
 
 					<ficti:form id="quicksearch" action="list" method="get">
-                        <legend>Legend del formulario</legend>
+                        <legend><f:translate key="search">Buscador</f:translate></legend>
 
                         <fieldset class="tx-powermail-pi1_fieldset">
                             <div class="wrapper_labelinput_bonito">
                                 <div class="labelbonito">
-                                    <label for="filterCategory">Categor&iacute;a</label>
+                                    <label for="filterCategory"><f:translate key="category">Categor&iacute;a<</f:translate>/label>
                                 </div>
 
                                 <div class="inputbonito">
 									<ficti:form.select id="filterCategory" name="filterCategory" 
-														withAnyOption="Cualquier categoría" 
+														withAnyOption="{f:translate(key:'anyCategory')}" 
 														options="{lookupService.filterCategory}" 
 														optionLabelField="name" optionValueField="uid" 
 														value="{filtersService.filterCategory}" />
@@ -32,7 +32,7 @@
                             <div class="wrapper_submit">
                                 <div class="inputbonito">
                                     <label>
-										<f:form.submit class="powermail_submit" value="Buscar" />
+										<f:form.submit class="powermail_submit" value="{f:translate(key:'search')}" />
 									</label>
                                 </div>
                             </div>

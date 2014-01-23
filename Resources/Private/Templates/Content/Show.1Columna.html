@@ -32,7 +32,7 @@
 		<div class="wrapper_csc">
 			<div class="etiquetas">
 				<h3>
-					Keywords
+					<f:translate key="Keywords">Keywords</f:translate>
 				</h3>
 				<div class="tag_group">
 					<ul class="tags">
@@ -50,9 +50,6 @@
 	</f:if>
 	
 	<div class="wrapper_csc">
-		<!--<h3>
-			Descripci&oacute;n
-		</h3>-->
 		<div class="multimedia">
 			
 			<f:if condition="{content.frontImage}">
@@ -88,7 +85,7 @@
 	<f:if condition="{content.downloads}">
 		<div class="wrapper_csc">
 			<h3>
-				Archivos &uacute;tiles
+				<f:translate key="downloads">Archivos &uacute;tiles</f:translate>
 			</h3>
 			<f:render partial="files" arguments="{files: content.downloads}" />
 		</div>
@@ -97,7 +94,7 @@
 	<f:if condition="{content.links}">
 		<div class="wrapper_csc">
 			<h4>
-				Enlaces
+				<f:translate key="links">Enlaces</f:translate>
 			</h4>					
 			<f:render partial="links" arguments="{links:content.links}" />
 		</div>
@@ -106,7 +103,7 @@
 	<f:if condition="{content.relatedContents}">
 		<div class="wrapper_csc">
 			<h4>
-				Contenidos relacionados
+				<f:translate key="relatedContents">Contenidos relacionados</f:translate>
 			</h4>					
 			<div class="listados latest">
 				<f:for each="{content.relatedContents}" as="relatedContent">
@@ -127,7 +124,7 @@
 	<f:if condition="{content.geoLocations}">
 		<div class="wrapper_csc">
 			<h4>
-				Mapa
+				<f:translate key="map">Mapa</f:translate>
 			</h4>					
 			<f:render partial="geoLocations" arguments="{geoLocations: content.geoLocations}" />
 		</div>
@@ -143,7 +140,7 @@
 		<div class="botoncolorido">
 			<div class="enlace">
 				<f:link.action action="list"  pageUid="{settings.listPid}">
-					&laquo; Volver a la lista
+					&laquo; <f:translate key="backToList">Volver a la lista</f:translate>
 				</f:link.action>
 			</div>
 		</div>
