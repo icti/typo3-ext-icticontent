@@ -132,6 +132,25 @@ $realURLTmp = array(
 						),
 																													
 					),   
+
+					'iccat' => array(
+					array(
+						'GETvar' => 'tx_icticontent[filterCategory]',
+						'lookUpTable' => array(
+                            'autoUpdate' => true,
+							'table' => 'tx_icticontent_domain_model_category',
+							'id_field' => 'uid',
+							'alias_field' => 'name',
+							'addWhereClause' => ' AND NOT deleted',
+							'useUniqueCache' => 1,
+							'useUniqueCache_conf' => array(
+								'strtolower' => 1,
+								'spaceCharacter' => '-',
+								),
+							),
+						),
+																													
+					),
                 
                 
 				'icpage' => array(
