@@ -53,27 +53,7 @@
 							</label>
 					</div>
 				</div>
-				<!--
-				
-				ESTA FILA ES PARA AÑADIR EL FILTRO POR TIPO DE CONTENIDO
-				
-				<div class="wrapper_fila">
-					<legend>Mostrar:</legend>
-					<div class="wrapper-opcion">
-					    <label for="form_filtrarmes" class="accesibilidad">
-								<f:translate key="selectMonth">
-									Seleccione mes:
-								</f:translate>
-								
-							</label>
-					    <f:form.select id="form_filtrarmes" name="filterMonth" 
-										   options="{lookupService.filterMonth}" 
-										   optionLabelField="name" optionValueField="uid" 
-										   value="{filtersService.filterMonth}" />
-					</div>
-				</div>
-				
-				-->
+
 				</fieldset>
                 </f:form>
             </div>             
@@ -114,17 +94,6 @@
 							</div>
                             <f:for each="{calendarDay.content}" as="dayContent">
                                 <div class="evento">
-									<f:if condition="{dayContent.frontImage}">
-										<!--
-										LE QUITAMOS LA IMAGEN AL CALENDARIO
-										25.01.2012 Relates #10342
-										
-										<div class="foto_evento">
-											<f:image src="{dayContent.frontImage.mediaUri}" 
-													 width="129" height="129c" alt="{dayContent.name}" />
-										</div>
-										-->
-									</f:if> 									
                                     <f:if condition="{dayContent.keywords}">
                                         <div class="tags_evento">
                                             <ul class="tags">
@@ -163,79 +132,3 @@
     </div>
 
 </f:section>
-
-<f:section name="main2">
-    <h1>Calendar</h1>
-    <h2>{month}/{year}</h2>
-    <ul>
-        <li>
-            <f:link.action action="calendar" arguments="{filterYear : prevYear, filterMonth : prevMonth}">
-                {prevMonth}/{prevYear}
-            </f:link.action>                
-        </li>
-        <li>
-            <f:link.action action="calendar" arguments="{filterYear : nextYear, filterMonth : nextMonth}">
-                {nextMonth}/{nextYear}
-            </f:link.action>                
-        </li>        
-    </ul>
-
-    <table>
-        <thead>
-            <tr>
-                <f:for each="{calendarHeadings}" as="calendarHead">
-                    <th>{calendarHead}</th>
-                </f:for>
-            </tr>
-        </thead>
-        <tbody>
-            <f:for each="{calendarArray}" as="calendarWeek">
-                <tr>
-                    <f:for each="{calendarWeek}" as="calendarDay">
-                        <f:if condition="{calendarDay.notThisMonth}">
-                            <f:then>
-                                <td>
-                                    <em>{calendarDay.day}</em>
-                                    <f:if condition="{calendarDay.content}">
-                                        <ul>
-                                            <f:for each="{calendarDay.content}" as="dayContent">
-                                                <li>
-                                                    <f:link.action action="show" arguments="{content : dayContent}" pageUid="{settings.singlePid}">
-                                                        {dayContent.name}
-                                                    </f:link.action>
-                                                </li>                                            
-                                            </f:for>                                            
-
-                                        </ul>
-
-                                    </f:if>
-                                    
-                                </td>
-                            </f:then>
-                            <f:else>
-                                <td>
-                                    {calendarDay.day}
-                                    <f:if condition="{calendarDay.content}">
-                                        <ul>
-                                            <f:for each="{calendarDay.content}" as="dayContent">
-                                                <li>
-                                                    <f:link.action action="show" arguments="{content : dayContent}" pageUid="{settings.singlePid}">
-                                                        {dayContent.name}
-                                                    </f:link.action>
-                                                </li>                                            
-                                            </f:for>                                            
-
-                                        </ul>
-
-                                    </f:if>
-                                </td>
-                            </f:else>
-                        </f:if>
-                        
-                    </f:for>
-                </tr>
-            </f:for>
-        </tbody>
-    </table>
-</f:section>
-
