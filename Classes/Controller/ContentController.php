@@ -68,7 +68,27 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	public function injectCategoryRepository(Tx_Icticontent_Domain_Repository_CategoryRepository $categoryRepository) {
 			$this->categoryRepository = $categoryRepository;
 	}
-	
+
+	/**
+	 * Returns a be_user record as lowerCamelCase indexed array if a BE user is
+	 * currently logged in.
+	 *
+	 * @return array
+	 */
+	protected function getCurrentBackendUser() {
+			return $GLOBALS['BE_USER']->user;
+	}
+
+	/**
+	 * Returns TRUE only if a backend user is currently logged in. If used,
+	 * argument specifies that the logged in user must be that specific user
+	 *
+	 * @return boolean
+	 * @api
+	 */
+	protected function assertBackendUserLoggedIn() {
+			return is_array($this->getCurrentBackendUser());
+	}
 
 	/**
 	 * action filters
@@ -172,9 +192,32 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	 * @param $content
 	 * @return void
 	 */
-	public function showAction(Tx_Icticontent_Domain_Model_Content $content) {
-		$this->view->assign('content', $content);
+	public function showAction(Tx_Icticontent_Domain_Model_Content $content = NULL) {
+
+
+			if ($content === NULL) {
+
+					if (!$this->assertBackendUserLoggedIn()) {
+							$GLOBALS['TSFE']->pageUnavailableAndExit('Backend login is needed to preview records', 'HTTP/1.0 401 Forbidden');
+					}
+
+					if ($this->request->hasArgument('uid_preview')) {
+							$previewId = (int)$this->request->getArgument('uid_preview');
+					}
+
+					if ($previewId > 0) {
+							$content = $this->contentRepository->findByUid($previewId, FALSE);
+					}
+			}
+
+			if (is_null($content)) {
+					$GLOBALS['TSFE']->pageNotFoundAndExit('Content element not found');
+			}
+
+			$this->view->assign('content', $content);
+
 	}
+
 	
 	
 	/**
