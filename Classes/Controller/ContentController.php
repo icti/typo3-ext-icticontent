@@ -189,10 +189,10 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	/**
 	 * action show
 	 *
-	 * @param $content
+	 * @param integer $content
 	 * @return void
 	 */
-	public function showAction(Tx_Icticontent_Domain_Model_Content $content = NULL) {
+	public function showAction($content = NULL) {
 
 
 			if ($content === NULL) {
@@ -208,6 +208,10 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 					if ($previewId > 0) {
 							$content = $this->contentRepository->findByUid($previewId, FALSE);
 					}
+			} elseif ($GLOBALS['TSFE']->sys_page->versioningPreview) {
+					$content = $this->contentRepository->findByUid($content, FALSE);
+			} else {
+					$content = $this->contentRepository->findByUid($content);
 			}
 
 			if (is_null($content)) {

@@ -28,8 +28,7 @@ class Tx_Icticontent_Hooks_Tcemain {
 								$recordUid = $parentObject->substNEWwithIDs[$recordUid];
 						}
 
-						if (isset($GLOBALS['_POST']['_savedokview_x']) && !$fields['type']) {
-								// If "savedokview" has been pressed and current article has "type" 0 (= normal news article)
+						if (isset($GLOBALS['_POST']['_savedokview_x']) && !$GLOBALS['BE_USER']->workspace) {
 								$pagesTsConfig = t3lib_BEfunc::getPagesTSconfig($GLOBALS['_POST']['popViewId']);
 								if ($pagesTsConfig['tx_icticontent.']['singlePid']) {
 										$record = t3lib_BEfunc::getRecord('tx_icticontent_domain_model_content', $recordUid);
