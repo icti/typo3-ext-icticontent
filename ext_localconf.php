@@ -188,4 +188,9 @@ if(is_array($TYPO3_CONF_VARS['EXTCONF']['realurl']['_DEFAULT'])){
 else {
 	$TYPO3_CONF_VARS['EXTCONF']['realurl']['_DEFAULT'] = $realURLTmp;
 }
+
+
+// Preview of records
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][$_EXTKEY] =
+	'EXT:' . $_EXTKEY . '/Classes/Hooks/Tcemain.php:Tx_Icticontent_Hooks_Tcemain';
 ?>
