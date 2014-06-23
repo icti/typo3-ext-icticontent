@@ -347,4 +347,7 @@ $TCA['tx_icticontent_domain_model_geolocation']['ctrl']['sortby'] = 'sorting';
 $TCA['tx_icticontent_domain_model_category']['ctrl']['default_sortby'] = 'ORDER BY name';
 
 
+\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPageTSConfig('
+	mod.web_list.table.tx_icticontent_domain_model_media.hideTable = 1
+');
 ?>
