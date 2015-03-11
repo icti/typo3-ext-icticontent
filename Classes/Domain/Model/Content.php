@@ -149,7 +149,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * videos
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Media>
 	 * @lazy
 	 */
 	protected $videos;
@@ -157,7 +157,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * geoLocations
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_GeoLocation>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_GeoLocation>
 	 * @lazy
 	 */
 	protected $geoLocations;
@@ -165,7 +165,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * keywords
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Keyword>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Keyword>
 	 * @lazy
 	 */
 	protected $keywords;
@@ -181,7 +181,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * categories
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Category>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Category>
 	 * @lazy
 	 */
 	protected $categories;
@@ -189,7 +189,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * relatedContents
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Content>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Content>
 	 * @lazy
 	 */
 	protected $relatedContents;
@@ -197,7 +197,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * geoAreas
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_GeoArea>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_GeoArea>
 	 * @lazy
 	 */
 	protected $geoAreas;
@@ -205,7 +205,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * countries
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Country>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Country>
 	 * @lazy
 	 */
 	protected $countries;
@@ -213,7 +213,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * provinces
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Province>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Province>
 	 * @lazy
 	 */
 	protected $provinces;
@@ -221,7 +221,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * downloads
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Media>
 	 * @lazy
 	 */
 	protected $downloads;
@@ -229,7 +229,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * links
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Media>
 	 * @lazy
 	 */
 	protected $links;
@@ -237,7 +237,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * authors
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Author>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Author>
 	 * @lazy
 	 */
 	protected $authors;
@@ -245,7 +245,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * regions
 	 *
-	 * @var Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Region>
+	 * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Region>
 	 * @lazy
 	 */
 	protected $regions;
@@ -261,7 +261,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	}
 
 	/**
-	 * Initializes all Tx_Extbase_Persistence_ObjectStorage properties.
+	 * Initializes all \TYPO3\CMS\Extbase\Persistence\ObjectStorage properties.
 	 *
 	 * @return void
 	 */
@@ -271,29 +271,29 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 		 * It will be rewritten on each save in the extension builder
 		 * You may modify the constructor of this class instead
 		 */
-		$this->videos = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->videos = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
-		$this->geoLocations = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->geoLocations = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
-		$this->keywords = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->keywords = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
-		$this->categories = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->categories = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
-		$this->relatedContents = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->relatedContents = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
-		$this->geoAreas = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->geoAreas = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
-		$this->countries = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->countries = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
-		$this->provinces = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->provinces = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
-		$this->downloads = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->downloads = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
-		$this->links = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->links = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
-		$this->authors = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->authors = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 		
-		$this->regions = new Tx_Extbase_Persistence_ObjectStorage();
+		$this->regions = new \TYPO3\CMS\Extbase\Persistence\ObjectStorage();
 	}
 
 	/**
@@ -498,7 +498,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the videos
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media> $videos
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Media> $videos
 	 */
 	public function getVideos() {
 		return $this->videos;
@@ -507,10 +507,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the videos
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media> $videos
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Media> $videos
 	 * @return void
 	 */
-	public function setVideos(Tx_Extbase_Persistence_ObjectStorage $videos) {
+	public function setVideos(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $videos) {
 		$this->videos = $videos;
 	}
 
@@ -537,7 +537,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the geoLocations
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_GeoLocation> $geoLocations
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_GeoLocation> $geoLocations
 	 */
 	public function getGeoLocations() {
 		return $this->geoLocations;
@@ -546,10 +546,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the geoLocations
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_GeoLocation> $geoLocations
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_GeoLocation> $geoLocations
 	 * @return void
 	 */
-	public function setGeoLocations(Tx_Extbase_Persistence_ObjectStorage $geoLocations) {
+	public function setGeoLocations(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $geoLocations) {
 		$this->geoLocations = $geoLocations;
 	}
 
@@ -576,7 +576,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the keywords
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Keyword> $keywords
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Keyword> $keywords
 	 */
 	public function getKeywords() {
 		return $this->keywords;
@@ -585,10 +585,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the keywords
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Keyword> $keywords
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Keyword> $keywords
 	 * @return void
 	 */
-	public function setKeywords(Tx_Extbase_Persistence_ObjectStorage $keywords) {
+	public function setKeywords(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $keywords) {
 		$this->keywords = $keywords;
 	}
 
@@ -634,7 +634,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the categories
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Category> $categories
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Category> $categories
 	 */
 	public function getCategories() {
 		return $this->categories;
@@ -643,10 +643,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the categories
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Category> $categories
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Category> $categories
 	 * @return void
 	 */
-	public function setCategories(Tx_Extbase_Persistence_ObjectStorage $categories) {
+	public function setCategories(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $categories) {
 		$this->categories = $categories;
 	}
 
@@ -673,7 +673,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the relatedContents
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Content> $relatedContents
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Content> $relatedContents
 	 */
 	public function getRelatedContents() {
 		return $this->relatedContents;
@@ -682,10 +682,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the relatedContents
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Content> $relatedContents
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Content> $relatedContents
 	 * @return void
 	 */
-	public function setRelatedContents(Tx_Extbase_Persistence_ObjectStorage $relatedContents) {
+	public function setRelatedContents(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $relatedContents) {
 		$this->relatedContents = $relatedContents;
 	}
 
@@ -712,7 +712,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the geoAreas
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_GeoArea> $geoAreas
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_GeoArea> $geoAreas
 	 */
 	public function getGeoAreas() {
 		return $this->geoAreas;
@@ -721,10 +721,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the geoAreas
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_GeoArea> $geoAreas
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_GeoArea> $geoAreas
 	 * @return void
 	 */
-	public function setGeoAreas(Tx_Extbase_Persistence_ObjectStorage $geoAreas) {
+	public function setGeoAreas(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $geoAreas) {
 		$this->geoAreas = $geoAreas;
 	}
 
@@ -751,7 +751,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the countries
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Country> $countries
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Country> $countries
 	 */
 	public function getCountries() {
 		return $this->countries;
@@ -760,10 +760,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the countries
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Country> $countries
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Country> $countries
 	 * @return void
 	 */
-	public function setCountries(Tx_Extbase_Persistence_ObjectStorage $countries) {
+	public function setCountries(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $countries) {
 		$this->countries = $countries;
 	}
 
@@ -790,7 +790,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the provinces
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Province> $provinces
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Province> $provinces
 	 */
 	public function getProvinces() {
 		return $this->provinces;
@@ -799,10 +799,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the provinces
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Province> $provinces
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Province> $provinces
 	 * @return void
 	 */
-	public function setProvinces(Tx_Extbase_Persistence_ObjectStorage $provinces) {
+	public function setProvinces(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $provinces) {
 		$this->provinces = $provinces;
 	}
 
@@ -857,7 +857,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the downloads
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media> $downloads
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Media> $downloads
 	 */
 	public function getDownloads() {
 		return $this->downloads;
@@ -866,10 +866,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the downloads
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media> $downloads
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Media> $downloads
 	 * @return void
 	 */
-	public function setDownloads(Tx_Extbase_Persistence_ObjectStorage $downloads) {
+	public function setDownloads(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $downloads) {
 		$this->downloads = $downloads;
 	}
 
@@ -896,7 +896,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the links
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media> $links
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Media> $links
 	 */
 	public function getLinks() {
 		return $this->links;
@@ -905,10 +905,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the links
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Media> $links
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Media> $links
 	 * @return void
 	 */
-	public function setLinks(Tx_Extbase_Persistence_ObjectStorage $links) {
+	public function setLinks(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $links) {
 		$this->links = $links;
 	}
 
@@ -973,7 +973,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the authors
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Author> $authors
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Author> $authors
 	 */
 	public function getAuthors() {
 		return $this->authors;
@@ -982,10 +982,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the authors
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Author> $authors
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Author> $authors
 	 * @return void
 	 */
-	public function setAuthors(Tx_Extbase_Persistence_ObjectStorage $authors) {
+	public function setAuthors(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $authors) {
 		$this->authors = $authors;
 	}
 
@@ -1012,7 +1012,7 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Returns the regions
 	 *
-	 * @return Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Region> $regions
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Region> $regions
 	 */
 	public function getRegions() {
 		return $this->regions;
@@ -1021,10 +1021,10 @@ class Tx_Icticontent_Domain_Model_Content extends Tx_Extbase_DomainObject_Abstra
 	/**
 	 * Sets the regions
 	 *
-	 * @param Tx_Extbase_Persistence_ObjectStorage<Tx_Icticontent_Domain_Model_Region> $regions
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage<Tx_Icticontent_Domain_Model_Region> $regions
 	 * @return void
 	 */
-	public function setRegions(Tx_Extbase_Persistence_ObjectStorage $regions) {
+	public function setRegions(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $regions) {
 		$this->regions = $regions;
 	}
 
