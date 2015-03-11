@@ -1,7 +1,7 @@
 {
     "name": "icti/icticontent",
     "type": "typo3-cms-extension",
-    "version": "3.0.1",
+    "version": "3.0.2",
     "description": "ICTI structured content framework",
     "homepage": "https://github.com/icti/typo3-ext-icticontent",
     "license": ["GPL-2.0+"],
