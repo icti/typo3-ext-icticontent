@@ -298,6 +298,58 @@ class Tx_Icticontent_Domain_Repository_ContentRepository extends Tx_Extbase_Pers
 		}        
         return $this->query->execute();        
 	}
+
+
+	/**
+	 *
+	 */
+	public function countByCategory($category, $query = NULL) {
+			if ($query === NULL) {
+					$query = $this->createQuery();
+			}
+
+			$constraint = $query->getConstraint();
+
+			if ($constraint !== NULL) {
+					$query->matching($query->logicalAnd(
+							$constraint,
+							$query->contains('categories', $category)
+					));
+			} else {
+					$query->matching(
+							$query->contains('categories', $category)
+					);
+			}
+
+			return $query->count();
+	}
+
+
+	/**
+	 * Override default findByUid function to enable also the option to turn of
+	 * the enableField setting
+	 *
+	 * @param integer $uid id of record
+	 * @param boolean $respectEnableFields if set to false, hidden records are shown
+	 * @return 
+	 */
+	public function findByUid($uid, $respectEnableFields = TRUE) {
+			$query = $this->createQuery();
+			$query->getQuerySettings()->setRespectStoragePage(FALSE);
+			$query->getQuerySettings()->setRespectSysLanguage(FALSE);
+
+			if (method_exists($query->getQuerySettings(), 'setIgnoreEnableFields')) {
+				$query->getQuerySettings()->setIgnoreEnableFields(!$respectEnableFields);
+			} else if (method_exists($query->getQuerySettings(), 'setRespectEnableFields')) {
+				$query->getQuerySettings()->setRespectEnableFields($respectEnableFields);
+			}
+
+			return $query->matching(
+					$query->logicalAnd(
+							$query->equals('uid', $uid),
+							$query->equals('deleted', 0)
+					))->execute()->getFirst();
+	}
 	
 	
 }

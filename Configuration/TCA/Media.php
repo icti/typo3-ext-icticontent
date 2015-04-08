@@ -132,7 +132,7 @@ $TCA['tx_icticontent_domain_model_media'] = array(
 				'type' => 'group',
 				'internal_type' => 'file',
 				'uploadfolder' => 'uploads/tx_icticontent',
-				'allowed' => '*',
+				'allowed' => '',
 				'disallowed' => 'php',
 				'size' => 5,
 			),

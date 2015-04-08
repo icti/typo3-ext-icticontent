@@ -50,7 +50,45 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	public function injectContentRepository(Tx_Icticontent_Domain_Repository_ContentRepository $contentRepository) {
 		$this->contentRepository = $contentRepository;
 	}
-	
+
+
+	/**
+	 * categoryRepository
+	 *
+	 * @var Tx_Icticontent_Domain_Repository_CategoryRepository
+	 */
+	protected $categoryRepository;
+
+	/**
+	 * injectCategoryRepository
+	 *
+	 * @param Tx_Icticontent_Domain_Repository_CategoryRepository $categoryRepository
+	 * @return void
+	 */
+	public function injectCategoryRepository(Tx_Icticontent_Domain_Repository_CategoryRepository $categoryRepository) {
+			$this->categoryRepository = $categoryRepository;
+	}
+
+	/**
+	 * Returns a be_user record as lowerCamelCase indexed array if a BE user is
+	 * currently logged in.
+	 *
+	 * @return array
+	 */
+	protected function getCurrentBackendUser() {
+			return $GLOBALS['BE_USER']->user;
+	}
+
+	/**
+	 * Returns TRUE only if a backend user is currently logged in. If used,
+	 * argument specifies that the logged in user must be that specific user
+	 *
+	 * @return boolean
+	 * @api
+	 */
+	protected function assertBackendUserLoggedIn() {
+			return is_array($this->getCurrentBackendUser());
+	}
 
 	/**
 	 * action filters
@@ -71,6 +109,56 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
     Tx_Icticontent_Domain_Model_Author $filterAuthor = null
   ) {
 
+			/*
+			 * TODO: Refactorizar
+			 *
+			 * El cálculo de facetas deberíamos poder cachearlo..
+			 * Ver EXT:enetcache
+			 */
+			$allContents = $this->contentRepository->findAll();
+			$this->addFacet( $this->categoryRepository, 'countByCategory', 'facetedCategories', $allContents);
+
+	}
+
+
+	/**
+	 * @return void
+	 */
+	protected function addFacet(
+			Tx_Extbase_Persistence_Repository $repository,
+			$countFunctionName,
+			$viewVariableName,
+			Tx_Extbase_Persistence_QueryResultInterface $queryResult,
+			$useRawResult = TRUE
+	) {
+
+			$query = $repository->createQuery();
+			$querySettings = $query->getQuerySettings();
+			$querySettings->setReturnRawQueryResult($useRawResult);
+			$query->getQuerySettings( $querySettings );
+			$dataSet = $query->execute();
+
+			$facetArray = array();
+			foreach ($dataSet as $dataItem) {
+
+					if (is_array($dataItem)) {
+							$uid = $dataItem['uid'];
+					} else {
+							$uid = $dataItem;
+					}
+
+					$count = $this->contentRepository->$countFunctionName(
+							$uid,
+							$queryResult->getQuery()
+					);
+					if ($count > 0) {
+							$facetArray[] = array(
+									'facet' => $dataItem,
+									'count' => $count
+							);
+					}
+			}
+			$this->view->assign($viewVariableName, $facetArray);
 	}
 
 
@@ -101,12 +189,39 @@ class Tx_Icticontent_Controller_ContentController extends Tx_Icticontent_Control
 	/**
 	 * action show
 	 *
-	 * @param $content
+	 * @param integer $content
 	 * @return void
 	 */
-	public function showAction(Tx_Icticontent_Domain_Model_Content $content) {
-		$this->view->assign('content', $content);
+	public function showAction($content = NULL) {
+
+
+			if ($content === NULL) {
+
+					if (!$this->assertBackendUserLoggedIn()) {
+							$GLOBALS['TSFE']->pageUnavailableAndExit('Backend login is needed to preview records', 'HTTP/1.0 401 Forbidden');
+					}
+
+					if ($this->request->hasArgument('uid_preview')) {
+							$previewId = (int)$this->request->getArgument('uid_preview');
+					}
+
+					if ($previewId > 0) {
+							$content = $this->contentRepository->findByUid($previewId, FALSE);
+					}
+			} elseif ($GLOBALS['TSFE']->sys_page->versioningPreview) {
+					$content = $this->contentRepository->findByUid($content, FALSE);
+			} else {
+					$content = $this->contentRepository->findByUid($content);
+			}
+
+			if (is_null($content)) {
+					$GLOBALS['TSFE']->pageNotFoundAndExit('Content element not found');
+			}
+
+			$this->view->assign('content', $content);
+
 	}
+
 	
 	
 	/**

@@ -55,6 +55,10 @@ class Tx_Icticontent_Controller_BaseController extends Tx_Extbase_MVC_Controller
     $this->view->assign('lookupService', $this->lookupService); 
     $this->view->assign('filtersService', $this->filtersService);
     $this->view->assign('globalRegisters', $GLOBALS['TSFE']->register);
+		$contentObjectRenderer = $this->configurationManager->getContentObject();
+		if ($contentObjectRenderer && $contentObjectRenderer->data) {
+				$this->view->assign('contentObjectData', $contentObjectRenderer->data);
+		}
   }
 
 	/**
@@ -64,14 +68,25 @@ class Tx_Icticontent_Controller_BaseController extends Tx_Extbase_MVC_Controller
 	 * @param  $view
 	 */
 	protected function initializeView($view) {
-		        parent::initializeView($view);
-		        $this->filtersService->init($this->arguments, $this->settings);
-		        $this->lookupService->setFiltersService($this->filtersService);
-		        $this->addCommonItems();
-				                
-	}    
+			parent::initializeView($view);
+			$this->filtersService->init($this->arguments, $this->settings);
+			$this->lookupService->setFiltersService($this->filtersService);
+			$this->addCommonItems();
 
-	
+			/**
+			 * This marks the plugin presence on the page cache
+			 * TSConfig to clear only pages with the plugin: 
+			 *
+			 * TCEMAIN.clearCacheCmd = cacheTag:plugin_icticontent
+			 *
+			 * Tip: When editing a record in the backend the cache will be
+			 * cleared on tags like "<tablename>" and "<tablename>_<uid>"
+			 */
+			if (method_exists($GLOBALS['TSFE'], 'addCacheTags')) {
+				$GLOBALS['TSFE']->addCacheTags(array('plugin_icticontent'));
+			}
+	}
+
 	/**
 	 * Para modificar valores globales antes de crear la vista...	
 	 * 
@@ -124,126 +139,7 @@ class Tx_Icticontent_Controller_BaseController extends Tx_Extbase_MVC_Controller
         }
     }    
     */  
-	
-    /**
-     * @var t3lib_cache_frontend_StringFrontend
-     */
-    protected $cacheInstance;    
-    protected $cacheLifetime = 3600;
-    
-    /**
-     * Constructor
-     */
-    public function __construct() {
-        $this->initializeCache();
-    }
- 
-    /**
-     * Initialize cache instance to be ready to use
-     *
-     * @return void
-     */
-    protected function initializeCache() {
-        t3lib_cache::initializeCachingFramework();
-        try {
-            $this->cacheInstance = $GLOBALS['typo3CacheManager']->getCache('cache_icticontent_contentcache');
-        }
-        catch (t3lib_cache_exception_NoSuchCache $e) {
-            $this->cacheInstance = $GLOBALS['typo3CacheFactory']->create(
-                'cache_icticontent_contentcache',
-                $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['cache_icticontent_contentcache']['frontend'],
-                $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['cache_icticontent_contentcache']['backend'],
-                $GLOBALS['TYPO3_CONF_VARS']['SYS']['caching']['cacheConfigurations']['cache_icticontent_contentcache']['options']
-            );
-        }
-    }  	
-	
-	
-	/**
-	 * Handles a request. The result output is returned by altering the given response.
-	 *
-	 * @param Tx_Extbase_MVC_Request $request The request object
-	 * @param Tx_Extbase_MVC_Response $response The response, modified by this handler
-	 * @return void
-	 */
-	public function processRequest(Tx_Extbase_MVC_RequestInterface $request, Tx_Extbase_MVC_ResponseInterface $response) {
-		
-		
-		if (!$this->canProcessRequest($request)) {
-			throw new Tx_Extbase_MVC_Exception_UnsupportedRequestType(get_class($this) . ' does not support requests of type "' . get_class($request) . '". Supported types are: ' . implode(' ', $this->supportedRequestTypes) , 1187701131);
-		}
 
-		$this->request = $request;
-		$this->response = $response;
-	
-		
-		if($this->isCacheEnabled()){
-			$cacheHash = $this->getCacheHash($request);
-		} else {
-			$cacheHash = false;
-		}
-		
-		
-        if($cacheHash && $this->cacheInstance->get($cacheHash)){
-			$this->request->setDispatched(TRUE);
-			$this->response->appendContent( $this->cacheInstance->get($cacheHash) );
-			//debug('Get '.$cacheHash);
-        } else {		
-			parent::processRequest($request,$response);
-			
-			if($cacheHash){
-				$this->cacheInstance->set($cacheHash, $this->response->getContent(), array(), $this->cacheLifetime);
-				//debug('Set '.$cacheHash);
-			}
-			
-		}
-	}	
-	
-	/**
-	 *
-	 * @param Tx_Extbase_MVC_RequestInterface $request
-	 * @return type 
-	 */
-	protected function getCacheHash(Tx_Extbase_MVC_RequestInterface $request){
-		$ttContentData = $request->getContentObjectData();
-		return 'ttcontent_uid_'.$ttContentData['uid'].'_'.
-				$request->getControllerName().'_'.$request->getControllerActionName().
-				'_'.md5(serialize($request->getArguments()));
-		
-	}
-	
-	/**
-	 *
-	 * @return type 
-	 */
-	protected function isCacheEnabled(){
-		
-		if($this->isCacheDisabledOnConfiguration()){
-			return false;
-		}
-		
-		$actionMethodName = $this->resolveActionMethodName();
-		$tags = $this->reflectionService->getMethodTagsValues( get_class($this), $actionMethodName);
-		if(isset($tags['Ictiextbase\Controller\cache'])){
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
-	/**
-	 *
-	 * @return type 
-	 */
-	protected function isCacheDisabledOnConfiguration(){
-		$configuration = $this->configurationManager->getConfiguration(Tx_Extbase_Configuration_ConfigurationManagerInterface::CONFIGURATION_TYPE_FRAMEWORK);
-		if(isset($configuration['icticontent']['disableCache'])){
-			return true;
-		} else {
-			return false;
-		}		
-	}
-	
 	
 	/**
 	 * @var string

@@ -47,12 +47,12 @@
 							</f:link.action> 					
 						</h4>
 						<p class="fecha">
-							{content.startDate -> ficti:format.strftime(format:"%e de %B de %Y")}
+							{content.startDate -> ficti:format.strftime(format:"{f:translate(key:'dateFormatLong')}")}
 						</p>
 						<div class="etiquetas">
 							<f:if condition="{content.keywords}">
 								<div class="tag_group">
-									<p class="group_name">Keywords:</p>
+									<p class="group_name"><f:translate key="Keywords">Keywords</f:translate>:</p>
 									<ul class="tags">
 										<f:for each="{content.keywords}" as="keyword">
 											<li>

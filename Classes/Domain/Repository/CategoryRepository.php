@@ -24,6 +24,7 @@
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+
 /**
  *
  *
@@ -31,87 +32,11 @@
  * @license http://www.gnu.org/licenses/lgpl.html GNU Lesser General Public License, version 3 or later
  *
  */
-class Tx_Icticontent_Domain_Model_Typo3Page extends Tx_Extbase_DomainObject_AbstractEntity {
+class Tx_Icticontent_Domain_Repository_CategoryRepository extends Tx_Extbase_Persistence_Repository {
 
-	/**
-	 * name
-	 *
-	 * @var string
-	 * @validate NotEmpty
-	 */
-	protected $name;
-
-	/**
-	 * description
-	 *
-	 * @var string
-	 */
-	protected $description;
-
-	/**
-	 * page
-	 *
-	 * @var integer
-	 * @validate NotEmpty
-	 */
-	protected $page = 0;
-
-	/**
-	 * Returns the name
-	 *
-	 * @return string $name
-	 */
-	public function getName() {
-		return $this->name;
-	}
-
-	/**
-	 * Sets the name
-	 *
-	 * @param string $name
-	 * @return void
-	 */
-	public function setName($name) {
-		$this->name = $name;
-	}
-
-	/**
-	 * Returns the description
-	 *
-	 * @return string $description
-	 */
-	public function getDescription() {
-		return $this->description;
-	}
-
-	/**
-	 * Sets the description
-	 *
-	 * @param string $description
-	 * @return void
-	 */
-	public function setDescription($description) {
-		$this->description = $description;
-	}
-
-	/**
-	 * Returns the page
-	 *
-	 * @return integer $page
-	 */
-	public function getPage() {
-		return $this->page;
-	}
-
-	/**
-	 * Sets the page
-	 *
-	 * @param integer $page
-	 * @return void
-	 */
-	public function setPage($page) {
-		$this->page = $page;
-	}
+		protected $defaultOrderings = array(
+				'name' => Tx_Extbase_Persistence_QueryInterface::ORDER_ASCENDING
+		);	
 
 }
 ?>

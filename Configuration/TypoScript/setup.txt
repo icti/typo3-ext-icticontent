@@ -12,23 +12,7 @@ plugin.tx_icticontent {
 }
 
 plugin.tx_icticontent._CSS_DEFAULT_STYLE (
-	input.f3-form-error {
-		background-color:#FF9F9F;
-		border: 1px #FF0000 solid;
-	}
 
-	.tx-icticontent table {
-		border-collapse:separate;
-		border-spacing:10px;
-	}
-
-	.tx-icticontent table th {
-		font-weight:bold;
-	}
-
-	.tx-icticontent table td {
-		vertical-align:top;
-	}
 )
 
 
@@ -44,7 +28,6 @@ plugin.tx_icticontent {
 		itemsPerPage = 10
 	}
 
-	#icticontent.disableCache = 1
 }
 
 config.tx_extbase {

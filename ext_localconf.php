@@ -75,16 +75,6 @@ Tx_Extbase_Utility_Extension::configurePlugin(
 ## EXTENSION BUILDER DEFAULTS END TOKEN - Everything BEFORE this line is overwritten with the defaults of the extension builder
 
 
-if (!is_array($TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['cache_icticontent_contentcache'])) {
-    $TYPO3_CONF_VARS['SYS']['caching']['cacheConfigurations']['cache_icticontent_contentcache'] = array(
-        'frontend' => 't3lib_cache_frontend_StringFrontend',
-        'backend' => 't3lib_cache_backend_DbBackend',
-        'options' => array(
-            'cacheTable' => 'tx_icticontent_contentcache',
-            'tagsTable' => 'tx_icticontent_contentcache_tags',
-        ),
-    );
-}
 
 $TYPO3_CONF_VARS['EXTCONF']['icticontent']['additionalContentTCAIncludes'] = array();
 
@@ -93,4 +83,7 @@ if (t3lib_extMgm::isLoaded('realurl')) {
 				'EXT:' . $_EXTKEY . '/Classes/Hooks/RealUrlAutoConfiguration.php:Tx_Icticontent_Hooks_RealUrlAutoConfiguration->addConfig';
 }
 
+// Preview of records
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['t3lib/class.t3lib_tcemain.php']['processDatamapClass'][$_EXTKEY] =
+	'EXT:' . $_EXTKEY . '/Classes/Hooks/Tcemain.php:Tx_Icticontent_Hooks_Tcemain';
 ?>
